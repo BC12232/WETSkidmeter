@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Show Stopper Checker-->
+        <scene sceneID="H5F-QH-qxY">
+            <objects>
+                <viewController storyboardIdentifier="showStoppers" id="QFc-YV-mb2" customClass="ShowStopperChecker" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q3u-iM-7aF"/>
+                        <viewControllerLayoutGuide type="bottom" id="XiZ-xX-APa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mCE-up-NqW">
+                        <rect key="frame" x="0.0" y="0.0" width="325" height="90"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-f7-kc3" userLabel="ShowStoopers" customClass="ShowStopperView" customModule="iPadControls" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="309" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eStop" translatesAutoresizingMaskIntoConstraints="NO" id="EIX-g4-GhE">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tank_leakshowStopper" translatesAutoresizingMaskIntoConstraints="NO" id="rvd-NL-7Xe">
+                                        <rect key="frame" x="123" y="12" width="63" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="showStopperWaterLevel" translatesAutoresizingMaskIntoConstraints="NO" id="jNU-NG-TuK">
+                                        <rect key="frame" x="61" y="4" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarm_pump.png" translatesAutoresizingMaskIntoConstraints="NO" id="ahI-QA-xgk">
+                                        <rect key="frame" x="194" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="325" height="90"/>
+                    <connections>
+                        <outlet property="estopIndicator" destination="EIX-g4-GhE" id="laf-JF-NwC"/>
+                        <outlet property="waterLevelIndicator" destination="jNU-NG-TuK" id="vi3-46-zFu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8s-O9-dhd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-812.40234375" y="-110.15625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="alarm_pump.png" width="213" height="213"/>
+        <image name="eStop" width="51.119998931884766" height="51.119998931884766"/>
+        <image name="showStopperWaterLevel" width="49.919998168945312" height="49.919998168945312"/>
+        <image name="tank_leakshowStopper" width="83.760002136230469" height="48.479999542236328"/>
+    </resources>
+</document>

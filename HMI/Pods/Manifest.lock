@@ -1,0 +1,34 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Charts (3.2.0):
+    - Charts/Core (= 3.2.0)
+  - Charts/Core (3.2.0)
+  - NMSSH (2.3.1)
+  - PlainPing (0.5)
+  - ReaderFramework (1.1.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - Charts
+  - NMSSH
+  - PlainPing
+  - ReaderFramework (~> 1.1.4)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Charts
+    - NMSSH
+    - PlainPing
+    - ReaderFramework
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Charts: 680c8328bd5e90cb14f67e00d2176f3113d19141
+  NMSSH: cd689ae535a1581a6dd9fd4600ff71247df510a6
+  PlainPing: 6b248b94d92be7ec0410952d1b09af43b9a39015
+  ReaderFramework: 1eb25b96d0f42977c8239eeaddb878185d2f8a32
+
+PODFILE CHECKSUM: af97f5ec2fdabbdc63347e1341ef6ccbe22f7046
+
+COCOAPODS: 1.5.2

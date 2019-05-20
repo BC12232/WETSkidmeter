@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>PLC Test</title>
+</head>
+
+<body>
+
+	<strong>PLC Test</strong>
+	<input type='button' onclick="location.href='/plcTest';" value='Clear Form' />
+	<input type='button' onclick="location.href='/debug';" value='Debug' /> <br><br>
+
+	<form id='frm1'>
+		
+		Modbus Address: <br>
+		
+		<input type='radio' name='registerType' value='m'>%M
+		<input type='radio' name='registerType' value='mw'>%MW
+		<input type='radio' name='registerType' value='real'>Real<br>
+	  	<input type='text' name='register'><br><br>
+
+	  	<input type='radio' name='function' value='read'> Read
+		
+		<input type='radio' name='function' value='write'> Write<br>
+	  	Write Value: <br>
+	  	<input type='text' name='value'><br>
+	
+	</form>
+	<button onclick='myFunction()'> Execute </button><br><br>
+	<em>If not filled correctly, the form will be cleared when executed</em>
+
+	<script type='text/javascript'>
+
+		function myFunction() {
+
+		    var form = document.getElementById('frm1');
+
+		    if (form.elements['function'].value === 'read'){
+
+		    	if (form.elements['register'].value !== ''){
+
+				    if (form.elements['registerType'].value === 'm'){
+				    	window.location.href='./mbReadM?' + form.elements['register'].value;
+				    }else if (form.elements['registerType'].value === 'mw'){
+				    	window.location.href='./mbReadMW?' + form.elements['register'].value;
+				    }else if (form.elements['registerType'].value === 'real'){
+				    	window.location.href='./mbReadReal?' + form.elements['register'].value;
+				    }else{
+				    	window.location.href='./plcTest';
+				    }
+
+			    }else{
+			    	window.location.href='./plcTest';
+			    }
+
+		    }else if (form.elements['function'].value === 'write'){
+
+		    	if (form.elements['value'].value !== '' && form.elements['register'].value !== ''){
+
+				    if (form.elements['registerType'].value === 'm'){
+				    	window.location.href='./mbWriteM?addr=' + form.elements['register'].value + '&val=' + form.elements['value'].value;
+				    }else if (form.elements['registerType'].value === 'mw'){
+				    	window.location.href='./mbWriteMW?addr=' + form.elements['register'].value + '&val=' + form.elements['value'].value;
+				    }else if (form.elements['registerType'].value === 'real'){
+				    	window.location.href='./mbWriteReal?addr=' + form.elements['register'].value + '&val=' + form.elements['value'].value;
+				    }else{
+				    	window.location.href='./plcTest';
+				    }
+
+	    		}else{
+			    	window.location.href='./plcTest';
+			    }
+
+		    }else{
+		    	window.location.href='./plcTest';
+		    }
+		}
+
+	</script>
+	
+</body>
+</html>

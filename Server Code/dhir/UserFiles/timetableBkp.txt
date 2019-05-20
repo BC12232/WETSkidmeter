@@ -1,0 +1,23 @@
+[
+  {
+    "startMonth" : 2,
+    "state" : 0,
+    "startDate" : 1,
+    "endDate" : 26,
+    "endMonth" : 2
+  },
+  {
+    "startMonth" : 2,
+    "state" : 0,
+    "startDate" : 2,
+    "endDate" : 25,
+    "endMonth" : 2
+  },
+  {
+    "startMonth" : 2,
+    "state" : 0,
+    "startDate" : 3,
+    "endDate" : 24,
+    "endMonth" : 2
+  }
+]

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPadControls/Controller/Water Quality/TDSSetpointViewController.swift"
+            timestampString = "569873143.852163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPadControls/Controller/Week Scheduler/WeekSchedulerPopoverView.swift"
+            timestampString = "569896981.359041"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
+            landmarkName = "writeSchedule()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iPadControls.WeekSchedulerPopoverView.(writeSchedule in _337B044956E0171882FAF58503A6A650)() -&gt; ()"
+                  moduleName = "iPadControls"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rraveendra/Desktop/JEWL/HMI/iPadControls/Controller/Week%20Scheduler/WeekSchedulerPopoverView.swift"
+                  timestampString = "579892343.715501"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "298"
+                  endingLineNumber = "298"
+                  offsetFromSymbolStart = "3816">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Bool&gt;) -&gt; () in iPadControls.WeekSchedulerPopoverView.(writeSchedule in _337B044956E0171882FAF58503A6A650)() -&gt; ()"
+                  moduleName = "iPadControls"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rraveendra/Desktop/JEWL/HMI/iPadControls/Controller/Week%20Scheduler/WeekSchedulerPopoverView.swift"
+                  timestampString = "579892343.717822"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "299"
+                  endingLineNumber = "299"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

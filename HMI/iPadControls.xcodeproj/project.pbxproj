@@ -1,0 +1,1426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A99ACADBDAC29F15DBF767B /* Pods_iPadControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */; };
+		9B006223212C7E160066CC9B /* check12or24Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B006222212C7E160066CC9B /* check12or24Hour.swift */; };
+		9B006236212C7E670066CC9B /* cascade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B006233212C7E670066CC9B /* cascade.storyboard */; };
+		9B006237212C7E670066CC9B /* CascadePumpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */; };
+		9B006238212C7E670066CC9B /* CascadePumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B006235212C7E670066CC9B /* CascadePumpDetailViewController.swift */; };
+		9B0A0A2721750E7100D1E9F4 /* CascadeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0A0A2621750E7100D1E9F4 /* CascadeSettingsViewController.swift */; };
+		9B147C9D20DC68C0003DDFE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B147C9B20DC68C0003DDFE8 /* LaunchScreen.storyboard */; };
+		9B2105B8218A19C800D36644 /* ACTInstantPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2105B5218A19C700D36644 /* ACTInstantPlayViewController.m */; };
+		9B2105B9218A19C800D36644 /* showList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2105B6218A19C700D36644 /* showList.storyboard */; };
+		9B3D3B6F20DC615B00E34BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */; };
+		9B3D3C09216D173D00E68F6A /* FiltrationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */; };
+		9B3EB64120C70D8C0071D3AA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */; };
+		9B3F41192146DCFC000B4701 /* FiltrationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */; };
+		9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F411A2146F967000B4701 /* CascadeSpecs.swift */; };
+		9B5F3F0220DC5A8D00D3CFDF /* versionNum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */; };
+		9B5F3F0320DC5A8D00D3CFDF /* MIDF.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */; };
+		9B5F3F0B20DC5AA000D3CFDF /* iPadControls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0620DC5AA000D3CFDF /* iPadControls.xcdatamodeld */; };
+		9B5F3F0C20DC5AA000D3CFDF /* languages.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0820DC5AA000D3CFDF /* languages.json */; };
+		9B5F3F1A20DC5AB400D3CFDF /* Pump+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0E20DC5AB300D3CFDF /* Pump+CoreDataProperties.swift */; };
+		9B5F3F1B20DC5AB400D3CFDF /* PumpDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0F20DC5AB300D3CFDF /* PumpDetail+CoreDataProperties.swift */; };
+		9B5F3F1C20DC5AB400D3CFDF /* Show+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1020DC5AB300D3CFDF /* Show+CoreDataProperties.swift */; };
+		9B5F3F1D20DC5AB400D3CFDF /* Wind+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1120DC5AB300D3CFDF /* Wind+CoreDataClass.swift */; };
+		9B5F3F1E20DC5AB400D3CFDF /* Wind+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1220DC5AB300D3CFDF /* Wind+CoreDataProperties.swift */; };
+		9B5F3F1F20DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1320DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift */; };
+		9B5F3F2020DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1420DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift */; };
+		9B5F3F2120DC5AB400D3CFDF /* Network+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1520DC5AB400D3CFDF /* Network+CoreDataClass.swift */; };
+		9B5F3F2220DC5AB400D3CFDF /* Pump+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1620DC5AB400D3CFDF /* Pump+CoreDataClass.swift */; };
+		9B5F3F2320DC5AB400D3CFDF /* Show+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1720DC5AB400D3CFDF /* Show+CoreDataClass.swift */; };
+		9B5F3F2420DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1820DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift */; };
+		9B5F3F2520DC5AB400D3CFDF /* Network+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F1920DC5AB400D3CFDF /* Network+CoreDataProperties.swift */; };
+		9B5F3F6F20DC5AD900D3CFDF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2720DC5AD900D3CFDF /* LICENSE */; };
+		9B5F3F7020DC5AD900D3CFDF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2820DC5AD900D3CFDF /* README.md */; };
+		9B5F3F7120DC5AD900D3CFDF /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2A20DC5AD900D3CFDF /* UIAlertView+AFNetworking.m */; };
+		9B5F3F7220DC5AD900D3CFDF /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2B20DC5AD900D3CFDF /* UIProgressView+AFNetworking.m */; };
+		9B5F3F7320DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2D20DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.m */; };
+		9B5F3F7420DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F2F20DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m */; };
+		9B5F3F7520DC5AD900D3CFDF /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F3420DC5AD900D3CFDF /* UIImageView+AFNetworking.m */; };
+		9B5F3F7620DC5AD900D3CFDF /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F3720DC5AD900D3CFDF /* UIButton+AFNetworking.m */; };
+		9B5F3F7720DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F3820DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.m */; };
+		9B5F3F7820DC5AD900D3CFDF /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F3920DC5AD900D3CFDF /* UIWebView+AFNetworking.m */; };
+		9B5F3F7920DC5AD900D3CFDF /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4320DC5AD900D3CFDF /* AFURLResponseSerialization.m */; };
+		9B5F3F7A20DC5AD900D3CFDF /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4420DC5AD900D3CFDF /* AFHTTPSessionManager.m */; };
+		9B5F3F7B20DC5AD900D3CFDF /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4520DC5AD900D3CFDF /* AFURLConnectionOperation.m */; };
+		9B5F3F7C20DC5AD900D3CFDF /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4720DC5AD900D3CFDF /* AFURLSessionManager.m */; };
+		9B5F3F7D20DC5AD900D3CFDF /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4820DC5AD900D3CFDF /* AFHTTPRequestOperationManager.m */; };
+		9B5F3F7E20DC5AD900D3CFDF /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4920DC5AD900D3CFDF /* AFURLRequestSerialization.m */; };
+		9B5F3F7F20DC5AD900D3CFDF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4A20DC5AD900D3CFDF /* AFHTTPRequestOperation.m */; };
+		9B5F3F8020DC5AD900D3CFDF /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4C20DC5AD900D3CFDF /* AFNetworkReachabilityManager.m */; };
+		9B5F3F8120DC5AD900D3CFDF /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F4D20DC5AD900D3CFDF /* AFSecurityPolicy.m */; };
+		9B5F3F8220DC5AD900D3CFDF /* modbus-data.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5220DC5AD900D3CFDF /* modbus-data.c */; };
+		9B5F3F8320DC5AD900D3CFDF /* AUTHORS in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5320DC5AD900D3CFDF /* AUTHORS */; };
+		9B5F3F8420DC5AD900D3CFDF /* modbus.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5520DC5AD900D3CFDF /* modbus.c */; };
+		9B5F3F8520DC5AD900D3CFDF /* modbus-tcp.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5620DC5AD900D3CFDF /* modbus-tcp.c */; };
+		9B5F3F8620DC5AD900D3CFDF /* COPYING.LESSER in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5920DC5AD900D3CFDF /* COPYING.LESSER */; };
+		9B5F3F8720DC5AD900D3CFDF /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5A20DC5AD900D3CFDF /* COPYING */; };
+		9B5F3F8820DC5AD900D3CFDF /* NEWS in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5B20DC5AD900D3CFDF /* NEWS */; };
+		9B5F3F8920DC5AD900D3CFDF /* modbus-rtu.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5C20DC5AD900D3CFDF /* modbus-rtu.c */; };
+		9B5F3F8A20DC5AD900D3CFDF /* README.rst in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F5E20DC5AD900D3CFDF /* README.rst */; };
+		9B5F3F8B20DC5AD900D3CFDF /* ObjectiveLibModbus.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F6120DC5AD900D3CFDF /* ObjectiveLibModbus.m */; };
+		9B5F3F8D20DC5AD900D3CFDF /* SwiftRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F6720DC5AD900D3CFDF /* SwiftRecord.swift */; };
+		9B5F3F8E20DC5AD900D3CFDF /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F6B20DC5AD900D3CFDF /* RDVCalendarDayCell.m */; };
+		9B5F3F8F20DC5AD900D3CFDF /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F6C20DC5AD900D3CFDF /* RDVCalendarView.m */; };
+		9B5F3F9020DC5AD900D3CFDF /* RDVCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F6D20DC5AD900D3CFDF /* RDVCalendarViewController.m */; };
+		9B5F3FA520DC5AF400D3CFDF /* HomeGeneralSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9220DC5AF400D3CFDF /* HomeGeneralSpecs.swift */; };
+		9B5F3FA620DC5AF400D3CFDF /* CentralSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9320DC5AF400D3CFDF /* CentralSystem.swift */; };
+		9B5F3FA720DC5AF400D3CFDF /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9420DC5AF400D3CFDF /* LocalStorage.swift */; };
+		9B5F3FA820DC5AF400D3CFDF /* Utilits.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9720DC5AF400D3CFDF /* Utilits.m */; };
+		9B5F3FA920DC5AF400D3CFDF /* ACTDayValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9820DC5AF400D3CFDF /* ACTDayValues.m */; };
+		9B5F3FAA20DC5AF400D3CFDF /* ACTUISafeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9920DC5AF400D3CFDF /* ACTUISafeNavigationController.m */; };
+		9B5F3FAB20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9A20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m */; };
+		9B5F3FAC20DC5AF400D3CFDF /* HTTPComm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F9F20DC5AF400D3CFDF /* HTTPComm.swift */; };
+		9B5F3FAD20DC5AF400D3CFDF /* ShowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FA020DC5AF400D3CFDF /* ShowManager.swift */; };
+		9B5F3FAE20DC5AF400D3CFDF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FA120DC5AF400D3CFDF /* Logger.swift */; };
+		9B5F3FAF20DC5AF400D3CFDF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FA220DC5AF400D3CFDF /* Extensions.swift */; };
+		9B5F3FB020DC5AF400D3CFDF /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FA320DC5AF400D3CFDF /* Helper.swift */; };
+		9B5F3FB120DC5AF400D3CFDF /* ShowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FA420DC5AF400D3CFDF /* ShowSettings.swift */; };
+		9B5F401820DC5B1200D3CFDF /* HomeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FB320DC5B1200D3CFDF /* HomeSettingsViewController.swift */; };
+		9B5F401920DC5B1200D3CFDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FB420DC5B1200D3CFDF /* HomeViewController.swift */; };
+		9B5F401A20DC5B1200D3CFDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FB520DC5B1200D3CFDF /* Main.storyboard */; };
+		9B5F401B20DC5B1200D3CFDF /* settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FB720DC5B1200D3CFDF /* settings.storyboard */; };
+		9B5F401C20DC5B1200D3CFDF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FB820DC5B1200D3CFDF /* SettingsViewController.swift */; };
+		9B5F402220DC5B1200D3CFDF /* systemstatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FC420DC5B1200D3CFDF /* systemstatus.storyboard */; };
+		9B5F403A20DC5B1200D3CFDF /* OperationManual.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FE520DC5B1200D3CFDF /* OperationManual.swift */; };
+		9B5F403B20DC5B1200D3CFDF /* alarm_pump.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FE820DC5B1200D3CFDF /* alarm_pump.png */; };
+		9B5F403C20DC5B1200D3CFDF /* showStopperRATmode.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FE920DC5B1200D3CFDF /* showStopperRATmode.png */; };
+		9B5F403D20DC5B1200D3CFDF /* alarm_wind.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FEA20DC5B1200D3CFDF /* alarm_wind.png */; };
+		9B5F403E20DC5B1200D3CFDF /* showStopperTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FEB20DC5B1200D3CFDF /* showStopperTemp.png */; };
+		9B5F403F20DC5B1200D3CFDF /* showStopperWaterLevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FEC20DC5B1200D3CFDF /* showStopperWaterLevel.png */; };
+		9B5F404020DC5B1200D3CFDF /* air_pressure_fault.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FED20DC5B1200D3CFDF /* air_pressure_fault.png */; };
+		9B5F404120DC5B1200D3CFDF /* intrusionsystem_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FEE20DC5B1200D3CFDF /* intrusionsystem_button.png */; };
+		9B5F404220DC5B1200D3CFDF /* alarm_fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FEF20DC5B1200D3CFDF /* alarm_fog.png */; };
+		9B5F404320DC5B1200D3CFDF /* ShowStoppers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FF020DC5B1200D3CFDF /* ShowStoppers.storyboard */; };
+		9B5F404420DC5B1200D3CFDF /* ShowStopperChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FF120DC5B1200D3CFDF /* ShowStopperChecker.swift */; };
+		9B5F404920DC5B1200D3CFDF /* waterLevel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FF820DC5B1200D3CFDF /* waterLevel.storyboard */; };
+		9B5F404A20DC5B1200D3CFDF /* WaterLevelSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FF920DC5B1200D3CFDF /* WaterLevelSettingsViewController.swift */; };
+		9B5F404B20DC5B1200D3CFDF /* WaterLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FFA20DC5B1200D3CFDF /* WaterLevelViewController.swift */; };
+		9B5F404C20DC5B1200D3CFDF /* scheduler.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3FFC20DC5B1200D3CFDF /* scheduler.storyboard */; };
+		9B5F404D20DC5B1200D3CFDF /* ACTScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FFD20DC5B1200D3CFDF /* ACTScheduleViewController.m */; };
+		9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FFE20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m */; };
+		9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F400020DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m */; };
+		9B5F405020DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F400420DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m */; };
+		9B6D1C9F21092D3000183DED /* FiltrationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */; };
+		9B6D1CA021092D3000183DED /* FiltrationPumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */; };
+		9B6D1CA121092D3000183DED /* filtration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9D21092D3000183DED /* filtration.storyboard */; };
+		9B6D1CA221092D3000183DED /* FiltrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */; };
+		9B725D7D214775BD008886A2 /* pumps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B725D78214775BC008886A2 /* pumps.storyboard */; };
+		9B725D7E214775BD008886A2 /* AnimationPumpsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */; };
+		9B725D7F214775BD008886A2 /* PumpSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */; };
+		9B725D80214775BD008886A2 /* PumpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D7B214775BD008886A2 /* PumpsViewController.swift */; };
+		9B725D81214775BD008886A2 /* PumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D7C214775BD008886A2 /* PumpDetailViewController.swift */; };
+		9B725D9B214775E5008886A2 /* LightsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D98214775E5008886A2 /* LightsSpecs.swift */; };
+		9B725D9C214775E5008886A2 /* lights.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B725D99214775E5008886A2 /* lights.storyboard */; };
+		9B725D9D214775E5008886A2 /* LightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D9A214775E5008886A2 /* LightsViewController.swift */; };
+		9B725DA121477601008886A2 /* WeekSchedulerPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D9E21477601008886A2 /* WeekSchedulerPopoverView.swift */; };
+		9B725DA221477601008886A2 /* WeekSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D9F21477601008886A2 /* WeekSchedulerViewController.swift */; };
+		9B725DA321477601008886A2 /* WeekendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725DA021477601008886A2 /* WeekendViewController.swift */; };
+		9B7DE94A2118FFB300664D41 /* OManual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9B7DE9492118FFB200664D41 /* OManual.pdf */; };
+		9B8DB340214832B6001CF70D /* WaterLevelSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB33F214832B6001CF70D /* WaterLevelSpecs.swift */; };
+		9B8DB3422148337B001CF70D /* ShowStopperSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8DB3412148337B001CF70D /* ShowStopperSpecs.swift */; };
+		9BA7A04B21920E2D0038D13D /* playlist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BA7A04321920E2C0038D13D /* playlist.storyboard */; };
+		9BA7A04C21920E2D0038D13D /* ACTDesignateTestShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7A04521920E2C0038D13D /* ACTDesignateTestShowViewController.m */; };
+		9BA7A04D21920E2D0038D13D /* ACTSelectShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7A04621920E2C0038D13D /* ACTSelectShowViewController.m */; };
+		9BA7A04E21920E2D0038D13D /* ACTPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7A04721920E2C0038D13D /* ACTPlaylistViewController.m */; };
+		9BA7A04F21920E2D0038D13D /* ACTPlaylistSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA7A04821920E2C0038D13D /* ACTPlaylistSettingsViewController.m */; };
+		9BB3349521482B350004FFBC /* WeekSchedulerSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB3349421482B350004FFBC /* WeekSchedulerSpecs.swift */; };
+		9BBB8EF02135C359001F9F01 /* ShowHideSettingsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BBB8EEF2135C359001F9F01 /* ShowHideSettingsLabel.swift */; };
+		9BCE6F93213ED31D00ED2DDC /* fog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BCE6F91213ED31D00ED2DDC /* fog.storyboard */; };
+		9BCE6F94213ED31D00ED2DDC /* FogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE6F92213ED31D00ED2DDC /* FogViewController.swift */; };
+		9BCE6F96213ED40C00ED2DDC /* FogSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE6F95213ED40B00ED2DDC /* FogSpecs.swift */; };
+		9BD68EBD21C2F09100D93CB0 /* SystemFaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD68EBC21C2F09100D93CB0 /* SystemFaultViewController.swift */; };
+		9BDE72A8216BFF6A0075CF3E /* FogSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDE72A7216BFF6A0075CF3E /* FogSettingsViewController.swift */; };
+		9BF5679D20DC69DE001AFD30 /* iPadControls-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BF5679C20DC69DE001AFD30 /* iPadControls-Info.plist */; };
+		BB0F3D07228B343D0049613A /* ProjectorStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0F3D06228B343D0049613A /* ProjectorStatusViewController.swift */; };
+		BB36C54021EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C53F21EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift */; };
+		BB3B4FDA21E954CD00D64D6F /* FillerShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B4FD521E954CC00D64D6F /* FillerShowsViewController.swift */; };
+		BB3B4FDB21E954CD00D64D6F /* fillerShows.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3B4FD621E954CC00D64D6F /* fillerShows.storyboard */; };
+		BB3DB40A21F67D120005A558 /* ORPSetpointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB40921F67D120005A558 /* ORPSetpointViewController.swift */; };
+		BB3DB41321F67D1F0005A558 /* BRSetpointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB40D21F67D1F0005A558 /* BRSetpointViewController.swift */; };
+		BB3DB41421F67D1F0005A558 /* PHSetpointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB40E21F67D1F0005A558 /* PHSetpointViewController.swift */; };
+		BB3DB41521F67D1F0005A558 /* TDSSetpointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB40F21F67D1F0005A558 /* TDSSetpointViewController.swift */; };
+		BB3DB42821F7AC9B0005A558 /* WaterQualitySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42021F7AC9B0005A558 /* WaterQualitySpecs.swift */; };
+		BB3DB42921F7AC9B0005A558 /* TDSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42121F7AC9B0005A558 /* TDSViewController.swift */; };
+		BB3DB42A21F7AC9B0005A558 /* WaterQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42221F7AC9B0005A558 /* WaterQualityViewController.swift */; };
+		BB3DB42B21F7AC9B0005A558 /* WaterQualitySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42321F7AC9B0005A558 /* WaterQualitySettingsViewController.swift */; };
+		BB3DB42C21F7AC9B0005A558 /* PHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42421F7AC9B0005A558 /* PHViewController.swift */; };
+		BB3DB42D21F7AC9B0005A558 /* ORPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42521F7AC9B0005A558 /* ORPViewController.swift */; };
+		BB3DB42E21F7AC9B0005A558 /* BromineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB42621F7AC9B0005A558 /* BromineViewController.swift */; };
+		BB3DB42F21F7AC9B0005A558 /* waterQuality.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB3DB42721F7AC9B0005A558 /* waterQuality.storyboard */; };
+		BB3DB43521F7C2FB0005A558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB3DB43421F7C2FA0005A558 /* Assets.xcassets */; };
+		BB3DB43921F902C30005A558 /* DesignateFillerShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DB43821F902C30005A558 /* DesignateFillerShowViewController.swift */; };
+		BB6A0428225D320400153CEC /* OzonePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A0427225D320400153CEC /* OzonePopupViewController.swift */; };
+		BB7D48AB2267D06F00346EA9 /* DesignateShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D48AA2267D06F00346EA9 /* DesignateShowsViewController.swift */; };
+		BBA144F3224BE7B700C11357 /* tank_leakshowStopper.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA144F2224BE7B700C11357 /* tank_leakshowStopper.png */; };
+		BBA1C8AC21E5545C00885683 /* QuadrantsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */; };
+		BBBBC0B621D6A717004EC984 /* ProjectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBBC0B521D6A717004EC984 /* ProjectorViewController.swift */; };
+		BBBBC0B821D6A7F8004EC984 /* Projector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBBBC0B721D6A7F8004EC984 /* Projector.storyboard */; };
+		BBBE0B8121C166380067A0FE /* SystemStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBE0B8021C166380067A0FE /* SystemStatusViewController.swift */; };
+		BBBE0B8521C177430067A0FE /* SystemStatusSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBE0B8421C177430067A0FE /* SystemStatusSpecs.swift */; };
+		BBC8B1D921ED372C00761E0F /* FillerShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8B1D821ED372C00761E0F /* FillerShowSettingsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		88243C0A1DEF5965004D39D8 /* iPadControls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPadControls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B006222212C7E160066CC9B /* check12or24Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = check12or24Hour.swift; sourceTree = "<group>"; };
+		9B006233212C7E670066CC9B /* cascade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = cascade.storyboard; path = "Controller/Pumps/Cascade Pumps/cascade.storyboard"; sourceTree = "<group>"; };
+		9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CascadePumpsViewController.swift; path = "Controller/Pumps/Cascade Pumps/CascadePumpsViewController.swift"; sourceTree = "<group>"; };
+		9B006235212C7E670066CC9B /* CascadePumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CascadePumpDetailViewController.swift; path = "Controller/Pumps/Cascade Pumps/CascadePumpDetailViewController.swift"; sourceTree = "<group>"; };
+		9B0A0A2621750E7100D1E9F4 /* CascadeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CascadeSettingsViewController.swift; path = "Controller/Pumps/Cascade Pumps/CascadeSettingsViewController.swift"; sourceTree = "<group>"; };
+		9B147C9C20DC68C0003DDFE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B2105B5218A19C700D36644 /* ACTInstantPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTInstantPlayViewController.m; sourceTree = "<group>"; };
+		9B2105B6218A19C700D36644 /* showList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = showList.storyboard; sourceTree = "<group>"; };
+		9B2105B7218A19C700D36644 /* ACTInstantPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTInstantPlayViewController.h; sourceTree = "<group>"; };
+		9B3D3B6D20DC5EFD00E34BE4 /* iPadControls-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iPadControls-Bridging-Header.h"; path = "Resources/iPadControls-Bridging-Header.h"; sourceTree = "<group>"; };
+		9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationSchedulerViewController.swift; sourceTree = "<group>"; };
+		9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationSpecs.swift; sourceTree = "<group>"; };
+		9B3F411A2146F967000B4701 /* CascadeSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CascadeSpecs.swift; path = "Controller/Pumps/Cascade Pumps/CascadeSpecs.swift"; sourceTree = "<group>"; };
+		9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = versionNum.txt; path = Specs/versionNum.txt; sourceTree = "<group>"; };
+		9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = MIDF.rtf; path = Specs/MIDF.rtf; sourceTree = "<group>"; };
+		9B5F3F0720DC5AA000D3CFDF /* iPadControls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iPadControls.xcdatamodel; sourceTree = "<group>"; };
+		9B5F3F0820DC5AA000D3CFDF /* languages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = languages.json; path = Resources/languages.json; sourceTree = "<group>"; };
+		9B5F3F0E20DC5AB300D3CFDF /* Pump+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pump+CoreDataProperties.swift"; path = "Core Data Model/Pump+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F0F20DC5AB300D3CFDF /* PumpDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PumpDetail+CoreDataProperties.swift"; path = "Core Data Model/PumpDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F1020DC5AB300D3CFDF /* Show+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Show+CoreDataProperties.swift"; path = "Core Data Model/Show+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F1120DC5AB300D3CFDF /* Wind+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Wind+CoreDataClass.swift"; path = "Core Data Model/Wind+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1220DC5AB300D3CFDF /* Wind+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Wind+CoreDataProperties.swift"; path = "Core Data Model/Wind+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F1320DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PumpDetail+CoreDataClass.swift"; path = "Core Data Model/PumpDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1420DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "IntrusionError+CoreDataClass.swift"; path = "Core Data Model/IntrusionError+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1520DC5AB400D3CFDF /* Network+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Network+CoreDataClass.swift"; path = "Core Data Model/Network+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1620DC5AB400D3CFDF /* Pump+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Pump+CoreDataClass.swift"; path = "Core Data Model/Pump+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1720DC5AB400D3CFDF /* Show+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Show+CoreDataClass.swift"; path = "Core Data Model/Show+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9B5F3F1820DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "IntrusionError+CoreDataProperties.swift"; path = "Core Data Model/IntrusionError+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F1920DC5AB400D3CFDF /* Network+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Network+CoreDataProperties.swift"; path = "Core Data Model/Network+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9B5F3F2720DC5AD900D3CFDF /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9B5F3F2820DC5AD900D3CFDF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B5F3F2A20DC5AD900D3CFDF /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F2B20DC5AD900D3CFDF /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F2C20DC5AD900D3CFDF /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F2D20DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F2E20DC5AD900D3CFDF /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F2F20DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		9B5F3F3020DC5AD900D3CFDF /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3120DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3220DC5AD900D3CFDF /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3320DC5AD900D3CFDF /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3420DC5AD900D3CFDF /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F3520DC5AD900D3CFDF /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3620DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		9B5F3F3720DC5AD900D3CFDF /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F3820DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F3920DC5AD900D3CFDF /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		9B5F3F3A20DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		9B5F3F3C20DC5AD900D3CFDF /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		9B5F3F3D20DC5AD900D3CFDF /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		9B5F3F3E20DC5AD900D3CFDF /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		9B5F3F3F20DC5AD900D3CFDF /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		9B5F3F4020DC5AD900D3CFDF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		9B5F3F4120DC5AD900D3CFDF /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		9B5F3F4220DC5AD900D3CFDF /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		9B5F3F4320DC5AD900D3CFDF /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		9B5F3F4420DC5AD900D3CFDF /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		9B5F3F4520DC5AD900D3CFDF /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		9B5F3F4620DC5AD900D3CFDF /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		9B5F3F4720DC5AD900D3CFDF /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		9B5F3F4820DC5AD900D3CFDF /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		9B5F3F4920DC5AD900D3CFDF /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		9B5F3F4A20DC5AD900D3CFDF /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		9B5F3F4B20DC5AD900D3CFDF /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		9B5F3F4C20DC5AD900D3CFDF /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		9B5F3F4D20DC5AD900D3CFDF /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		9B5F3F4E20DC5AD900D3CFDF /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		9B5F3F5020DC5AD900D3CFDF /* modbus-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-private.h"; sourceTree = "<group>"; };
+		9B5F3F5120DC5AD900D3CFDF /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		9B5F3F5220DC5AD900D3CFDF /* modbus-data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "modbus-data.c"; sourceTree = "<group>"; };
+		9B5F3F5320DC5AD900D3CFDF /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		9B5F3F5420DC5AD900D3CFDF /* ObjectiveLibModbus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveLibModbus.h; sourceTree = "<group>"; };
+		9B5F3F5520DC5AD900D3CFDF /* modbus.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = modbus.c; sourceTree = "<group>"; };
+		9B5F3F5620DC5AD900D3CFDF /* modbus-tcp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "modbus-tcp.c"; sourceTree = "<group>"; };
+		9B5F3F5720DC5AD900D3CFDF /* modbus-rtu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-rtu.h"; sourceTree = "<group>"; };
+		9B5F3F5820DC5AD900D3CFDF /* modbus-version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-version.h"; sourceTree = "<group>"; };
+		9B5F3F5920DC5AD900D3CFDF /* COPYING.LESSER */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.LESSER; sourceTree = "<group>"; };
+		9B5F3F5A20DC5AD900D3CFDF /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		9B5F3F5B20DC5AD900D3CFDF /* NEWS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NEWS; sourceTree = "<group>"; };
+		9B5F3F5C20DC5AD900D3CFDF /* modbus-rtu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "modbus-rtu.c"; sourceTree = "<group>"; };
+		9B5F3F5D20DC5AD900D3CFDF /* modbus-tcp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-tcp.h"; sourceTree = "<group>"; };
+		9B5F3F5E20DC5AD900D3CFDF /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rst; sourceTree = "<group>"; };
+		9B5F3F5F20DC5AD900D3CFDF /* modbus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modbus.h; sourceTree = "<group>"; };
+		9B5F3F6020DC5AD900D3CFDF /* modbus-tcp-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-tcp-private.h"; sourceTree = "<group>"; };
+		9B5F3F6120DC5AD900D3CFDF /* ObjectiveLibModbus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveLibModbus.m; sourceTree = "<group>"; };
+		9B5F3F6220DC5AD900D3CFDF /* modbus-rtu-private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "modbus-rtu-private.h"; sourceTree = "<group>"; };
+		9B5F3F6720DC5AD900D3CFDF /* SwiftRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRecord.swift; sourceTree = "<group>"; };
+		9B5F3F6920DC5AD900D3CFDF /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
+		9B5F3F6A20DC5AD900D3CFDF /* RDVCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarViewController.h; sourceTree = "<group>"; };
+		9B5F3F6B20DC5AD900D3CFDF /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
+		9B5F3F6C20DC5AD900D3CFDF /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
+		9B5F3F6D20DC5AD900D3CFDF /* RDVCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarViewController.m; sourceTree = "<group>"; };
+		9B5F3F6E20DC5AD900D3CFDF /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
+		9B5F3F9220DC5AF400D3CFDF /* HomeGeneralSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeGeneralSpecs.swift; sourceTree = "<group>"; };
+		9B5F3F9320DC5AF400D3CFDF /* CentralSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CentralSystem.swift; sourceTree = "<group>"; };
+		9B5F3F9420DC5AF400D3CFDF /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		9B5F3F9620DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTSchedulerTimePickerViewController.h; sourceTree = "<group>"; };
+		9B5F3F9720DC5AF400D3CFDF /* Utilits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilits.m; sourceTree = "<group>"; };
+		9B5F3F9820DC5AF400D3CFDF /* ACTDayValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTDayValues.m; sourceTree = "<group>"; };
+		9B5F3F9920DC5AF400D3CFDF /* ACTUISafeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTUISafeNavigationController.m; sourceTree = "<group>"; };
+		9B5F3F9A20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTSchedulerTimePickerViewController.m; sourceTree = "<group>"; };
+		9B5F3F9B20DC5AF400D3CFDF /* Utilits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilits.h; sourceTree = "<group>"; };
+		9B5F3F9C20DC5AF400D3CFDF /* ACTUISafeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTUISafeNavigationController.h; sourceTree = "<group>"; };
+		9B5F3F9D20DC5AF400D3CFDF /* ACTDayValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTDayValues.h; sourceTree = "<group>"; };
+		9B5F3F9F20DC5AF400D3CFDF /* HTTPComm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPComm.swift; sourceTree = "<group>"; };
+		9B5F3FA020DC5AF400D3CFDF /* ShowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowManager.swift; sourceTree = "<group>"; };
+		9B5F3FA120DC5AF400D3CFDF /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9B5F3FA220DC5AF400D3CFDF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9B5F3FA320DC5AF400D3CFDF /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		9B5F3FA420DC5AF400D3CFDF /* ShowSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSettings.swift; sourceTree = "<group>"; };
+		9B5F3FB320DC5B1200D3CFDF /* HomeSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSettingsViewController.swift; sourceTree = "<group>"; };
+		9B5F3FB420DC5B1200D3CFDF /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9B5F3FB520DC5B1200D3CFDF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9B5F3FB720DC5B1200D3CFDF /* settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = settings.storyboard; sourceTree = "<group>"; };
+		9B5F3FB820DC5B1200D3CFDF /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9B5F3FC420DC5B1200D3CFDF /* systemstatus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = systemstatus.storyboard; sourceTree = "<group>"; };
+		9B5F3FE520DC5B1200D3CFDF /* OperationManual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationManual.swift; sourceTree = "<group>"; };
+		9B5F3FE820DC5B1200D3CFDF /* alarm_pump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_pump.png; sourceTree = "<group>"; };
+		9B5F3FE920DC5B1200D3CFDF /* showStopperRATmode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showStopperRATmode.png; sourceTree = "<group>"; };
+		9B5F3FEA20DC5B1200D3CFDF /* alarm_wind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_wind.png; sourceTree = "<group>"; };
+		9B5F3FEB20DC5B1200D3CFDF /* showStopperTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showStopperTemp.png; sourceTree = "<group>"; };
+		9B5F3FEC20DC5B1200D3CFDF /* showStopperWaterLevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showStopperWaterLevel.png; sourceTree = "<group>"; };
+		9B5F3FED20DC5B1200D3CFDF /* air_pressure_fault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = air_pressure_fault.png; sourceTree = "<group>"; };
+		9B5F3FEE20DC5B1200D3CFDF /* intrusionsystem_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intrusionsystem_button.png; sourceTree = "<group>"; };
+		9B5F3FEF20DC5B1200D3CFDF /* alarm_fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarm_fog.png; sourceTree = "<group>"; };
+		9B5F3FF020DC5B1200D3CFDF /* ShowStoppers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowStoppers.storyboard; sourceTree = "<group>"; };
+		9B5F3FF120DC5B1200D3CFDF /* ShowStopperChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowStopperChecker.swift; sourceTree = "<group>"; };
+		9B5F3FF820DC5B1200D3CFDF /* waterLevel.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = waterLevel.storyboard; sourceTree = "<group>"; };
+		9B5F3FF920DC5B1200D3CFDF /* WaterLevelSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterLevelSettingsViewController.swift; sourceTree = "<group>"; };
+		9B5F3FFA20DC5B1200D3CFDF /* WaterLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterLevelViewController.swift; sourceTree = "<group>"; };
+		9B5F3FFC20DC5B1200D3CFDF /* scheduler.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = scheduler.storyboard; sourceTree = "<group>"; };
+		9B5F3FFD20DC5B1200D3CFDF /* ACTScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTScheduleViewController.m; sourceTree = "<group>"; };
+		9B5F3FFE20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTAddShowPlaylistViewController.m; sourceTree = "<group>"; };
+		9B5F3FFF20DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTMoveDeleteShowPlaylistViewController.h; sourceTree = "<group>"; };
+		9B5F400020DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTCalendarScheduleViewController.m; sourceTree = "<group>"; };
+		9B5F400120DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTAddShowPlaylistViewController.h; sourceTree = "<group>"; };
+		9B5F400220DC5B1200D3CFDF /* ACTScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTScheduleViewController.h; sourceTree = "<group>"; };
+		9B5F400320DC5B1200D3CFDF /* ACTCalendarScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTCalendarScheduleViewController.h; sourceTree = "<group>"; };
+		9B5F400420DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTMoveDeleteShowPlaylistViewController.m; sourceTree = "<group>"; };
+		9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSettingsViewController.swift; sourceTree = "<group>"; };
+		9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationPumpDetailViewController.swift; sourceTree = "<group>"; };
+		9B6D1C9D21092D3000183DED /* filtration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = filtration.storyboard; sourceTree = "<group>"; };
+		9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationViewController.swift; sourceTree = "<group>"; };
+		9B725D78214775BC008886A2 /* pumps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = pumps.storyboard; sourceTree = "<group>"; };
+		9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationPumpsSpecs.swift; sourceTree = "<group>"; };
+		9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PumpSettingsViewController.swift; sourceTree = "<group>"; };
+		9B725D7B214775BD008886A2 /* PumpsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PumpsViewController.swift; sourceTree = "<group>"; };
+		9B725D7C214775BD008886A2 /* PumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PumpDetailViewController.swift; sourceTree = "<group>"; };
+		9B725D98214775E5008886A2 /* LightsSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsSpecs.swift; sourceTree = "<group>"; };
+		9B725D99214775E5008886A2 /* lights.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = lights.storyboard; sourceTree = "<group>"; };
+		9B725D9A214775E5008886A2 /* LightsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightsViewController.swift; sourceTree = "<group>"; };
+		9B725D9E21477601008886A2 /* WeekSchedulerPopoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekSchedulerPopoverView.swift; sourceTree = "<group>"; };
+		9B725D9F21477601008886A2 /* WeekSchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekSchedulerViewController.swift; sourceTree = "<group>"; };
+		9B725DA021477601008886A2 /* WeekendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekendViewController.swift; sourceTree = "<group>"; };
+		9B7DE9492118FFB200664D41 /* OManual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = OManual.pdf; sourceTree = "<group>"; };
+		9B8DB33F214832B6001CF70D /* WaterLevelSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSpecs.swift; sourceTree = "<group>"; };
+		9B8DB3412148337B001CF70D /* ShowStopperSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStopperSpecs.swift; sourceTree = "<group>"; };
+		9BA7A04221920E2C0038D13D /* ACTPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTPlaylistViewController.h; sourceTree = "<group>"; };
+		9BA7A04321920E2C0038D13D /* playlist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = playlist.storyboard; sourceTree = "<group>"; };
+		9BA7A04421920E2C0038D13D /* ACTPlaylistSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTPlaylistSettingsViewController.h; sourceTree = "<group>"; };
+		9BA7A04521920E2C0038D13D /* ACTDesignateTestShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTDesignateTestShowViewController.m; sourceTree = "<group>"; };
+		9BA7A04621920E2C0038D13D /* ACTSelectShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTSelectShowViewController.m; sourceTree = "<group>"; };
+		9BA7A04721920E2C0038D13D /* ACTPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTPlaylistViewController.m; sourceTree = "<group>"; };
+		9BA7A04821920E2C0038D13D /* ACTPlaylistSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTPlaylistSettingsViewController.m; sourceTree = "<group>"; };
+		9BA7A04921920E2C0038D13D /* ACTDesignateTestShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTDesignateTestShowViewController.h; sourceTree = "<group>"; };
+		9BA7A04A21920E2C0038D13D /* ACTSelectShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTSelectShowViewController.h; sourceTree = "<group>"; };
+		9BB3349421482B350004FFBC /* WeekSchedulerSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekSchedulerSpecs.swift; sourceTree = "<group>"; };
+		9BBB8EEF2135C359001F9F01 /* ShowHideSettingsLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideSettingsLabel.swift; sourceTree = "<group>"; };
+		9BCE6F91213ED31D00ED2DDC /* fog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = fog.storyboard; sourceTree = "<group>"; };
+		9BCE6F92213ED31D00ED2DDC /* FogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FogViewController.swift; sourceTree = "<group>"; };
+		9BCE6F95213ED40B00ED2DDC /* FogSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FogSpecs.swift; sourceTree = "<group>"; };
+		9BD68EBC21C2F09100D93CB0 /* SystemFaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemFaultViewController.swift; sourceTree = "<group>"; };
+		9BDE72A7216BFF6A0075CF3E /* FogSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogSettingsViewController.swift; sourceTree = "<group>"; };
+		9BF5679C20DC69DE001AFD30 /* iPadControls-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iPadControls-Info.plist"; path = "Resources/iPadControls-Info.plist"; sourceTree = "<group>"; };
+		BB0F3D06228B343D0049613A /* ProjectorStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorStatusViewController.swift; sourceTree = "<group>"; };
+		BB36C53F21EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterLevelSettingsPopUpViewController.swift; sourceTree = "<group>"; };
+		BB3B4FD521E954CC00D64D6F /* FillerShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillerShowsViewController.swift; sourceTree = "<group>"; };
+		BB3B4FD621E954CC00D64D6F /* fillerShows.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = fillerShows.storyboard; sourceTree = "<group>"; };
+		BB3DB40921F67D120005A558 /* ORPSetpointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORPSetpointViewController.swift; sourceTree = "<group>"; };
+		BB3DB40D21F67D1F0005A558 /* BRSetpointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BRSetpointViewController.swift; sourceTree = "<group>"; };
+		BB3DB40E21F67D1F0005A558 /* PHSetpointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHSetpointViewController.swift; sourceTree = "<group>"; };
+		BB3DB40F21F67D1F0005A558 /* TDSSetpointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSSetpointViewController.swift; sourceTree = "<group>"; };
+		BB3DB42021F7AC9B0005A558 /* WaterQualitySpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterQualitySpecs.swift; sourceTree = "<group>"; };
+		BB3DB42121F7AC9B0005A558 /* TDSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDSViewController.swift; sourceTree = "<group>"; };
+		BB3DB42221F7AC9B0005A558 /* WaterQualityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterQualityViewController.swift; sourceTree = "<group>"; };
+		BB3DB42321F7AC9B0005A558 /* WaterQualitySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterQualitySettingsViewController.swift; sourceTree = "<group>"; };
+		BB3DB42421F7AC9B0005A558 /* PHViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHViewController.swift; sourceTree = "<group>"; };
+		BB3DB42521F7AC9B0005A558 /* ORPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORPViewController.swift; sourceTree = "<group>"; };
+		BB3DB42621F7AC9B0005A558 /* BromineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BromineViewController.swift; sourceTree = "<group>"; };
+		BB3DB42721F7AC9B0005A558 /* waterQuality.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = waterQuality.storyboard; sourceTree = "<group>"; };
+		BB3DB43421F7C2FA0005A558 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB3DB43821F902C30005A558 /* DesignateFillerShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignateFillerShowViewController.swift; sourceTree = "<group>"; };
+		BB6A0427225D320400153CEC /* OzonePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OzonePopupViewController.swift; sourceTree = "<group>"; };
+		BB7D48AA2267D06F00346EA9 /* DesignateShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignateShowsViewController.swift; sourceTree = "<group>"; };
+		BBA144F2224BE7B700C11357 /* tank_leakshowStopper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tank_leakshowStopper.png; sourceTree = "<group>"; };
+		BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantsPopUpViewController.swift; sourceTree = "<group>"; };
+		BBBBC0B521D6A717004EC984 /* ProjectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorViewController.swift; sourceTree = "<group>"; };
+		BBBBC0B721D6A7F8004EC984 /* Projector.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Projector.storyboard; sourceTree = "<group>"; };
+		BBBE0B8021C166380067A0FE /* SystemStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatusViewController.swift; sourceTree = "<group>"; };
+		BBBE0B8421C177430067A0FE /* SystemStatusSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemStatusSpecs.swift; sourceTree = "<group>"; };
+		BBC8B1D821ED372C00761E0F /* FillerShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillerShowSettingsViewController.swift; sourceTree = "<group>"; };
+		CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.release.xcconfig"; sourceTree = "<group>"; };
+		DABF08559F25EA52E20E4FEF /* Pods-iPadControls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.debug.xcconfig"; sourceTree = "<group>"; };
+		DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPadControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		88243C071DEF5965004D39D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B3EB64120C70D8C0071D3AA /* CFNetwork.framework in Frameworks */,
+				1A99ACADBDAC29F15DBF767B /* Pods_iPadControls.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A22925D2AF51F5DA3B5DA87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */,
+				DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88243C011DEF5965004D39D8 = {
+			isa = PBXGroup;
+			children = (
+				88243C0C1DEF5965004D39D8 /* iPadControls */,
+				9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */,
+				88243C0B1DEF5965004D39D8 /* Products */,
+				E5A214DD754AF7C8773615A5 /* Pods */,
+				7A22925D2AF51F5DA3B5DA87 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		88243C0B1DEF5965004D39D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88243C0A1DEF5965004D39D8 /* iPadControls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88243C0C1DEF5965004D39D8 /* iPadControls */ = {
+			isa = PBXGroup;
+			children = (
+				88F3FF151E2F0505005AC504 /* Specs */,
+				88243C221DEF59A0004D39D8 /* Resources */,
+				88243C251DEF672A004D39D8 /* Model */,
+				88243C261DEF672E004D39D8 /* Vendors */,
+				88243C241DEF6722004D39D8 /* Modules */,
+				88243C231DEF6653004D39D8 /* Controller */,
+			);
+			path = iPadControls;
+			sourceTree = "<group>";
+		};
+		88243C221DEF59A0004D39D8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BB3DB43421F7C2FA0005A558 /* Assets.xcassets */,
+				9B3D3B6D20DC5EFD00E34BE4 /* iPadControls-Bridging-Header.h */,
+				9B5F3F0620DC5AA000D3CFDF /* iPadControls.xcdatamodeld */,
+				9B5F3F0820DC5AA000D3CFDF /* languages.json */,
+				9BF5679C20DC69DE001AFD30 /* iPadControls-Info.plist */,
+				9B147C9B20DC68C0003DDFE8 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		88243C231DEF6653004D39D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B3F410D2146CC22000B4701 /* Animation Pumps */,
+				9B5F3FF220DC5B1200D3CFDF /* Filtration */,
+				9B5F3FB220DC5B1200D3CFDF /* Home */,
+				BB3DB41F21F7AC9B0005A558 /* Water Quality */,
+				BBBBC0B421D6A6DE004EC984 /* Projector */,
+				BB3B4FD321E954CC00D64D6F /* FillerShows */,
+				9B006232212C7E670066CC9B /* Cascade Pumps */,
+				BBBE0B7F21C165D20067A0FE /* SystemStatus */,
+				9B2105B4218A19C700D36644 /* ShowList */,
+				9BCE6F90213ED31D00ED2DDC /* Fog */,
+				9BA7A04121920E2C0038D13D /* Playlist */,
+				9B006224212C7E510066CC9B /* Lights */,
+				9B006229212C7E600066CC9B /* Week Scheduler */,
+				9B5F3FE420DC5B1200D3CFDF /* Operation Manual */,
+				9B5F3FFB20DC5B1200D3CFDF /* Scheduler */,
+				9B5F3FB620DC5B1200D3CFDF /* Settings */,
+				9B5F3FE620DC5B1200D3CFDF /* Show Stoppers */,
+				9B5F3FF720DC5B1200D3CFDF /* Water Level */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		88243C241DEF6722004D39D8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F9E20DC5AF400D3CFDF /* Base */,
+				9B5F3F9520DC5AF400D3CFDF /* Legacy Codes */,
+				9B5F3F9120DC5AF400D3CFDF /* Project Specific */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		88243C251DEF672A004D39D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F1420DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift */,
+				9B5F3F1820DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift */,
+				9B5F3F1520DC5AB400D3CFDF /* Network+CoreDataClass.swift */,
+				9B5F3F1920DC5AB400D3CFDF /* Network+CoreDataProperties.swift */,
+				9B5F3F1620DC5AB400D3CFDF /* Pump+CoreDataClass.swift */,
+				9B5F3F0E20DC5AB300D3CFDF /* Pump+CoreDataProperties.swift */,
+				9B5F3F1320DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift */,
+				9B5F3F0F20DC5AB300D3CFDF /* PumpDetail+CoreDataProperties.swift */,
+				9B5F3F1720DC5AB400D3CFDF /* Show+CoreDataClass.swift */,
+				9B5F3F1020DC5AB300D3CFDF /* Show+CoreDataProperties.swift */,
+				9B5F3F1120DC5AB300D3CFDF /* Wind+CoreDataClass.swift */,
+				9B5F3F1220DC5AB300D3CFDF /* Wind+CoreDataProperties.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		88243C261DEF672E004D39D8 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F2620DC5AD900D3CFDF /* AFNetworking */,
+				9B5F3F4F20DC5AD900D3CFDF /* Modbus */,
+				9B5F3F6820DC5AD900D3CFDF /* RDVCalendarView */,
+				9B5F3F6620DC5AD900D3CFDF /* SwiftRecord */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		88F3FF151E2F0505005AC504 /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */,
+				9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */,
+			);
+			name = Specs;
+			sourceTree = "<group>";
+		};
+		9B006224212C7E510066CC9B /* Lights */ = {
+			isa = PBXGroup;
+			children = (
+				9B725D98214775E5008886A2 /* LightsSpecs.swift */,
+				9B725D99214775E5008886A2 /* lights.storyboard */,
+				9B725D9A214775E5008886A2 /* LightsViewController.swift */,
+			);
+			name = Lights;
+			path = Controller/Lights;
+			sourceTree = "<group>";
+		};
+		9B006229212C7E600066CC9B /* Week Scheduler */ = {
+			isa = PBXGroup;
+			children = (
+				9B725DA021477601008886A2 /* WeekendViewController.swift */,
+				9BB3349421482B350004FFBC /* WeekSchedulerSpecs.swift */,
+				9B725D9E21477601008886A2 /* WeekSchedulerPopoverView.swift */,
+				9B725D9F21477601008886A2 /* WeekSchedulerViewController.swift */,
+			);
+			name = "Week Scheduler";
+			path = "Controller/Week Scheduler";
+			sourceTree = "<group>";
+		};
+		9B006232212C7E670066CC9B /* Cascade Pumps */ = {
+			isa = PBXGroup;
+			children = (
+				9B3F411A2146F967000B4701 /* CascadeSpecs.swift */,
+				9B006233212C7E670066CC9B /* cascade.storyboard */,
+				9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */,
+				9B006235212C7E670066CC9B /* CascadePumpDetailViewController.swift */,
+				9B0A0A2621750E7100D1E9F4 /* CascadeSettingsViewController.swift */,
+			);
+			name = "Cascade Pumps";
+			sourceTree = "<group>";
+		};
+		9B2105B4218A19C700D36644 /* ShowList */ = {
+			isa = PBXGroup;
+			children = (
+				9B2105B5218A19C700D36644 /* ACTInstantPlayViewController.m */,
+				9B2105B6218A19C700D36644 /* showList.storyboard */,
+				9B2105B7218A19C700D36644 /* ACTInstantPlayViewController.h */,
+			);
+			name = ShowList;
+			path = Controller/ShowList;
+			sourceTree = "<group>";
+		};
+		9B3F410D2146CC22000B4701 /* Animation Pumps */ = {
+			isa = PBXGroup;
+			children = (
+				9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */,
+				BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */,
+				9B725D78214775BC008886A2 /* pumps.storyboard */,
+				9B725D7C214775BD008886A2 /* PumpDetailViewController.swift */,
+				9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */,
+				9B725D7B214775BD008886A2 /* PumpsViewController.swift */,
+			);
+			name = "Animation Pumps";
+			path = "Controller/Pumps/Animation Pumps";
+			sourceTree = "<group>";
+		};
+		9B5F3F2620DC5AD900D3CFDF /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F2720DC5AD900D3CFDF /* LICENSE */,
+				9B5F3F2820DC5AD900D3CFDF /* README.md */,
+				9B5F3F2920DC5AD900D3CFDF /* UIKit+AFNetworking */,
+				9B5F3F3B20DC5AD900D3CFDF /* AFNetworking */,
+			);
+			name = AFNetworking;
+			path = "Third Party Libraries/AFNetworking";
+			sourceTree = "<group>";
+		};
+		9B5F3F2920DC5AD900D3CFDF /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F2A20DC5AD900D3CFDF /* UIAlertView+AFNetworking.m */,
+				9B5F3F2B20DC5AD900D3CFDF /* UIProgressView+AFNetworking.m */,
+				9B5F3F2C20DC5AD900D3CFDF /* UIButton+AFNetworking.h */,
+				9B5F3F2D20DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.m */,
+				9B5F3F2E20DC5AD900D3CFDF /* UIImageView+AFNetworking.h */,
+				9B5F3F2F20DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m */,
+				9B5F3F3020DC5AD900D3CFDF /* UIWebView+AFNetworking.h */,
+				9B5F3F3120DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.h */,
+				9B5F3F3220DC5AD900D3CFDF /* UIAlertView+AFNetworking.h */,
+				9B5F3F3320DC5AD900D3CFDF /* UIProgressView+AFNetworking.h */,
+				9B5F3F3420DC5AD900D3CFDF /* UIImageView+AFNetworking.m */,
+				9B5F3F3520DC5AD900D3CFDF /* UIKit+AFNetworking.h */,
+				9B5F3F3620DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.h */,
+				9B5F3F3720DC5AD900D3CFDF /* UIButton+AFNetworking.m */,
+				9B5F3F3820DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.m */,
+				9B5F3F3920DC5AD900D3CFDF /* UIWebView+AFNetworking.m */,
+				9B5F3F3A20DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.h */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		9B5F3F3B20DC5AD900D3CFDF /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F3C20DC5AD900D3CFDF /* AFSecurityPolicy.h */,
+				9B5F3F3D20DC5AD900D3CFDF /* AFNetworkReachabilityManager.h */,
+				9B5F3F3E20DC5AD900D3CFDF /* AFHTTPRequestOperation.h */,
+				9B5F3F3F20DC5AD900D3CFDF /* AFHTTPRequestOperationManager.h */,
+				9B5F3F4020DC5AD900D3CFDF /* AFURLSessionManager.h */,
+				9B5F3F4120DC5AD900D3CFDF /* AFURLRequestSerialization.h */,
+				9B5F3F4220DC5AD900D3CFDF /* AFURLConnectionOperation.h */,
+				9B5F3F4320DC5AD900D3CFDF /* AFURLResponseSerialization.m */,
+				9B5F3F4420DC5AD900D3CFDF /* AFHTTPSessionManager.m */,
+				9B5F3F4520DC5AD900D3CFDF /* AFURLConnectionOperation.m */,
+				9B5F3F4620DC5AD900D3CFDF /* AFURLResponseSerialization.h */,
+				9B5F3F4720DC5AD900D3CFDF /* AFURLSessionManager.m */,
+				9B5F3F4820DC5AD900D3CFDF /* AFHTTPRequestOperationManager.m */,
+				9B5F3F4920DC5AD900D3CFDF /* AFURLRequestSerialization.m */,
+				9B5F3F4A20DC5AD900D3CFDF /* AFHTTPRequestOperation.m */,
+				9B5F3F4B20DC5AD900D3CFDF /* AFNetworking.h */,
+				9B5F3F4C20DC5AD900D3CFDF /* AFNetworkReachabilityManager.m */,
+				9B5F3F4D20DC5AD900D3CFDF /* AFSecurityPolicy.m */,
+				9B5F3F4E20DC5AD900D3CFDF /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		9B5F3F4F20DC5AD900D3CFDF /* Modbus */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F5020DC5AD900D3CFDF /* modbus-private.h */,
+				9B5F3F5120DC5AD900D3CFDF /* config.h */,
+				9B5F3F5220DC5AD900D3CFDF /* modbus-data.c */,
+				9B5F3F5320DC5AD900D3CFDF /* AUTHORS */,
+				9B5F3F5420DC5AD900D3CFDF /* ObjectiveLibModbus.h */,
+				9B5F3F5520DC5AD900D3CFDF /* modbus.c */,
+				9B5F3F5620DC5AD900D3CFDF /* modbus-tcp.c */,
+				9B5F3F5720DC5AD900D3CFDF /* modbus-rtu.h */,
+				9B5F3F5820DC5AD900D3CFDF /* modbus-version.h */,
+				9B5F3F5920DC5AD900D3CFDF /* COPYING.LESSER */,
+				9B5F3F5A20DC5AD900D3CFDF /* COPYING */,
+				9B5F3F5B20DC5AD900D3CFDF /* NEWS */,
+				9B5F3F5C20DC5AD900D3CFDF /* modbus-rtu.c */,
+				9B5F3F5D20DC5AD900D3CFDF /* modbus-tcp.h */,
+				9B5F3F5E20DC5AD900D3CFDF /* README.rst */,
+				9B5F3F5F20DC5AD900D3CFDF /* modbus.h */,
+				9B5F3F6020DC5AD900D3CFDF /* modbus-tcp-private.h */,
+				9B5F3F6120DC5AD900D3CFDF /* ObjectiveLibModbus.m */,
+				9B5F3F6220DC5AD900D3CFDF /* modbus-rtu-private.h */,
+			);
+			name = Modbus;
+			path = "Third Party Libraries/Modbus";
+			sourceTree = "<group>";
+		};
+		9B5F3F6620DC5AD900D3CFDF /* SwiftRecord */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F6720DC5AD900D3CFDF /* SwiftRecord.swift */,
+			);
+			name = SwiftRecord;
+			path = "Third Party Libraries/SwiftRecord";
+			sourceTree = "<group>";
+		};
+		9B5F3F6820DC5AD900D3CFDF /* RDVCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F6920DC5AD900D3CFDF /* RDVCalendarView.h */,
+				9B5F3F6A20DC5AD900D3CFDF /* RDVCalendarViewController.h */,
+				9B5F3F6B20DC5AD900D3CFDF /* RDVCalendarDayCell.m */,
+				9B5F3F6C20DC5AD900D3CFDF /* RDVCalendarView.m */,
+				9B5F3F6D20DC5AD900D3CFDF /* RDVCalendarViewController.m */,
+				9B5F3F6E20DC5AD900D3CFDF /* RDVCalendarDayCell.h */,
+			);
+			name = RDVCalendarView;
+			path = "Third Party Libraries/RDVCalendarView";
+			sourceTree = "<group>";
+		};
+		9B5F3F9120DC5AF400D3CFDF /* Project Specific */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F9320DC5AF400D3CFDF /* CentralSystem.swift */,
+				9B5F3F9420DC5AF400D3CFDF /* LocalStorage.swift */,
+			);
+			name = "Project Specific";
+			path = "Modules/Project Specific";
+			sourceTree = "<group>";
+		};
+		9B5F3F9520DC5AF400D3CFDF /* Legacy Codes */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F9620DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.h */,
+				9B5F3F9720DC5AF400D3CFDF /* Utilits.m */,
+				9B5F3F9820DC5AF400D3CFDF /* ACTDayValues.m */,
+				9B5F3F9920DC5AF400D3CFDF /* ACTUISafeNavigationController.m */,
+				9B5F3F9A20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m */,
+				9B5F3F9B20DC5AF400D3CFDF /* Utilits.h */,
+				9B5F3F9C20DC5AF400D3CFDF /* ACTUISafeNavigationController.h */,
+				9B5F3F9D20DC5AF400D3CFDF /* ACTDayValues.h */,
+			);
+			name = "Legacy Codes";
+			path = "Modules/Legacy Codes";
+			sourceTree = "<group>";
+		};
+		9B5F3F9E20DC5AF400D3CFDF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F9F20DC5AF400D3CFDF /* HTTPComm.swift */,
+				9B5F3FA020DC5AF400D3CFDF /* ShowManager.swift */,
+				9BBB8EEF2135C359001F9F01 /* ShowHideSettingsLabel.swift */,
+				9B5F3FA120DC5AF400D3CFDF /* Logger.swift */,
+				9B5F3FA220DC5AF400D3CFDF /* Extensions.swift */,
+				9B006222212C7E160066CC9B /* check12or24Hour.swift */,
+				9B5F3FA320DC5AF400D3CFDF /* Helper.swift */,
+				9B5F3FA420DC5AF400D3CFDF /* ShowSettings.swift */,
+			);
+			name = Base;
+			path = Modules/Base;
+			sourceTree = "<group>";
+		};
+		9B5F3FB220DC5B1200D3CFDF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3F9220DC5AF400D3CFDF /* HomeGeneralSpecs.swift */,
+				9B5F3FB520DC5B1200D3CFDF /* Main.storyboard */,
+				9B5F3FB320DC5B1200D3CFDF /* HomeSettingsViewController.swift */,
+				BB7D48AA2267D06F00346EA9 /* DesignateShowsViewController.swift */,
+				9B5F3FB420DC5B1200D3CFDF /* HomeViewController.swift */,
+			);
+			name = Home;
+			path = Controller/Home;
+			sourceTree = "<group>";
+		};
+		9B5F3FB620DC5B1200D3CFDF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FB720DC5B1200D3CFDF /* settings.storyboard */,
+				9B5F3FB820DC5B1200D3CFDF /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			path = Controller/Settings;
+			sourceTree = "<group>";
+		};
+		9B5F3FE420DC5B1200D3CFDF /* Operation Manual */ = {
+			isa = PBXGroup;
+			children = (
+				9B7DE9492118FFB200664D41 /* OManual.pdf */,
+				9B5F3FE520DC5B1200D3CFDF /* OperationManual.swift */,
+			);
+			name = "Operation Manual";
+			path = "Controller/Operation Manual";
+			sourceTree = "<group>";
+		};
+		9B5F3FE620DC5B1200D3CFDF /* Show Stoppers */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FE720DC5B1200D3CFDF /* Indicators */,
+				9B5F3FF020DC5B1200D3CFDF /* ShowStoppers.storyboard */,
+				9B5F3FF120DC5B1200D3CFDF /* ShowStopperChecker.swift */,
+				9B8DB3412148337B001CF70D /* ShowStopperSpecs.swift */,
+			);
+			name = "Show Stoppers";
+			path = "Controller/Show Stoppers";
+			sourceTree = "<group>";
+		};
+		9B5F3FE720DC5B1200D3CFDF /* Indicators */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FE820DC5B1200D3CFDF /* alarm_pump.png */,
+				9B5F3FE920DC5B1200D3CFDF /* showStopperRATmode.png */,
+				9B5F3FEA20DC5B1200D3CFDF /* alarm_wind.png */,
+				9B5F3FEB20DC5B1200D3CFDF /* showStopperTemp.png */,
+				9B5F3FEC20DC5B1200D3CFDF /* showStopperWaterLevel.png */,
+				9B5F3FED20DC5B1200D3CFDF /* air_pressure_fault.png */,
+				BBA144F2224BE7B700C11357 /* tank_leakshowStopper.png */,
+				9B5F3FEE20DC5B1200D3CFDF /* intrusionsystem_button.png */,
+				9B5F3FEF20DC5B1200D3CFDF /* alarm_fog.png */,
+			);
+			path = Indicators;
+			sourceTree = "<group>";
+		};
+		9B5F3FF220DC5B1200D3CFDF /* Filtration */ = {
+			isa = PBXGroup;
+			children = (
+				9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */,
+				9B6D1C9D21092D3000183DED /* filtration.storyboard */,
+				9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */,
+				9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */,
+				9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */,
+				9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */,
+			);
+			name = Filtration;
+			path = Controller/Filtration;
+			sourceTree = "<group>";
+		};
+		9B5F3FF720DC5B1200D3CFDF /* Water Level */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FF820DC5B1200D3CFDF /* waterLevel.storyboard */,
+				9B5F3FF920DC5B1200D3CFDF /* WaterLevelSettingsViewController.swift */,
+				BB36C53F21EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift */,
+				9B8DB33F214832B6001CF70D /* WaterLevelSpecs.swift */,
+				9B5F3FFA20DC5B1200D3CFDF /* WaterLevelViewController.swift */,
+			);
+			name = "Water Level";
+			path = "Controller/Water Level";
+			sourceTree = "<group>";
+		};
+		9B5F3FFB20DC5B1200D3CFDF /* Scheduler */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FFC20DC5B1200D3CFDF /* scheduler.storyboard */,
+				9B5F3FFD20DC5B1200D3CFDF /* ACTScheduleViewController.m */,
+				9B5F3FFE20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m */,
+				9B5F3FFF20DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.h */,
+				9B5F400020DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m */,
+				9B5F400120DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.h */,
+				9B5F400220DC5B1200D3CFDF /* ACTScheduleViewController.h */,
+				9B5F400320DC5B1200D3CFDF /* ACTCalendarScheduleViewController.h */,
+				9B5F400420DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m */,
+			);
+			name = Scheduler;
+			path = Controller/Scheduler;
+			sourceTree = "<group>";
+		};
+		9BA7A04121920E2C0038D13D /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				9BA7A04221920E2C0038D13D /* ACTPlaylistViewController.h */,
+				9BA7A04321920E2C0038D13D /* playlist.storyboard */,
+				9BA7A04421920E2C0038D13D /* ACTPlaylistSettingsViewController.h */,
+				9BA7A04521920E2C0038D13D /* ACTDesignateTestShowViewController.m */,
+				9BA7A04621920E2C0038D13D /* ACTSelectShowViewController.m */,
+				9BA7A04721920E2C0038D13D /* ACTPlaylistViewController.m */,
+				9BA7A04821920E2C0038D13D /* ACTPlaylistSettingsViewController.m */,
+				9BA7A04921920E2C0038D13D /* ACTDesignateTestShowViewController.h */,
+				9BA7A04A21920E2C0038D13D /* ACTSelectShowViewController.h */,
+			);
+			name = Playlist;
+			path = Controller/Playlist;
+			sourceTree = "<group>";
+		};
+		9BCE6F90213ED31D00ED2DDC /* Fog */ = {
+			isa = PBXGroup;
+			children = (
+				9BCE6F95213ED40B00ED2DDC /* FogSpecs.swift */,
+				9BCE6F91213ED31D00ED2DDC /* fog.storyboard */,
+				9BCE6F92213ED31D00ED2DDC /* FogViewController.swift */,
+				9BDE72A7216BFF6A0075CF3E /* FogSettingsViewController.swift */,
+			);
+			name = Fog;
+			path = Controller/Fog;
+			sourceTree = "<group>";
+		};
+		BB3B4FD321E954CC00D64D6F /* FillerShows */ = {
+			isa = PBXGroup;
+			children = (
+				BB3B4FD521E954CC00D64D6F /* FillerShowsViewController.swift */,
+				BB3DB43821F902C30005A558 /* DesignateFillerShowViewController.swift */,
+				BBC8B1D821ED372C00761E0F /* FillerShowSettingsViewController.swift */,
+				BB3B4FD621E954CC00D64D6F /* fillerShows.storyboard */,
+			);
+			path = FillerShows;
+			sourceTree = "<group>";
+		};
+		BB3DB41F21F7AC9B0005A558 /* Water Quality */ = {
+			isa = PBXGroup;
+			children = (
+				BB3DB40921F67D120005A558 /* ORPSetpointViewController.swift */,
+				BB3DB40D21F67D1F0005A558 /* BRSetpointViewController.swift */,
+				BB3DB40F21F67D1F0005A558 /* TDSSetpointViewController.swift */,
+				BB3DB40E21F67D1F0005A558 /* PHSetpointViewController.swift */,
+				BB6A0427225D320400153CEC /* OzonePopupViewController.swift */,
+				BB3DB42021F7AC9B0005A558 /* WaterQualitySpecs.swift */,
+				BB3DB42121F7AC9B0005A558 /* TDSViewController.swift */,
+				BB3DB42221F7AC9B0005A558 /* WaterQualityViewController.swift */,
+				BB3DB42321F7AC9B0005A558 /* WaterQualitySettingsViewController.swift */,
+				BB3DB42421F7AC9B0005A558 /* PHViewController.swift */,
+				BB3DB42521F7AC9B0005A558 /* ORPViewController.swift */,
+				BB3DB42621F7AC9B0005A558 /* BromineViewController.swift */,
+				BB3DB42721F7AC9B0005A558 /* waterQuality.storyboard */,
+			);
+			path = "Water Quality";
+			sourceTree = "<group>";
+		};
+		BBBBC0B421D6A6DE004EC984 /* Projector */ = {
+			isa = PBXGroup;
+			children = (
+				BBBBC0B521D6A717004EC984 /* ProjectorViewController.swift */,
+				BB0F3D06228B343D0049613A /* ProjectorStatusViewController.swift */,
+				BBBBC0B721D6A7F8004EC984 /* Projector.storyboard */,
+			);
+			path = Projector;
+			sourceTree = "<group>";
+		};
+		BBBE0B7F21C165D20067A0FE /* SystemStatus */ = {
+			isa = PBXGroup;
+			children = (
+				9B5F3FC420DC5B1200D3CFDF /* systemstatus.storyboard */,
+				BBBE0B8021C166380067A0FE /* SystemStatusViewController.swift */,
+				BBBE0B8421C177430067A0FE /* SystemStatusSpecs.swift */,
+				9BD68EBC21C2F09100D93CB0 /* SystemFaultViewController.swift */,
+			);
+			path = SystemStatus;
+			sourceTree = "<group>";
+		};
+		E5A214DD754AF7C8773615A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DABF08559F25EA52E20E4FEF /* Pods-iPadControls.debug.xcconfig */,
+				CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		88243C091DEF5965004D39D8 /* iPadControls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88243C1F1DEF5965004D39D8 /* Build configuration list for PBXNativeTarget "iPadControls" */;
+			buildPhases = (
+				1C562AD02A756C67D80DBA37 /* [CP] Check Pods Manifest.lock */,
+				88243C061DEF5965004D39D8 /* Sources */,
+				88243C071DEF5965004D39D8 /* Frameworks */,
+				88243C081DEF5965004D39D8 /* Resources */,
+				DD8281455C29E77E01029533 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iPadControls;
+			productName = iPadControls;
+			productReference = 88243C0A1DEF5965004D39D8 /* iPadControls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		88243C021DEF5965004D39D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = WET;
+				TargetAttributes = {
+					88243C091DEF5965004D39D8 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 754D679GZJ;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 88243C051DEF5965004D39D8 /* Build configuration list for PBXProject "iPadControls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 88243C011DEF5965004D39D8;
+			productRefGroup = 88243C0B1DEF5965004D39D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88243C091DEF5965004D39D8 /* iPadControls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		88243C081DEF5965004D39D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B2105B9218A19C800D36644 /* showList.storyboard in Resources */,
+				9B5F3F0220DC5A8D00D3CFDF /* versionNum.txt in Resources */,
+				9BA7A04B21920E2D0038D13D /* playlist.storyboard in Resources */,
+				9B5F3F8620DC5AD900D3CFDF /* COPYING.LESSER in Resources */,
+				9B5F3F0320DC5A8D00D3CFDF /* MIDF.rtf in Resources */,
+				BBA144F3224BE7B700C11357 /* tank_leakshowStopper.png in Resources */,
+				9B5F401B20DC5B1200D3CFDF /* settings.storyboard in Resources */,
+				9B725D9C214775E5008886A2 /* lights.storyboard in Resources */,
+				9BF5679D20DC69DE001AFD30 /* iPadControls-Info.plist in Resources */,
+				9B5F3F8720DC5AD900D3CFDF /* COPYING in Resources */,
+				9BCE6F93213ED31D00ED2DDC /* fog.storyboard in Resources */,
+				9B5F3F8320DC5AD900D3CFDF /* AUTHORS in Resources */,
+				9B6D1CA121092D3000183DED /* filtration.storyboard in Resources */,
+				9B5F404C20DC5B1200D3CFDF /* scheduler.storyboard in Resources */,
+				9B5F401A20DC5B1200D3CFDF /* Main.storyboard in Resources */,
+				9B725D7D214775BD008886A2 /* pumps.storyboard in Resources */,
+				9B006236212C7E670066CC9B /* cascade.storyboard in Resources */,
+				9B5F404920DC5B1200D3CFDF /* waterLevel.storyboard in Resources */,
+				9B7DE94A2118FFB300664D41 /* OManual.pdf in Resources */,
+				9B5F3F7020DC5AD900D3CFDF /* README.md in Resources */,
+				9B5F403B20DC5B1200D3CFDF /* alarm_pump.png in Resources */,
+				BB3B4FDB21E954CD00D64D6F /* fillerShows.storyboard in Resources */,
+				9B147C9D20DC68C0003DDFE8 /* LaunchScreen.storyboard in Resources */,
+				9B5F3F0C20DC5AA000D3CFDF /* languages.json in Resources */,
+				9B5F403F20DC5B1200D3CFDF /* showStopperWaterLevel.png in Resources */,
+				BB3DB43521F7C2FB0005A558 /* Assets.xcassets in Resources */,
+				9B5F404320DC5B1200D3CFDF /* ShowStoppers.storyboard in Resources */,
+				BBBBC0B821D6A7F8004EC984 /* Projector.storyboard in Resources */,
+				9B5F403C20DC5B1200D3CFDF /* showStopperRATmode.png in Resources */,
+				9B5F403E20DC5B1200D3CFDF /* showStopperTemp.png in Resources */,
+				9B5F404120DC5B1200D3CFDF /* intrusionsystem_button.png in Resources */,
+				9B5F3F8820DC5AD900D3CFDF /* NEWS in Resources */,
+				9B5F404220DC5B1200D3CFDF /* alarm_fog.png in Resources */,
+				9B5F403D20DC5B1200D3CFDF /* alarm_wind.png in Resources */,
+				9B5F404020DC5B1200D3CFDF /* air_pressure_fault.png in Resources */,
+				9B5F3F8A20DC5AD900D3CFDF /* README.rst in Resources */,
+				BB3DB42F21F7AC9B0005A558 /* waterQuality.storyboard in Resources */,
+				9B5F402220DC5B1200D3CFDF /* systemstatus.storyboard in Resources */,
+				9B5F3F6F20DC5AD900D3CFDF /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C562AD02A756C67D80DBA37 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iPadControls-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8281455C29E77E01029533 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/NMSSH/NMSSH.framework",
+				"${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework",
+				"${BUILT_PRODUCTS_DIR}/ReaderFramework/ReaderFramework.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMSSH.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlainPing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReaderFramework.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88243C061DEF5965004D39D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B5F3F2520DC5AB400D3CFDF /* Network+CoreDataProperties.swift in Sources */,
+				9B5F3F2320DC5AB400D3CFDF /* Show+CoreDataClass.swift in Sources */,
+				9B5F3FB120DC5AF400D3CFDF /* ShowSettings.swift in Sources */,
+				9B8DB3422148337B001CF70D /* ShowStopperSpecs.swift in Sources */,
+				9B5F3FAB20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m in Sources */,
+				BB0F3D07228B343D0049613A /* ProjectorStatusViewController.swift in Sources */,
+				9B725D9B214775E5008886A2 /* LightsSpecs.swift in Sources */,
+				9BA7A04E21920E2D0038D13D /* ACTPlaylistViewController.m in Sources */,
+				9B5F3F8220DC5AD900D3CFDF /* modbus-data.c in Sources */,
+				9B725D7E214775BD008886A2 /* AnimationPumpsSpecs.swift in Sources */,
+				BB3DB42921F7AC9B0005A558 /* TDSViewController.swift in Sources */,
+				9B5F401C20DC5B1200D3CFDF /* SettingsViewController.swift in Sources */,
+				9B5F3F1E20DC5AB400D3CFDF /* Wind+CoreDataProperties.swift in Sources */,
+				BBBE0B8121C166380067A0FE /* SystemStatusViewController.swift in Sources */,
+				9B5F3F1B20DC5AB400D3CFDF /* PumpDetail+CoreDataProperties.swift in Sources */,
+				9B5F3FAC20DC5AF400D3CFDF /* HTTPComm.swift in Sources */,
+				9B3D3B6F20DC615B00E34BE4 /* AppDelegate.swift in Sources */,
+				9B0A0A2721750E7100D1E9F4 /* CascadeSettingsViewController.swift in Sources */,
+				9B725DA121477601008886A2 /* WeekSchedulerPopoverView.swift in Sources */,
+				BB7D48AB2267D06F00346EA9 /* DesignateShowsViewController.swift in Sources */,
+				9B5F3FA920DC5AF400D3CFDF /* ACTDayValues.m in Sources */,
+				9B5F3F8120DC5AD900D3CFDF /* AFSecurityPolicy.m in Sources */,
+				BB3DB41421F67D1F0005A558 /* PHSetpointViewController.swift in Sources */,
+				9B6D1CA021092D3000183DED /* FiltrationPumpDetailViewController.swift in Sources */,
+				BB3DB41521F67D1F0005A558 /* TDSSetpointViewController.swift in Sources */,
+				BB6A0428225D320400153CEC /* OzonePopupViewController.swift in Sources */,
+				9B5F3F2120DC5AB400D3CFDF /* Network+CoreDataClass.swift in Sources */,
+				BB36C54021EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift in Sources */,
+				9B5F3FAA20DC5AF400D3CFDF /* ACTUISafeNavigationController.m in Sources */,
+				9B5F3F7620DC5AD900D3CFDF /* UIButton+AFNetworking.m in Sources */,
+				9B5F3F8F20DC5AD900D3CFDF /* RDVCalendarView.m in Sources */,
+				9B5F3F7B20DC5AD900D3CFDF /* AFURLConnectionOperation.m in Sources */,
+				9B5F3F7320DC5AD900D3CFDF /* UIRefreshControl+AFNetworking.m in Sources */,
+				BB3DB41321F67D1F0005A558 /* BRSetpointViewController.swift in Sources */,
+				9B5F3F7120DC5AD900D3CFDF /* UIAlertView+AFNetworking.m in Sources */,
+				9B5F3F9020DC5AD900D3CFDF /* RDVCalendarViewController.m in Sources */,
+				9B5F401920DC5B1200D3CFDF /* HomeViewController.swift in Sources */,
+				9BD68EBD21C2F09100D93CB0 /* SystemFaultViewController.swift in Sources */,
+				BB3DB42821F7AC9B0005A558 /* WaterQualitySpecs.swift in Sources */,
+				9B5F405020DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m in Sources */,
+				9B2105B8218A19C800D36644 /* ACTInstantPlayViewController.m in Sources */,
+				9BB3349521482B350004FFBC /* WeekSchedulerSpecs.swift in Sources */,
+				9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */,
+				9BA7A04F21920E2D0038D13D /* ACTPlaylistSettingsViewController.m in Sources */,
+				9B5F3F7420DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */,
+				9B5F403A20DC5B1200D3CFDF /* OperationManual.swift in Sources */,
+				9B5F3F8920DC5AD900D3CFDF /* modbus-rtu.c in Sources */,
+				9B5F3F8420DC5AD900D3CFDF /* modbus.c in Sources */,
+				9B725D7F214775BD008886A2 /* PumpSettingsViewController.swift in Sources */,
+				BBC8B1D921ED372C00761E0F /* FillerShowSettingsViewController.swift in Sources */,
+				9B725D9D214775E5008886A2 /* LightsViewController.swift in Sources */,
+				9B5F3F8520DC5AD900D3CFDF /* modbus-tcp.c in Sources */,
+				9B5F3F8020DC5AD900D3CFDF /* AFNetworkReachabilityManager.m in Sources */,
+				9BDE72A8216BFF6A0075CF3E /* FogSettingsViewController.swift in Sources */,
+				BB3DB42A21F7AC9B0005A558 /* WaterQualityViewController.swift in Sources */,
+				9B725DA221477601008886A2 /* WeekSchedulerViewController.swift in Sources */,
+				9BCE6F96213ED40C00ED2DDC /* FogSpecs.swift in Sources */,
+				9B5F3F7A20DC5AD900D3CFDF /* AFHTTPSessionManager.m in Sources */,
+				9B5F3F7720DC5AD900D3CFDF /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				9B5F404420DC5B1200D3CFDF /* ShowStopperChecker.swift in Sources */,
+				9B5F3FA720DC5AF400D3CFDF /* LocalStorage.swift in Sources */,
+				9B5F3FB020DC5AF400D3CFDF /* Helper.swift in Sources */,
+				9BA7A04C21920E2D0038D13D /* ACTDesignateTestShowViewController.m in Sources */,
+				9BA7A04D21920E2D0038D13D /* ACTSelectShowViewController.m in Sources */,
+				9B5F3F7F20DC5AD900D3CFDF /* AFHTTPRequestOperation.m in Sources */,
+				9B725D81214775BD008886A2 /* PumpDetailViewController.swift in Sources */,
+				9B006223212C7E160066CC9B /* check12or24Hour.swift in Sources */,
+				9B5F3F1F20DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift in Sources */,
+				9B5F3F7520DC5AD900D3CFDF /* UIImageView+AFNetworking.m in Sources */,
+				9B3D3C09216D173D00E68F6A /* FiltrationSchedulerViewController.swift in Sources */,
+				9B006237212C7E670066CC9B /* CascadePumpsViewController.swift in Sources */,
+				9B5F3F7E20DC5AD900D3CFDF /* AFURLRequestSerialization.m in Sources */,
+				BB3DB43921F902C30005A558 /* DesignateFillerShowViewController.swift in Sources */,
+				9B5F3F7920DC5AD900D3CFDF /* AFURLResponseSerialization.m in Sources */,
+				9B5F3FA620DC5AF400D3CFDF /* CentralSystem.swift in Sources */,
+				9B6D1CA221092D3000183DED /* FiltrationViewController.swift in Sources */,
+				9B5F3FAF20DC5AF400D3CFDF /* Extensions.swift in Sources */,
+				9B5F3F8B20DC5AD900D3CFDF /* ObjectiveLibModbus.m in Sources */,
+				9B5F3F2020DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift in Sources */,
+				9B5F3F2220DC5AB400D3CFDF /* Pump+CoreDataClass.swift in Sources */,
+				9B5F3F7C20DC5AD900D3CFDF /* AFURLSessionManager.m in Sources */,
+				9B725DA321477601008886A2 /* WeekendViewController.swift in Sources */,
+				9B5F3F7820DC5AD900D3CFDF /* UIWebView+AFNetworking.m in Sources */,
+				9B725D80214775BD008886A2 /* PumpsViewController.swift in Sources */,
+				BBBE0B8521C177430067A0FE /* SystemStatusSpecs.swift in Sources */,
+				9B5F3FA820DC5AF400D3CFDF /* Utilits.m in Sources */,
+				BB3DB42D21F7AC9B0005A558 /* ORPViewController.swift in Sources */,
+				9BCE6F94213ED31D00ED2DDC /* FogViewController.swift in Sources */,
+				BBA1C8AC21E5545C00885683 /* QuadrantsPopUpViewController.swift in Sources */,
+				9B5F3F7D20DC5AD900D3CFDF /* AFHTTPRequestOperationManager.m in Sources */,
+				BB3DB42E21F7AC9B0005A558 /* BromineViewController.swift in Sources */,
+				9B5F404B20DC5B1200D3CFDF /* WaterLevelViewController.swift in Sources */,
+				9B5F3F2420DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift in Sources */,
+				9B5F3F1C20DC5AB400D3CFDF /* Show+CoreDataProperties.swift in Sources */,
+				9B3F41192146DCFC000B4701 /* FiltrationSpecs.swift in Sources */,
+				9B5F3F7220DC5AD900D3CFDF /* UIProgressView+AFNetworking.m in Sources */,
+				9B5F3FA520DC5AF400D3CFDF /* HomeGeneralSpecs.swift in Sources */,
+				9B5F3F8E20DC5AD900D3CFDF /* RDVCalendarDayCell.m in Sources */,
+				9B5F404A20DC5B1200D3CFDF /* WaterLevelSettingsViewController.swift in Sources */,
+				9B5F3F1D20DC5AB400D3CFDF /* Wind+CoreDataClass.swift in Sources */,
+				BBBBC0B621D6A717004EC984 /* ProjectorViewController.swift in Sources */,
+				9B5F401820DC5B1200D3CFDF /* HomeSettingsViewController.swift in Sources */,
+				9B8DB340214832B6001CF70D /* WaterLevelSpecs.swift in Sources */,
+				BB3B4FDA21E954CD00D64D6F /* FillerShowsViewController.swift in Sources */,
+				BB3DB40A21F67D120005A558 /* ORPSetpointViewController.swift in Sources */,
+				9B6D1C9F21092D3000183DED /* FiltrationSettingsViewController.swift in Sources */,
+				9B5F3FAD20DC5AF400D3CFDF /* ShowManager.swift in Sources */,
+				9B5F3F1A20DC5AB400D3CFDF /* Pump+CoreDataProperties.swift in Sources */,
+				9B5F404D20DC5B1200D3CFDF /* ACTScheduleViewController.m in Sources */,
+				9B5F3F0B20DC5AA000D3CFDF /* iPadControls.xcdatamodeld in Sources */,
+				9B006238212C7E670066CC9B /* CascadePumpDetailViewController.swift in Sources */,
+				9B5F3FAE20DC5AF400D3CFDF /* Logger.swift in Sources */,
+				9BBB8EF02135C359001F9F01 /* ShowHideSettingsLabel.swift in Sources */,
+				9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */,
+				9B5F3F8D20DC5AD900D3CFDF /* SwiftRecord.swift in Sources */,
+				BB3DB42B21F7AC9B0005A558 /* WaterQualitySettingsViewController.swift in Sources */,
+				BB3DB42C21F7AC9B0005A558 /* PHViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9B147C9B20DC68C0003DDFE8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B147C9C20DC68C0003DDFE8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		88243C1D1DEF5965004D39D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		88243C1E1DEF5965004D39D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		88243C201DEF5965004D39D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DABF08559F25EA52E20E4FEF /* Pods-iPadControls.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 754D679GZJ;
+				INFOPLIST_FILE = "iPadControls/Resources/iPadControls-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WET.iPadControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
+				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		88243C211DEF5965004D39D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 754D679GZJ;
+				INFOPLIST_FILE = "iPadControls/Resources/iPadControls-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WET.iPadControls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
+				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		88243C051DEF5965004D39D8 /* Build configuration list for PBXProject "iPadControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88243C1D1DEF5965004D39D8 /* Debug */,
+				88243C1E1DEF5965004D39D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88243C1F1DEF5965004D39D8 /* Build configuration list for PBXNativeTarget "iPadControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88243C201DEF5965004D39D8 /* Debug */,
+				88243C211DEF5965004D39D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9B5F3F0620DC5AA000D3CFDF /* iPadControls.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9B5F3F0720DC5AA000D3CFDF /* iPadControls.xcdatamodel */,
+			);
+			currentVersion = 9B5F3F0720DC5AA000D3CFDF /* iPadControls.xcdatamodel */;
+			name = iPadControls.xcdatamodeld;
+			path = Resources/iPadControls.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 88243C021DEF5965004D39D8 /* Project object */;
+}

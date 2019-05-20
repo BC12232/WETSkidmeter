@@ -1,0 +1,5 @@
+{
+  "windBelowLow" : 0,
+  "windAboveHi" : 2,
+  "windNeither" : 1
+}

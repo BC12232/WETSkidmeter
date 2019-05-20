@@ -1,0 +1,6 @@
+framework module ReaderFramework {
+  umbrella header "ReaderFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

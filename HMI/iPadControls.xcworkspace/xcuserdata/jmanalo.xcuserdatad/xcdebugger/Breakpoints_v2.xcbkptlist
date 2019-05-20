@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPadControls/Controller/Water Level/WaterLevelSettingsViewController.swift"
+            timestampString = "561327306.742565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "readLT1001SP()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iPadControls.WaterLevelSettingsViewController.(readLT1001SP in _3A8CE76EE0263514FAEE9F55F2183FAB)() -&gt; ()"
+                  moduleName = "iPadControls"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jmanalo/Desktop/JEWL/HMI/iPadControls/Controller/Water%20Level/WaterLevelSettingsViewController.swift"
+                  timestampString = "566432592.011008"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
+                  offsetFromSymbolStart = "235">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.String) -&gt; () in iPadControls.WaterLevelSettingsViewController.(readLT1001SP in _3A8CE76EE0263514FAEE9F55F2183FAB)() -&gt; ()"
+                  moduleName = "iPadControls"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jmanalo/Desktop/JEWL/HMI/iPadControls/Controller/Water%20Level/WaterLevelSettingsViewController.swift"
+                  timestampString = "566432592.013108"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "481"
+                  endingLineNumber = "481"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iPadControls/Controller/Water Level/WaterLevelSettingsViewController.swift"
+            timestampString = "561327306.7431639"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "485"
+            endingLineNumber = "485"
+            landmarkName = "readLT1001SP()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
