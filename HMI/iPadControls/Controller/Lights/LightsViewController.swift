@@ -181,7 +181,7 @@ class LightsViewController: UIViewController {
             
         }
 
-        if waterLevelBelowLLFault.count == 7 {
+        if waterLevelBelowLLFault.count == 3 {
             
             if waterLevelBelowLLFault.contains(1){
                 lowWaterNoLightsIcon.isHidden = false

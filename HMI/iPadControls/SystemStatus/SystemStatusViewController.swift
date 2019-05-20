@@ -200,7 +200,7 @@ class SystemStatusViewController: UIViewController {
                         checkFaultButton.isHidden = false
                         checkFaultButton.frame.origin.y = CGFloat(yPosition-offset-3)
                         
-                        for index in 0...34 {
+                        for index in 0...4 {
                             CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(ETHERNET_STATUS.startingregister+index), completion:{ (success, response) in
                                 
                                 guard success == true else { return }

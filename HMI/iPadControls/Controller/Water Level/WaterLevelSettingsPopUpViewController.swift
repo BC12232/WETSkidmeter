@@ -11,8 +11,8 @@ import UIKit
 class WaterLevelSettingsPopUpViewController: UIViewController {
     var waterTankNum = 0
     let offset = 20
-    let WATERLEVEL_LT110                           = 3000
-    let WATERLEVEL_LT110_WRITESP                   = 3006
+    let WATERLEVEL_LT1001                           = 3000
+    let WATERLEVEL_LT1001_WRITESP                   = 3006
     
     @IBOutlet weak var tankNameLbl: UILabel!
     @IBOutlet weak var scaledValueLabel: UILabel!
@@ -31,55 +31,27 @@ class WaterLevelSettingsPopUpViewController: UIViewController {
         super.viewDidLoad()
         
         switch waterTankNum {
-            case 0: tankNameLbl.text = "LT110"
-                    scaledValueLabel.text = "LT110 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT110 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT110 BELOW LL SP"
-                    belowLSPLabel.text = "LT110 BELOW L SP"
-                    aboveHighSPLabel.text = "LT110 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 1: tankNameLbl.text = "LT213"
-                    scaledValueLabel.text = "LT213 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT213 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT213 BELOW LL SP"
-                    belowLSPLabel.text = "LT213 BELOW L SP"
-                    aboveHighSPLabel.text = "LT110 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 2: tankNameLbl.text = "LT401"
-                    scaledValueLabel.text = "LT401 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT401 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT401 BELOW LL SP"
-                    belowLSPLabel.text = "LT401 BELOW L SP"
-                    aboveHighSPLabel.text = "LT401 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 3: tankNameLbl.text = "LT402"
-                    scaledValueLabel.text = "LT402 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT402 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT402 BELOW LL SP"
-                    belowLSPLabel.text = "LT402 BELOW L SP"
-                    aboveHighSPLabel.text = "LT402 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 4: tankNameLbl.text = "LT403"
-                    scaledValueLabel.text = "LT403 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT403 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT403 BELOW LL SP"
-                    belowLSPLabel.text = "LT403 BELOW L SP"
-                    aboveHighSPLabel.text = "LT403 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 5: tankNameLbl.text = "LT404"
-                    scaledValueLabel.text = "LT404 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT404 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT404 BELOW LL SP"
-                    belowLSPLabel.text = "LT404 BELOW L SP"
-                    aboveHighSPLabel.text = "LT404 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
-            case 6: tankNameLbl.text = "LT405"
-                    scaledValueLabel.text = "LT405 SCALED VALUE"
-                    belowLLLSPLabel.text = "LT405 BELOW LLL SP"
-                    belowLLSPLabel.text = "LT405 BELOW LL SP"
-                    belowLSPLabel.text = "LT405 BELOW L SP"
-                    aboveHighSPLabel.text = "LT405 ABOVE HI SP"
-                    self.readSetpoints(register: WATERLEVEL_LT110 + (offset*waterTankNum))
+            case 0: tankNameLbl.text = "LT1001"
+                    scaledValueLabel.text = "LT1001 SCALED VALUE"
+                    belowLLLSPLabel.text = "LT1001 BELOW LLL SP"
+                    belowLLSPLabel.text = "LT1001 BELOW LL SP"
+                    belowLSPLabel.text = "LT1001 BELOW L SP"
+                    aboveHighSPLabel.text = "LT1001 ABOVE HI SP"
+                    self.readSetpoints(register: WATERLEVEL_LT1001 + (offset*waterTankNum))
+            case 1: tankNameLbl.text = "LT1002"
+                    scaledValueLabel.text = "LT1002 SCALED VALUE"
+                    belowLLLSPLabel.text = "LT1002 BELOW LLL SP"
+                    belowLLSPLabel.text = "LT1002 BELOW LL SP"
+                    belowLSPLabel.text = "LT1002 BELOW L SP"
+                    aboveHighSPLabel.text = "LT1002 ABOVE HI SP"
+                    self.readSetpoints(register: WATERLEVEL_LT1001 + (offset*waterTankNum))
+            case 2: tankNameLbl.text = "LT1003"
+                    scaledValueLabel.text = "LT1003 SCALED VALUE"
+                    belowLLLSPLabel.text = "LT1003 BELOW LLL SP"
+                    belowLLSPLabel.text = "LT1003 BELOW LL SP"
+                    belowLSPLabel.text = "LT1003 BELOW L SP"
+                    aboveHighSPLabel.text = "LT1003 ABOVE HI SP"
+                    self.readSetpoints(register: WATERLEVEL_LT1001 + (offset*waterTankNum))
             
             default: print("No Number")
         }
@@ -127,10 +99,10 @@ class WaterLevelSettingsPopUpViewController: UIViewController {
         switch waterTankNum {
         
             case 0...6:
-                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT110_WRITESP + (offset*waterTankNum), value: waterLLLSP!)
-                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT110_WRITESP + (offset*waterTankNum) + 2, value: waterLLSP!)
-                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT110_WRITESP + (offset*waterTankNum) + 4, value: waterLSP!)
-                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT110_WRITESP + (offset*waterTankNum) + 6, value: aboveHigh!)
+                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT1001_WRITESP + (offset*waterTankNum), value: waterLLLSP!)
+                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT1001_WRITESP + (offset*waterTankNum) + 2, value: waterLLSP!)
+                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT1001_WRITESP + (offset*waterTankNum) + 4, value: waterLSP!)
+                        CENTRAL_SYSTEM!.writeRealValue(register: WATERLEVEL_LT1001_WRITESP + (offset*waterTankNum) + 6, value: aboveHigh!)
                 default: print("No Number")
             }
         
