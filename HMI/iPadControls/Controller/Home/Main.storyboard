@@ -370,8 +370,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1111" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8L-An-Lom">
-                                <rect key="frame" x="82" y="310" width="250" height="50"/>
+                            <button hidden="YES" opaque="NO" tag="1111" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8L-An-Lom">
+                                <rect key="frame" x="643" y="322" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="DESIGNATE FILLER SHOWS" backgroundImage="button_background">
                                     <color key="titleColor" red="0.16750634480000001" green="0.64803252020000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -381,19 +381,8 @@
                                     <action selector="designateFillerShowPopover:" destination="eFz-kV-idR" eventType="touchUpInside" id="hN2-Uk-r9S"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3333" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-oE-9qs">
-                                <rect key="frame" x="82" y="450" width="250" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DESIGNATE TEST SHOWS" backgroundImage="button_background">
-                                    <color key="titleColor" red="0.5116012096" green="0.74391287569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="designateFillerShowPopover:" destination="eFz-kV-idR" eventType="touchUpInside" id="gO8-wo-lcs"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2222" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEl-pz-2Ja">
-                                <rect key="frame" x="82" y="380" width="250" height="50"/>
+                            <button hidden="YES" opaque="NO" tag="2222" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEl-pz-2Ja">
+                                <rect key="frame" x="643" y="400" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="DESIGNATE SPECIAL SHOWS" backgroundImage="button_background">
                                     <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -460,6 +449,17 @@
                                 </state>
                                 <connections>
                                     <action selector="faultResetBtnPushed:" destination="eFz-kV-idR" eventType="touchUpInside" id="X5L-gQ-sTV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3333" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-oE-9qs">
+                                <rect key="frame" x="82" y="322" width="250" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="DESIGNATE TEST SHOWS" backgroundImage="button_background">
+                                    <color key="titleColor" red="0.5116012096" green="0.74391287569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="designateFillerShowPopover:" destination="eFz-kV-idR" eventType="touchUpInside" id="gO8-wo-lcs"/>
                                 </connections>
                             </button>
                         </subviews>

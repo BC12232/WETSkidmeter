@@ -13,7 +13,7 @@
 
 //NOTE: After implementing this screen, make sure following global configuration parameters are matching the project specifications
 
-let CONTROLS_APP_FTP_SERVER_VERSION_NUMBER_URL = "https://act:act@www.controlshelp.com/act/jewl/versionNum.php"
+let CONTROLS_APP_FTP_SERVER_VERSION_NUMBER_URL = "https://act:act@www.controlshelp.com/act/midf/versionNum.php"
 var isChineseVersion = false
 var currentVersion       = 1
 var updatedVersionNumber = 1

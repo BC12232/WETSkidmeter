@@ -137,7 +137,7 @@ let DEBUG_MODE                            = true
  ***************************************************************************/
 
 let IPAD_NUMBER_USER_DEFAULTS_NAME = "iPadNum"
-let CONTROLS_APP_UPDATE_URL        = "https://act:act@www.controlshelp.com/act/jewl/index.php?"
+let CONTROLS_APP_UPDATE_URL        = "https://act:act@www.controlshelp.com/act/midf/index.php?"
 
 /* To show the hidden settings click on the wet logo for more than 3 seconds, and type in the word "act"*/
 let SETTINGS_ICON_TAG   = 99999
