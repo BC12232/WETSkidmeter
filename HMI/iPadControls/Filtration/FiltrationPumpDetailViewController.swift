@@ -10,7 +10,7 @@ import UIKit
 
 class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
 
-    var pumpNumber = 101
+    var pumpNumber = 0
     
     private var pumpIndicatorLimit = 0
     
@@ -118,17 +118,14 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     //MARK: - View Will Appear
     
     override func viewWillAppear(_ animated: Bool){
-        
-        if CENTRAL_SYSTEM == nil{
-            
-            CENTRAL_SYSTEM = CentralSystem()
-            
-            //Initialize the central system so we can establish all the system config
-            CENTRAL_SYSTEM?.initialize()
-            CENTRAL_SYSTEM?.connect()
+        if pumpNumber == 101{
+            vfdNumber.text = "VFD - 101"
+        } else if pumpNumber == 102 {
+            vfdNumber.text = "VFD - 102"
+        } else if pumpNumber == 103 {
+            vfdNumber.text = "VFD - 103"
         }
         
-        vfdNumber.text = "VFD - \(pumpNumber)"
         pumpIndicatorLimit = 0
 
         //Configure Pump Screen Text Content Based On Device Language
@@ -138,7 +135,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         initializePumpGestureRecognizer()
 
         //Add show stoppers
-        addShowStoppers()
+        
         
         setPumpNumber()
         readCurrentPumpDetailsSpecs()
@@ -177,26 +174,13 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
     }
     
-    //====================================
-    //                                     CONNECTION AND SHOW STOPPERS CHECK POINTS
-    //====================================
-    
-    
-    //MARK: - Check Status Of The Connections To Server and PLC
-    
     @objc func checkSystemStat(){
+        let (plcConnection, _) = CENTRAL_SYSTEM!.getConnectivityStat()
         
-        let (plcConnection,_) = CENTRAL_SYSTEM!.getConnectivityStat()
-        
-        if plcConnection == CONNECTION_STATE_CONNECTED{
+        if plcConnection == CONNECTION_STATE_CONNECTED {
             
             //Change the connection stat indicator
             noConnectionView.alpha = 0
-            noConnectionView.isUserInteractionEnabled = false
-            
-            //Check if the pumps or on auto mode or hand mode
-            
-            logger.logData(data: "FILTATION PUMP: CONNECTION SUCCESS")
             
             readCurrentPumpSpeed()
             acquireDataFromPLC()
@@ -211,8 +195,8 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 noConnectionErrorLbl.text = "PLC POOR CONNECTION, SERVER CONNECTED"
             }
         }
-        
     }
+    
     
     
     //====================================
@@ -423,7 +407,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
         var padded = string
         
-        for _ in 0..<toSize - string.characters.count{
+        for _ in 0..<toSize - string.count{
             padded = "0" + padded
         }
         
@@ -451,7 +435,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 let decimalRsp = Int(truncating: response![0] as! NSNumber)
                 let base_2_binary = String(decimalRsp, radix: 2)
                 let Bit_16:String = self.pad(string: base_2_binary, toSize: 16)  //Convert to 16 bit
-                let bits =  Bit_16.characters.map { String($0) }
+                let bits =  Bit_16.map { String($0) }
                 self.parseStates(bits: bits)
                 
             }
@@ -492,14 +476,6 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 }
             }
             
-            if faultTag == 208 {
-                if state == 1 {
-                    indicator?.isHidden = false
-                } else {
-                    indicator?.isHidden = true
-                }
-            }
-            
             
         }
         
@@ -511,17 +487,15 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     //MARK: - Get Voltage Reading
     
     private func getVoltageReading(response:[AnyObject]?){
-        
         let voltage = Int(truncating: response![3] as! NSNumber)
         let voltageValue = voltage / 10
         let voltageRemainder = voltage % 10
         let indicatorLocation = abs(690 - (Double(voltageValue) * pixelPerVoltage))
         
-        
-        if indicatorLocation > 690 {
-            voltageIndicator.frame = CGRect(x: 419, y: 690, width: 92, height: 23)
-        } else if indicatorLocation < 240 {
+        if voltageValue >= voltageLimit {
             voltageIndicator.frame = CGRect(x: 419, y: 240, width: 92, height: 23)
+        } else if voltageValue <= 0 {
+            voltageIndicator.frame = CGRect(x: 419, y: 690, width: 92, height: 23)
         } else {
             voltageIndicator.frame = CGRect(x: 419, y: indicatorLocation, width: 92, height: 23)
         }
@@ -529,11 +503,8 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         voltageIndicatorValue.text = "\(voltageValue).\(voltageRemainder)"
         
         if voltageValue > voltageMaxRangeValue || voltageValue < voltageMinRangeValue {
-            
             voltageIndicatorValue.textColor = RED_COLOR
-            
         } else {
-            
             voltageIndicatorValue.textColor = GREEN_COLOR
         }
     }
@@ -542,15 +513,14 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     
     private func getCurrentReading(response:[AnyObject]?){
         let current = Int(truncating: response![2] as! NSNumber)
-        let currentValue = current / 10
-        let currentRemainder = current % 10
+        let currentValue = current / 100
+        let currentRemainder = current % 100
         let indicatorLocation = abs(690 - (Double(currentValue) * pixelPerCurrent))
         
-        
-        if indicatorLocation > 690 {
-            currentIndicator.frame = CGRect(x: 600, y: 690, width: 92, height: 23)
-        } else if indicatorLocation < 240 {
+        if currentValue >= currentLimit {
             currentIndicator.frame = CGRect(x: 600, y: 240, width: 92, height: 23)
+        } else if currentValue <= 0 {
+            currentIndicator.frame = CGRect(x: 600, y: 690, width: 92, height: 23)
         } else {
             currentIndicator.frame = CGRect(x: 600, y: indicatorLocation, width: 92, height: 23)
         }
@@ -572,11 +542,10 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         let temperatureMid = 50
         let indicatorLocation = 690 - (Double(temperature) * pixelPerTemperature)
 
-        
-        if indicatorLocation > 690 {
-            temperatureIndicator.frame = CGRect(x: 790, y: 690, width: 75, height: 23)
-        } else if indicatorLocation < 240 {
+        if temperature >= 100 {
             temperatureIndicator.frame = CGRect(x: 790, y: 240, width: 75, height: 23)
+        } else if temperature <= 0 {
+            temperatureIndicator.frame = CGRect(x: 790, y: 690, width: 75, height: 23)
         } else {
             temperatureIndicator.frame = CGRect(x: 790, y: indicatorLocation, width: 75, height: 23)
         }
@@ -586,9 +555,9 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
         if temperature > temperatureMaxRangeValue {
             temperatureIndicatorValue.textColor = RED_COLOR
-        }else if temperature > temperatureMid && temperature < temperatureMaxRangeValue {
+        } else if temperature > temperatureMid && temperature < temperatureMaxRangeValue {
             temperatureIndicatorValue.textColor = .yellow
-        }else{
+        } else {
             temperatureIndicatorValue.textColor = GREEN_COLOR
         }
         
@@ -652,7 +621,6 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
             frequencySetLabel.textColor = GREEN_COLOR
             frequencySetLabel.text = "\(manualSpeedValue).\(manualSpeedRemainder)"
             readManualSpeedOncePLC = true
-            print("this is the manual speed: \(manualSpeedValue).\(manualSpeedRemainder)")
         }
         }
     }
@@ -670,7 +638,6 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         if touchLocation.y  > 700 {
             touchLocation.y = 700
         }
-        
         //Make sure that we don't go more than pump flow limit
         if touchLocation.y >= 250 && touchLocation.y <= 700 {
             

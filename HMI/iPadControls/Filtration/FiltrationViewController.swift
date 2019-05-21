@@ -19,16 +19,29 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     @IBOutlet weak var pumpButton: UIButton!
     
     @IBOutlet weak var filtrationRunningIndicator: UIImageView!
-    @IBOutlet weak var cleanStrainerIndicator: UILabel!
     
+    @IBOutlet weak var pump102button: UIButton!
+    @IBOutlet weak var pump103button: UIButton!
+    @IBOutlet weak var freq102SetpointBkgd: UIView!
+    @IBOutlet weak var freq103SetpointBkgd: UIView!
+    @IBOutlet weak var freqIndicator102Value: UILabel!
+    @IBOutlet weak var freqIndicator103Value: UILabel!
+    @IBOutlet weak var freqIndicator102: UIView!
+    @IBOutlet weak var freqIndicator103: UIView!
     @IBOutlet weak var frequencyIndicator: UIView!
     @IBOutlet weak var frequencyIndicatorValue: UILabel!
     @IBOutlet weak var frequencySetpointBackground: UIView!
     
+    @IBOutlet weak var bWashSpeed102Value: UILabel!
+    @IBOutlet weak var bWashSpeed103Value: UILabel!
+    @IBOutlet weak var bWashIndicator102: UIView!
+    @IBOutlet weak var bWashIndicator103: UIView!
     @IBOutlet weak var bwashSpeedIndicator: UIView!
     @IBOutlet weak var bwashSpeedIndicatorValue: UILabel!
     
+    @IBOutlet weak var manualBWButton3: UIButton!
     @IBOutlet weak var manualBwashButton: UIButton!
+    @IBOutlet weak var manualBWButton2: UIButton!
     @IBOutlet weak var cannotRunBwashLbl: UILabel!
     
     @IBOutlet weak var dayPicker: UIPickerView!
@@ -40,6 +53,10 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     var manulPumpGesture: UIPanGestureRecognizer!
     var backWashGesture: UIPanGestureRecognizer!
+    var manul103PumpGesture: UIPanGestureRecognizer!
+    var backWash103Gesture: UIPanGestureRecognizer!
+    var manul102PumpGesture: UIPanGestureRecognizer!
+    var backWash102Gesture: UIPanGestureRecognizer!
     
     //MARK: - Class Reference Objects -- Dependencies
     
@@ -52,11 +69,8 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     private var langData = [String : String]()
     private var iPadNumber = 0
-    private var pumpNumber = 0
-    private var bwashRunning = 0
     private var is24hours = true
-    private var showStoppers = ShowStoppers()
-    
+    var faultsData = FAULTS_DATA()
     
     
     //MARK: - Scheduled Backwash Info that has to be added to scheduler files on server
@@ -73,10 +87,16 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     private var backWashShowNumber = 999
     private var loadedScheduler = 0
     private var readBackWashSpeedOnce  = false
+    private var readBackWashSpeed102Once  = false
+    private var readBackWashSpeed103Once  = false
     private var frequency: Int?
     private var manualSpeed: Int?
     private var readManualSpeedPLC = false
     private var readManualSpeedOncePLC = false
+    private var readManualSpeed102PLC = false
+    private var readManualSpeedOnce102PLC = false
+    private var readManualSpeed103PLC = false
+    private var readManualSpeedOnce103PLC = false
     
     //MARK: - View Life Cycle
     
@@ -89,41 +109,25 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     
     override func viewWillAppear(_ animated: Bool){
-        if CENTRAL_SYSTEM == nil{
-            
-            CENTRAL_SYSTEM = CentralSystem()
-            
-            //Initialize the central system so we can establish all the system config
-            CENTRAL_SYSTEM?.initialize()
-            CENTRAL_SYSTEM?.connect()
-            
-        }
-        
         checkAMPM()
-        pumpNumber = 101    //NOTE: THIS IS A HARD CODED VALUE FOR NOW, LATER ON PREVIOUS CONTROLLER HAS TO SET THE PUMP NUMBER
         loadedScheduler = 0
         
         //Load Backwash Duration for Backwash Scheduler
-        addShowStoppers()
+        
         loadBWDuration()
-        
-        
         initializePumpGestureRecognizer()
+        initializePump102GestureRecognizer()
+        initializePump103GestureRecognizer()
         initializeBackWashGestureRecognizer()
+        initializeBackWash102GestureRecognizer()
+        initializeBackWash103GestureRecognizer()
         getIpadNumber()
-        
         setPumpNumber()
-        
         //Add notification observer to get system stat
-        readManualSpeedOncePLC = false
-        readCurrentFiltrationPumpDetails()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(checkSystemStat), name: NSNotification.Name(rawValue: "updateSystemStat"), object: nil)
-        
-        
     }
-    
-    
-    
+
     override func viewWillDisappear(_ animated: Bool){
         
         //Set pump number to
@@ -136,10 +140,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         NotificationCenter.default.removeObserver(self)
         
     }
-    
-    
-    
-    
+
     /***************************************************************************
      * Function :  Check System Stat
      * Input    :  none
@@ -148,30 +149,21 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
      Add the necessary functions that's needed to be called each time
      ***************************************************************************/
     
-    //MARK: - Check Status Of The Connections To Server and PLC
-    
     @objc func checkSystemStat(){
+        let (plcConnection, serverConnection) = CENTRAL_SYSTEM!.getConnectivityStat()
         
-        let (plcConnection,serverConnection) = CENTRAL_SYSTEM!.getConnectivityStat()
-        
-        if plcConnection == CONNECTION_STATE_CONNECTED{
+        if plcConnection == CONNECTION_STATE_CONNECTED && serverConnection == CONNECTION_STATE_CONNECTED  {
             
             //Change the connection stat indicator
             noConnectionView.alpha = 0
-            noConnectionView.isUserInteractionEnabled = false
             
-            //Check if the pumps or on auto mode or hand mode
-            //  self.readChannelFault()
+            readChannelFault()
             readManualBwash()
             readBWFeedback()
-            readChannelFault()
-            readCleanStrainerBit()
             readCurrentFiltrationPumpDetails()
             readBackWashRunning()
-
-            logger.logData(data: "FILTRATION: CONNECTION SUCCESS")
             
-        }else {
+        } else {
             noConnectionView.alpha = 1
             
             if plcConnection == CONNECTION_STATE_FAILED || serverConnection == CONNECTION_STATE_FAILED {
@@ -204,8 +196,6 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         }
     }
     
-    
-    
     /***************************************************************************
      * Function :  Set Pump Number to PLC
      * Input    :  none
@@ -220,7 +210,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         let registersSET1 = PUMP_SETS[iPadNumber-1]
         let iPadNumberRegister = registersSET1[0]
         
-        CENTRAL_SYSTEM!.writeRegister(register: iPadNumberRegister.register, value: pumpNumber)
+        CENTRAL_SYSTEM!.writeRegister(register: iPadNumberRegister.register, value: FILTRATION_PUMP_NUMBER)
         
     }
     
@@ -272,6 +262,47 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         
     }
     
+    private func initializePump103GestureRecognizer(){
+        
+        //RME: Initiate PUMP Flow Control Gesture Handler
+        
+        manul103PumpGesture = UIPanGestureRecognizer(target: self, action: #selector(changePumpSpeedFrequency103(sender:)))
+        freqIndicator103.isUserInteractionEnabled = true
+        freqIndicator103.addGestureRecognizer(self.manul103PumpGesture)
+        manul103PumpGesture.delegate = self
+        
+    }
+    
+    
+    private func initializeBackWash103GestureRecognizer(){
+        
+        backWash103Gesture = UIPanGestureRecognizer(target: self, action: #selector(changeBackWashFrequency103(sender:)))
+        bWashIndicator103.isUserInteractionEnabled = true
+        bWashIndicator103.addGestureRecognizer(self.backWash103Gesture)
+        backWash103Gesture.delegate = self
+        
+    }
+    
+    private func initializePump102GestureRecognizer(){
+        
+        //RME: Initiate PUMP Flow Control Gesture Handler
+        
+        manul102PumpGesture = UIPanGestureRecognizer(target: self, action: #selector(changePumpSpeedFrequency102(sender:)))
+        freqIndicator102.isUserInteractionEnabled = true
+        freqIndicator102.addGestureRecognizer(self.manul102PumpGesture)
+        manul102PumpGesture.delegate = self
+        
+    }
+    
+    
+    private func initializeBackWash102GestureRecognizer(){
+        
+        backWash102Gesture = UIPanGestureRecognizer(target: self, action: #selector(changeBackWashFrequency102(sender:)))
+        bWashIndicator102.isUserInteractionEnabled = true
+        bWashIndicator102.addGestureRecognizer(self.backWash102Gesture)
+        backWash102Gesture.delegate = self
+        
+    }
     
     
     /***************************************************************************
@@ -436,35 +467,37 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
                 
             }
         })
-        
-        
-    }
-    
-    /***************************************************************************
-     * Function :  Read Clean Strainer Bit
-     * Input    :  none
-     * Output   :  none
-     * Comment  :  Shows/Hides clean strainer icon
-     ***************************************************************************/
-    
-    private func readCleanStrainerBit(){
-        
-        CENTRAL_SYSTEM?.readBits(length: Int32(FILTRATION_CLEAN_STRAINER_BIT_COUNT), startingRegister: Int32(FILTRATION_CLEAN_STRAINER_START_BIT), completion: { (success, response) in
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_PUMP_FAULT_102), completion: { (success, response) in
             
-            guard success == true else { return }
+            guard response != nil else{
+                return
+            }
+            let state = Int(truncating: response![0] as! NSNumber)
             
-            if response?.count == 4 {
-                
-                let cleanStrainer1 = Int(truncating: response?[0] as! NSNumber)
-                let cleanStrainer2 = Int(truncating: response?[1] as! NSNumber)
-                let cleanStrainer3 = Int(truncating: response?[2] as! NSNumber)
-                let cleanStrainer4 = Int(truncating: response?[3] as! NSNumber)
-                
-                
-                self.cleanStrainerIndicator.isHidden = !(cleanStrainer1 == 1) || !(cleanStrainer2 == 1) || !(cleanStrainer3 == 1) || !(cleanStrainer4 == 1)
+            if state == 1 {
+                self.pump102button.setTitleColor(RED_COLOR, for: .normal)
+            } else if state == 0 {
+                self.pump102button.setTitleColor(DEFAULT_GRAY, for: .normal)
                 
             }
         })
+        
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_PUMP_FAULT_103), completion: { (success, response) in
+            
+            guard response != nil else{
+                return
+            }
+            let state = Int(truncating: response![0] as! NSNumber)
+            
+            if state == 1 {
+                self.pump103button.setTitleColor(RED_COLOR, for: .normal)
+            } else if state == 0 {
+                self.pump103button.setTitleColor(DEFAULT_GRAY, for: .normal)
+                
+            }
+        })
+        
+        
     }
     
     /***************************************************************************
@@ -487,13 +520,29 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         let registersSET1 = PUMP_SETS[pumpSet]
         let startRegister = registersSET1[1]
         
-        CENTRAL_SYSTEM!.readRegister(length: 14, startingRegister: Int32(startRegister.register), completion:{ (success, response) in
+        CENTRAL_SYSTEM!.readRegister(length: 14, startingRegister: 1001, completion:{ (success, response) in
             
             guard response != nil else { return }
             
             self.readCurrentFiltrationSpeed(response: response)
             self.readCurrentManualSpeed(response: response)
             self.readCurrentBackwashSpeed(response: response)
+        })
+        CENTRAL_SYSTEM!.readRegister(length: 14, startingRegister: 1015, completion:{ (success, response) in
+            
+            guard response != nil else { return }
+            
+            self.readCurrentFiltrationSpeed102(response: response)
+            self.readCurrentManualSpeed102(response: response)
+            self.readCurrentBackwashSpeed102(response: response)
+        })
+        CENTRAL_SYSTEM!.readRegister(length: 14, startingRegister: 1029, completion:{ (success, response) in
+            
+            guard response != nil else { return }
+            
+            self.readCurrentFiltrationSpeed103(response: response)
+            self.readCurrentManualSpeed103(response: response)
+            self.readCurrentBackwashSpeed103(response: response)
         })
     }
     
@@ -511,13 +560,47 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         if let frequency = frequency {
             let integer = frequency / 10
             let frequencyLocation = (Double(integer) * PIXEL_PER_FREQUENCY)
-            let indicatorLocation = 417 - frequencyLocation
+            let indicatorLocation = 430 - frequencyLocation
             
             
             if integer > Int(MAX_FILTRATION_FREQUENCY){
-                frequencySetpointBackground.frame =  CGRect(x: 499, y: 159, width: 25, height: 258)
+                frequencySetpointBackground.frame =  CGRect(x: 294, y: 172, width: 25, height: 258)
             }else{
-                frequencySetpointBackground.frame =  CGRect(x: 499, y: indicatorLocation, width: 25, height:frequencyLocation)
+                frequencySetpointBackground.frame =  CGRect(x: 294, y: indicatorLocation, width: 25, height:frequencyLocation)
+            }
+        }
+    }
+    
+    private func readCurrentFiltrationSpeed102(response:[AnyObject]?) {
+        self.frequency = Int(truncating: response![1] as! NSNumber)
+        
+        if let frequency = frequency {
+            let integer = frequency / 10
+            let frequencyLocation = (Double(integer) * PIXEL_PER_FREQUENCY)
+            let indicatorLocation = 430 - frequencyLocation
+            
+            
+            if integer > Int(MAX_FILTRATION_FREQUENCY){
+                freq102SetpointBkgd.frame =  CGRect(x: 860, y: 172, width: 25, height: 258)
+            }else{
+                freq102SetpointBkgd.frame =  CGRect(x: 860, y: indicatorLocation, width: 25, height:frequencyLocation)
+            }
+        }
+    }
+    
+    private func readCurrentFiltrationSpeed103(response:[AnyObject]?) {
+        self.frequency = Int(truncating: response![1] as! NSNumber)
+        
+        if let frequency = frequency {
+            let integer = frequency / 10
+            let frequencyLocation = (Double(integer) * PIXEL_PER_FREQUENCY)
+            let indicatorLocation = 430 - frequencyLocation
+            
+            
+            if integer > Int(MAX_FILTRATION_FREQUENCY){
+                freq103SetpointBkgd.frame =  CGRect(x: 860, y: 172, width: 25, height: 258)
+            }else{
+                freq103SetpointBkgd.frame =  CGRect(x: 860, y: indicatorLocation, width: 25, height:frequencyLocation)
             }
         }
     }
@@ -533,22 +616,76 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         if  readManualSpeedPLC || !readManualSpeedOncePLC {
             readManualSpeedPLC = false
             
+            frequencyIndicatorValue.textColor = GREEN_COLOR
             self.manualSpeed = Int(truncating: response![0] as! NSNumber)
             
             if let manualSpeed = manualSpeed {
                 let integer = manualSpeed / 10
                 let decimal = manualSpeed % 10
-                let indicatorLocation = 405 - (Double(integer) * PIXEL_PER_FREQUENCY)
+                let indicatorLocation = 418 - (Double(integer) * PIXEL_PER_FREQUENCY)
                 
                 if integer > Int(MAX_FILTRATION_FREQUENCY){
-                    frequencyIndicator.frame = CGRect(x: 399, y: 150, width: 86, height: 23)
+                    frequencyIndicator.frame = CGRect(x: 194, y: 190, width: 86, height: 23)
                     frequencyIndicatorValue.text = "\(MAX_FILTRATION_FREQUENCY)"
                     readManualSpeedOncePLC = true
                 }else{
                     
-                    frequencyIndicator.frame = CGRect(x: 399, y: indicatorLocation, width: 86, height: 23)
+                    frequencyIndicator.frame = CGRect(x: 194, y: indicatorLocation, width: 86, height: 23)
                     frequencyIndicatorValue.text = "\(integer).\(decimal)"
                     readManualSpeedOncePLC = true
+                }
+            }
+        }
+    }
+    
+    private func readCurrentManualSpeed102(response:[AnyObject]?) {
+        if  readManualSpeed102PLC || !readManualSpeedOnce102PLC {
+            readManualSpeed102PLC = false
+            
+            freqIndicator102Value.textColor = GREEN_COLOR
+            self.manualSpeed = Int(truncating: response![0] as! NSNumber)
+            
+            if let manualSpeed = manualSpeed {
+                let integer = manualSpeed / 10
+                let decimal = manualSpeed % 10
+                let indicatorLocation = 418 - (Double(integer) * PIXEL_PER_FREQUENCY)
+                
+                if integer > Int(MAX_FILTRATION_FREQUENCY){
+                    freqIndicator102.frame = CGRect(x: 480, y: 190, width: 86, height: 23)
+                    freqIndicator102Value.text = "\(MAX_FILTRATION_FREQUENCY)"
+                    readManualSpeedOnce102PLC = true
+                }else{
+                    
+                    freqIndicator102.frame = CGRect(x: 480, y: indicatorLocation, width: 86, height: 23)
+                    freqIndicator102Value.text = "\(integer).\(decimal)"
+                    readManualSpeedOnce102PLC = true
+                }
+            }
+        }
+    }
+    
+    
+    private func readCurrentManualSpeed103(response:[AnyObject]?) {
+        if  readManualSpeed103PLC || !readManualSpeedOnce103PLC {
+            readManualSpeed103PLC = false
+            
+            freqIndicator103Value.textColor = GREEN_COLOR
+            self.manualSpeed = Int(truncating: response![0] as! NSNumber)
+            
+            if let manualSpeed = manualSpeed {
+                let integer = manualSpeed / 10
+                let decimal = manualSpeed % 10
+                let indicatorLocation = 418 - (Double(integer) * PIXEL_PER_FREQUENCY)
+                
+                if integer > Int(MAX_FILTRATION_FREQUENCY){
+                    freqIndicator103.frame = CGRect(x: 760, y: 190, width: 86, height: 23)
+                    freqIndicator103Value.text = "\(MAX_FILTRATION_FREQUENCY)"
+                    readManualSpeedOnce103PLC = true
+                }else{
+                    
+                    freqIndicator103.frame = CGRect(x: 760, y: indicatorLocation, width: 86, height: 23)
+                    freqIndicator103Value.text = "\(integer).\(decimal)"
+                    readManualSpeedOnce103PLC = true
                 }
             }
         }
@@ -565,21 +702,72 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     private func readCurrentBackwashSpeed(response:[AnyObject]?){
         
-        let backWash = Int(truncating: response![9] as! NSNumber)
+        let backWash = Int(truncating: response![6] as! NSNumber)
         let integer = backWash / 10
         let decimal = backWash % 10
-        let indicatorLocation = 405 - (Double(integer) * FILTRATION_PIXEL_PER_BACKWASH)
+        let indicatorLocation = 418 - (Double(integer) * FILTRATION_PIXEL_PER_BACKWASH)
         
         if !readBackWashSpeedOnce {
+            bwashSpeedIndicatorValue.textColor = BABY_BLUE_COLOR
+            
             if integer > Int(MAX_FILTRATION_BACKWASH_SPEED) {
                 readBackWashSpeedOnce = true
-                bwashSpeedIndicator.frame = CGRect(x: 524, y: 150, width: 86, height: 23)
+                bwashSpeedIndicator.frame = CGRect(x: 318, y: 190, width: 86, height: 23)
                 bwashSpeedIndicatorValue.text = "\(MAX_FILTRATION_BACKWASH_SPEED)"
                 
             }else{
                 readBackWashSpeedOnce = true
-                bwashSpeedIndicator.frame = CGRect(x: 524, y: Int(indicatorLocation), width: 86, height: 23)
+                bwashSpeedIndicator.frame = CGRect(x: 318, y: Int(indicatorLocation), width: 86, height: 23)
                 bwashSpeedIndicatorValue.text = "\(integer).\(decimal)"
+            }
+        }
+        
+    }
+    
+    private func readCurrentBackwashSpeed102(response:[AnyObject]?){
+        
+        let backWash = Int(truncating: response![6] as! NSNumber)
+        let integer = backWash / 10
+        let decimal = backWash % 10
+        let indicatorLocation = 418 - (Double(integer) * FILTRATION_PIXEL_PER_BACKWASH)
+        
+        if !readBackWashSpeed102Once {
+            bWashSpeed102Value.textColor = BABY_BLUE_COLOR
+            
+            if integer > Int(MAX_FILTRATION_BACKWASH_SPEED) {
+                readBackWashSpeed102Once = true
+                bWashIndicator102.frame = CGRect(x: 603, y: 190, width: 86, height: 23)
+                bWashSpeed102Value.text = "\(MAX_FILTRATION_BACKWASH_SPEED)"
+                
+            }else{
+                readBackWashSpeed102Once = true
+                bWashIndicator102.frame = CGRect(x: 603, y: Int(indicatorLocation), width: 86, height: 23)
+                bWashSpeed102Value.text = "\(integer).\(decimal)"
+            }
+        }
+        
+    }
+    
+    
+    private func readCurrentBackwashSpeed103(response:[AnyObject]?){
+        
+        let backWash = Int(truncating: response![6] as! NSNumber)
+        let integer = backWash / 10
+        let decimal = backWash % 10
+        let indicatorLocation = 418 - (Double(integer) * FILTRATION_PIXEL_PER_BACKWASH)
+        
+        if !readBackWashSpeed103Once {
+            bWashSpeed103Value.textColor = BABY_BLUE_COLOR
+            
+            if integer > Int(MAX_FILTRATION_BACKWASH_SPEED) {
+                readBackWashSpeed103Once = true
+                bWashIndicator103.frame = CGRect(x: 883, y: 190, width: 86, height: 23)
+                bWashSpeed103Value.text = "\(MAX_FILTRATION_BACKWASH_SPEED)"
+                
+            }else{
+                readBackWashSpeed103Once = true
+                bWashIndicator103.frame = CGRect(x: 883, y: Int(indicatorLocation), width: 86, height: 23)
+                bWashSpeed103Value.text = "\(integer).\(decimal)"
             }
         }
         
@@ -596,23 +784,47 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     private func readBackWashRunning(){
         
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT), completion: { (success, response) in
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_1), completion: { (success, bw1Response) in
             
             guard success == true else { return }
             
-            let running = Int(truncating: response![0] as! NSNumber)
-            self.bwashRunning = running
-            
-            if running == 1{
+            let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
+            if bw1Status == 1{
                 self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
-                UserDefaults.standard.set(1, forKey: "backWashRunningStat")
             } else {
                 self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
-                UserDefaults.standard.set(0, forKey: "backWashRunningStat")
             }
-            
+       
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_2), completion: { (success, bw2Response) in
+                guard success == true else { return }
+                
+                let bw2Status = Int(truncating: bw2Response![0] as! NSNumber)
+                if bw2Status == 1{
+                    self.manualBWButton2.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
+                } else {
+                    self.manualBWButton2.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
+                }
+                
+                CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_3), completion: { (success, bw3Response) in
+                    guard success == true else { return }
+                    
+                    let bw3Status = Int(truncating: bw3Response![0] as! NSNumber)
+                    if bw3Status == 1{
+                        self.manualBWButton3.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
+                    } else {
+                        self.manualBWButton3.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
+                    }
+                    
+                    if bw1Status == 1 || bw2Status == 1 || bw3Status == 1 {
+                        UserDefaults.standard.set(1, forKey: "backWashRunningStat")
+                    } else {
+                        UserDefaults.standard.set(0, forKey: "backWashRunningStat")
+                    }
+            })
         })
-    }
+            
+    })
+}
     
     
     
@@ -625,15 +837,24 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     
     @objc func changePumpSpeedFrequency(sender: UIPanGestureRecognizer){
+        frequencyIndicatorValue.textColor = DEFAULT_GRAY
         
-        let touchLocation:CGPoint = sender.location(in: self.view)
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
         
         // This is set.
-        if touchLocation.y >= 156 && touchLocation.y <= 416 {
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
-            let flowRange = 420.0 - touchLocation.y
+            let flowRange = 428.0 - touchLocation.y
             let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_FREQUENCY!
             
             
@@ -659,40 +880,141 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             
             
             if sender.state == .ended {
-                if iPadNumber == 1{
-                    if convertedFrequency <= 10{
-                        CENTRAL_SYSTEM?.writeRegister(register: 2, value: 0)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.readManualSpeedPLC = true
-                        }
-                    }else{
-                        CENTRAL_SYSTEM?.writeRegister(register: 2, value: convertedFrequency)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.readManualSpeedPLC = true
-                        }
+                if convertedFrequency < 10{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1001, value: 0)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.readManualSpeedPLC = true
                     }
-                    
                 }else{
-                    if convertedFrequency <= 10{
-                        CENTRAL_SYSTEM?.writeRegister(register: 22, value: 0)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.readManualSpeedPLC = true
-                        }
-                    }else{
-                        CENTRAL_SYSTEM?.writeRegister(register: 22, value: convertedFrequency)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            self.readManualSpeedPLC = true
-                        }
+                    CENTRAL_SYSTEM?.writeRegister(register: 1001, value: convertedFrequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.readManualSpeedPLC = true
                     }
-                    
                 }
             }
        
         }
     }
     
+    @objc func changePumpSpeedFrequency102(sender: UIPanGestureRecognizer){
+        freqIndicator102Value.textColor = DEFAULT_GRAY
+        
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
+        
+        // This is set.
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+            
+            sender.view?.center.y = touchLocation.y
+            
+            let flowRange = 428.0 - touchLocation.y
+            let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_FREQUENCY!
+            
+            
+            var convertedFrequency = Int(hertz * 10)
+            let frequencyValue = convertedFrequency / 10
+            var frequencyRemainder = convertedFrequency % 10
+            
+            if frequencyValue == 50 && frequencyRemainder > 0 {
+                frequencyRemainder = 0
+            }
+            
+            if frequencyValue == 0 && frequencyRemainder < 0 {
+                frequencyRemainder = 0
+            }
+            
+            freqIndicator102Value.text = "\(frequencyValue).\(frequencyRemainder)"
+            
+            if convertedFrequency > CONVERTED_FREQUENCY_LIMIT {
+                convertedFrequency = CONVERTED_FREQUENCY_LIMIT
+            } else if convertedFrequency < 0 {
+                convertedFrequency = 0
+            }
+            
+            
+            if sender.state == .ended {
+                
+                if convertedFrequency < 10{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1015, value: 0)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.readManualSpeed102PLC = true
+                    }
+                }else{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1015, value: convertedFrequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.readManualSpeed102PLC = true
+                    }
+                }
+            }
+        }
+    }
     
-    
+    @objc func changePumpSpeedFrequency103(sender: UIPanGestureRecognizer){
+        freqIndicator103Value.textColor = DEFAULT_GRAY
+        
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
+        
+        // This is set.
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+            
+            sender.view?.center.y = touchLocation.y
+            
+            let flowRange = 428.0 - touchLocation.y
+            let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_FREQUENCY!
+            
+            
+            var convertedFrequency = Int(hertz * 10)
+            let frequencyValue = convertedFrequency / 10
+            var frequencyRemainder = convertedFrequency % 10
+            
+            if frequencyValue == 50 && frequencyRemainder > 0 {
+                frequencyRemainder = 0
+            }
+            
+            if frequencyValue == 0 && frequencyRemainder < 0 {
+                frequencyRemainder = 0
+            }
+            
+            freqIndicator103Value.text = "\(frequencyValue).\(frequencyRemainder)"
+            
+            if convertedFrequency > CONVERTED_FREQUENCY_LIMIT {
+                convertedFrequency = CONVERTED_FREQUENCY_LIMIT
+            } else if convertedFrequency < 0 {
+                convertedFrequency = 0
+            }
+            
+            
+            if sender.state == .ended {
+               
+                    if convertedFrequency < 10{
+                        CENTRAL_SYSTEM?.writeRegister(register: 1029, value: 0)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.readManualSpeed103PLC = true
+                        }
+                    }else{
+                        CENTRAL_SYSTEM?.writeRegister(register: 1029, value: convertedFrequency)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.readManualSpeed103PLC = true
+                        }
+                }
+            }
+        }
+    }
     /***************************************************************************
      * Function :  Change Backwash Frequency
      * Input    :  none
@@ -702,16 +1024,24 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
      ***************************************************************************/
     
     @objc func changeBackWashFrequency(sender: UIPanGestureRecognizer){
-        
-        let touchLocation:CGPoint = sender.location(in: self.view)
+        bwashSpeedIndicatorValue.textColor = DEFAULT_GRAY
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
         
         //This is set.
-        if touchLocation.y >= 156 && touchLocation.y <= 416 {
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
             
-            let flowRange = 420.0 - touchLocation.y
+            let flowRange = 428.0 - touchLocation.y
             let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_BW!
             
             
@@ -737,29 +1067,132 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             
             
             if sender.state == .ended {
-                if iPadNumber == 1{
-                    if convertedBWFrequency <= 20{
-                        CENTRAL_SYSTEM?.writeRegister(register: 11, value: 0)
-                    }else{
-                        CENTRAL_SYSTEM?.writeRegister(register: 11, value: convertedBWFrequency)
-                    }
-                    
-                    readBackWashSpeedOnce = false
+                
+                if convertedBWFrequency < 10{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1007, value: 0)
                 }else{
-                    
-                    if convertedBWFrequency <= 20{
-                        CENTRAL_SYSTEM?.writeRegister(register: 31, value: 0)
-                    }else{
-                        CENTRAL_SYSTEM?.writeRegister(register: 31, value: convertedBWFrequency)
-                    }
-                    
-                    readBackWashSpeedOnce = false
+                    CENTRAL_SYSTEM?.writeRegister(register: 1007, value: convertedBWFrequency)
                 }
+                
+                readBackWashSpeedOnce = false
             }
        
         }
     }
     
+    
+    @objc func changeBackWashFrequency102(sender: UIPanGestureRecognizer){
+        bWashSpeed102Value.textColor = DEFAULT_GRAY
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
+        
+        //This is set.
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+            
+            sender.view?.center.y = touchLocation.y
+            
+            
+            let flowRange = 428.0 - touchLocation.y
+            let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_BW!
+            
+            
+            var convertedBWFrequency = Int(hertz * 10)
+            let BWfrequencyValue = convertedBWFrequency / 10
+            var BWfrequencyRemainder = convertedBWFrequency % 10
+            
+            if BWfrequencyValue == 50 && BWfrequencyRemainder > 0 {
+                BWfrequencyRemainder = 0
+            }
+            
+            if BWfrequencyValue == 0 && BWfrequencyRemainder < 0 {
+                BWfrequencyRemainder = 0
+            }
+            
+            bWashSpeed102Value.text = "\(BWfrequencyValue).\(BWfrequencyRemainder)"
+            
+            if convertedBWFrequency > CONVERTED_BW_SPEED_LIMIT {
+                convertedBWFrequency = CONVERTED_BW_SPEED_LIMIT
+            } else if convertedBWFrequency < 0 {
+                convertedBWFrequency = 0
+            }
+            
+            
+            if sender.state == .ended {
+                
+                if convertedBWFrequency < 10{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1021, value: 0)
+                }else{
+                    CENTRAL_SYSTEM?.writeRegister(register: 1021, value: convertedBWFrequency)
+                }
+                
+                readBackWashSpeed102Once = false
+            }
+            
+        }
+    }
+    @objc func changeBackWashFrequency103(sender: UIPanGestureRecognizer){
+        bWashSpeed103Value.textColor = DEFAULT_GRAY
+        var touchLocation:CGPoint = sender.location(in: self.view)
+        print(touchLocation.y)
+        //Make sure that we don't go more than pump flow limit
+        if touchLocation.y  < 164 {
+            touchLocation.y = 164
+        }
+        if touchLocation.y  > 428 {
+            touchLocation.y = 428
+        }
+        
+        //This is set.
+        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+            
+            sender.view?.center.y = touchLocation.y
+            
+            
+            let flowRange = 428.0 - touchLocation.y
+            let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_BW!
+            
+            
+            var convertedBWFrequency = Int(hertz * 10)
+            let BWfrequencyValue = convertedBWFrequency / 10
+            var BWfrequencyRemainder = convertedBWFrequency % 10
+            
+            if BWfrequencyValue == 50 && BWfrequencyRemainder > 0 {
+                BWfrequencyRemainder = 0
+            }
+            
+            if BWfrequencyValue == 0 && BWfrequencyRemainder < 0 {
+                BWfrequencyRemainder = 0
+            }
+            
+            bWashSpeed103Value.text = "\(BWfrequencyValue).\(BWfrequencyRemainder)"
+            
+            if convertedBWFrequency > CONVERTED_BW_SPEED_LIMIT {
+                convertedBWFrequency = CONVERTED_BW_SPEED_LIMIT
+            } else if convertedBWFrequency < 0 {
+                convertedBWFrequency = 0
+            }
+            
+            
+            if sender.state == .ended {
+               
+                    if convertedBWFrequency < 10{
+                        CENTRAL_SYSTEM?.writeRegister(register: 1035, value: 0)
+                    }else{
+                        CENTRAL_SYSTEM?.writeRegister(register: 1035, value: convertedBWFrequency)
+                    }
+                    
+                    readBackWashSpeed103Once = false
+            }
+            
+        }
+    }
     
     /***************************************************************************
      * Function :  Read Manual Back Wash
@@ -779,11 +1212,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             if backwash == 1{
                 
                 self.manualBwashButton.isHidden = false
+                self.manualBWButton2.isHidden = false
+                self.manualBWButton3.isHidden = false
                 self.cannotRunBwashLbl.isHidden = true
                 
             }else{
                 
                 self.manualBwashButton.isHidden = true
+                self.manualBWButton2.isHidden = true
+                self.manualBWButton3.isHidden = true
                 self.cannotRunBwashLbl.isHidden = false
                 
             }
@@ -801,15 +1238,31 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     @IBAction func toggleManualBackwash(_ sender: Any){
         
-        CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT, value: 1)
+        CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT, value: 0)
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 0)
+            
+        }
+    }
+    
+    
+    @IBAction func toggleManuaBackwash2(_ sender: UIButton) {
+        CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_2, value: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_2, value: 0)
             
         }
         
-        
     }
     
+    @IBAction func toggleManualBackwash3(_ sender: UIButton) {
+        CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_3 , value: 1)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_3 , value: 0)
+            
+        }
+        
+    }
     
     /***************************************************************************
      * Function :  Construct Back Wash Scheduler
@@ -1035,14 +1488,13 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
      ***************************************************************************/
     
     private func loadBWDuration(){
-        let bwDuration = UserDefaults.standard.object(forKey: "bwDuration") as? Int
-        
-        if bwDuration == nil{
-            UserDefaults.standard.set(3, forKey: "bwDuration")
-            backwashDuration.text = "3 m"
-        } else {
-            backwashDuration.text = "\(bwDuration!) m"
-        }
+        CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(FILTRATION_BW_DURATION_REGISTER), completion: { (success, response) in
+            
+            guard success == true else { return }
+            
+            let bwDuration = Int(truncating: response![0] as! NSNumber)
+            self.backwashDuration.text = "\(bwDuration) m"
+        })
     }
     
     
@@ -1051,6 +1503,14 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         self.addAlertAction(button: sender)
     }
     
+    @IBAction func pushToPumpDetails(_ sender: UIButton) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
+        
+        let pumpDetail = storyBoard.instantiateViewController(withIdentifier: "FILTRATIONDetailViewController") as! FiltrationPumpDetailViewController
+        pumpDetail.pumpNumber = sender.tag
+        self.navigationController?.pushViewController(pumpDetail, animated: true)
+        
+    }
     
     
     func checkAMPM(){
@@ -1067,4 +1527,24 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             is24hours = true
         }
     }
+    
+    
+    @IBAction func readFaultsBtnPushed(_ sender: UIButton) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
+        let popoverContent = storyBoard.instantiateViewController(withIdentifier: "FaultsPopup") as! ReadFaultsViewController
+        let nav = UINavigationController(rootViewController: popoverContent)
+        nav.modalPresentationStyle = .popover
+        nav.isNavigationBarHidden = true
+        let popover = nav.popoverPresentationController
+        popoverContent.faultsTag = sender.tag
+        popoverContent.faultsData = faultsData
+        popoverContent.preferredContentSize = CGSize(width: 210, height: 250)
+        popover?.sourceRect = CGRect(x: -128, y: -112, width: 210, height: 250)
+        if sender.tag == 4 {
+             popover?.sourceRect = CGRect(x: -85, y: -112, width: 200, height: 240)
+        }
+        popover?.sourceView = sender
+        self.present(nav, animated: true, completion: nil)
+    }
+    
 }

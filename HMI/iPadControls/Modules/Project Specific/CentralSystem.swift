@@ -344,19 +344,34 @@ public class CentralSystem: NSObject, SimplePingDelegate{
     
     private func readBackWashRunning(){
         
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT), completion: { (success, response) in
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_1), completion: { (success, bw1Response) in
             
             guard success == true else { return }
             
-            let running = Int(truncating: response![0] as! NSNumber)
+            let BW1status = Int(truncating: bw1Response![0] as! NSNumber)
             
-            if running == 1{
-                UserDefaults.standard.set(1, forKey: "backWashRunningStat")
-            } else {
-                UserDefaults.standard.set(0, forKey: "backWashRunningStat")
-            }
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_2), completion: { (success, bw2Response) in
+                
+                guard success == true else { return }
+                
+                let BW2status = Int(truncating: bw2Response![0] as! NSNumber)
+                
+                CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_3), completion: { (success, bw3Response) in
+                    
+                    guard success == true else { return }
+                    
+                    let BW3status = Int(truncating: bw3Response![0] as! NSNumber)
+                    
+                    if BW1status == 1 || BW2status == 1 ||  BW3status == 1{
+                        UserDefaults.standard.set(1, forKey: "backWashRunningStat")
+                    } else {
+                        UserDefaults.standard.set(0, forKey: "backWashRunningStat")
+                    }
+                })
+            })
             
         })
+        
         
          CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(RAIN_SENSOR_STATUS_REGISTER), completion: { (success, response) in
             guard success == true else { return }

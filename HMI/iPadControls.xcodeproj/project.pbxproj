@@ -17,9 +17,7 @@
 		9B2105B8218A19C800D36644 /* ACTInstantPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2105B5218A19C700D36644 /* ACTInstantPlayViewController.m */; };
 		9B2105B9218A19C800D36644 /* showList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2105B6218A19C700D36644 /* showList.storyboard */; };
 		9B3D3B6F20DC615B00E34BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */; };
-		9B3D3C09216D173D00E68F6A /* FiltrationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */; };
 		9B3EB64120C70D8C0071D3AA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */; };
-		9B3F41192146DCFC000B4701 /* FiltrationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */; };
 		9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F411A2146F967000B4701 /* CascadeSpecs.swift */; };
 		9B5F3F0220DC5A8D00D3CFDF /* versionNum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */; };
 		9B5F3F0320DC5A8D00D3CFDF /* MIDF.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */; };
@@ -108,10 +106,6 @@
 		9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3FFE20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m */; };
 		9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F400020DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m */; };
 		9B5F405020DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F400420DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m */; };
-		9B6D1C9F21092D3000183DED /* FiltrationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */; };
-		9B6D1CA021092D3000183DED /* FiltrationPumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */; };
-		9B6D1CA121092D3000183DED /* filtration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9D21092D3000183DED /* filtration.storyboard */; };
-		9B6D1CA221092D3000183DED /* FiltrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */; };
 		9B725D7D214775BD008886A2 /* pumps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B725D78214775BC008886A2 /* pumps.storyboard */; };
 		9B725D7E214775BD008886A2 /* AnimationPumpsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */; };
 		9B725D7F214775BD008886A2 /* PumpSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */; };
@@ -166,6 +160,14 @@
 		BBBE0B8121C166380067A0FE /* SystemStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBE0B8021C166380067A0FE /* SystemStatusViewController.swift */; };
 		BBBE0B8521C177430067A0FE /* SystemStatusSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBE0B8421C177430067A0FE /* SystemStatusSpecs.swift */; };
 		BBC8B1D921ED372C00761E0F /* FillerShowSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8B1D821ED372C00761E0F /* FillerShowSettingsViewController.swift */; };
+		BBF3650A2294647400332E56 /* filtration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBF365022294647400332E56 /* filtration.storyboard */; };
+		BBF3650B2294647400332E56 /* ReadFaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365032294647400332E56 /* ReadFaultsViewController.swift */; };
+		BBF3650C2294647400332E56 /* ReadSetPointsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365042294647400332E56 /* ReadSetPointsPopUpViewController.swift */; };
+		BBF3650D2294647400332E56 /* FiltrationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */; };
+		BBF3650E2294647400332E56 /* FiltrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365062294647400332E56 /* FiltrationViewController.swift */; };
+		BBF3650F2294647400332E56 /* FiltrationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365072294647400332E56 /* FiltrationSpecs.swift */; };
+		BBF365102294647400332E56 /* FiltrationPumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */; };
+		BBF365112294647400332E56 /* FiltrationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,9 +183,7 @@
 		9B2105B7218A19C700D36644 /* ACTInstantPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTInstantPlayViewController.h; sourceTree = "<group>"; };
 		9B3D3B6D20DC5EFD00E34BE4 /* iPadControls-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iPadControls-Bridging-Header.h"; path = "Resources/iPadControls-Bridging-Header.h"; sourceTree = "<group>"; };
 		9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationSchedulerViewController.swift; sourceTree = "<group>"; };
 		9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltrationSpecs.swift; sourceTree = "<group>"; };
 		9B3F411A2146F967000B4701 /* CascadeSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CascadeSpecs.swift; path = "Controller/Pumps/Cascade Pumps/CascadeSpecs.swift"; sourceTree = "<group>"; };
 		9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = versionNum.txt; path = Specs/versionNum.txt; sourceTree = "<group>"; };
 		9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = MIDF.rtf; path = Specs/MIDF.rtf; sourceTree = "<group>"; };
@@ -311,10 +311,6 @@
 		9B5F400220DC5B1200D3CFDF /* ACTScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTScheduleViewController.h; sourceTree = "<group>"; };
 		9B5F400320DC5B1200D3CFDF /* ACTCalendarScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTCalendarScheduleViewController.h; sourceTree = "<group>"; };
 		9B5F400420DC5B1200D3CFDF /* ACTMoveDeleteShowPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTMoveDeleteShowPlaylistViewController.m; sourceTree = "<group>"; };
-		9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSettingsViewController.swift; sourceTree = "<group>"; };
-		9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationPumpDetailViewController.swift; sourceTree = "<group>"; };
-		9B6D1C9D21092D3000183DED /* filtration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = filtration.storyboard; sourceTree = "<group>"; };
-		9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationViewController.swift; sourceTree = "<group>"; };
 		9B725D78214775BC008886A2 /* pumps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = pumps.storyboard; sourceTree = "<group>"; };
 		9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationPumpsSpecs.swift; sourceTree = "<group>"; };
 		9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PumpSettingsViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +369,14 @@
 		BBBE0B8021C166380067A0FE /* SystemStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemStatusViewController.swift; sourceTree = "<group>"; };
 		BBBE0B8421C177430067A0FE /* SystemStatusSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemStatusSpecs.swift; sourceTree = "<group>"; };
 		BBC8B1D821ED372C00761E0F /* FillerShowSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillerShowSettingsViewController.swift; sourceTree = "<group>"; };
+		BBF365022294647400332E56 /* filtration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = filtration.storyboard; sourceTree = "<group>"; };
+		BBF365032294647400332E56 /* ReadFaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadFaultsViewController.swift; sourceTree = "<group>"; };
+		BBF365042294647400332E56 /* ReadSetPointsPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadSetPointsPopUpViewController.swift; sourceTree = "<group>"; };
+		BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSettingsViewController.swift; sourceTree = "<group>"; };
+		BBF365062294647400332E56 /* FiltrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationViewController.swift; sourceTree = "<group>"; };
+		BBF365072294647400332E56 /* FiltrationSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSpecs.swift; sourceTree = "<group>"; };
+		BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationPumpDetailViewController.swift; sourceTree = "<group>"; };
+		BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSchedulerViewController.swift; sourceTree = "<group>"; };
 		CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.release.xcconfig"; sourceTree = "<group>"; };
 		DABF08559F25EA52E20E4FEF /* Pods-iPadControls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.debug.xcconfig"; sourceTree = "<group>"; };
 		DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPadControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,7 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				9B3F410D2146CC22000B4701 /* Animation Pumps */,
-				9B5F3FF220DC5B1200D3CFDF /* Filtration */,
+				BBF365012294647400332E56 /* Filtration */,
 				9B5F3FB220DC5B1200D3CFDF /* Home */,
 				BB3DB41F21F7AC9B0005A558 /* Water Quality */,
 				BBBBC0B421D6A6DE004EC984 /* Projector */,
@@ -794,20 +798,6 @@
 			path = Indicators;
 			sourceTree = "<group>";
 		};
-		9B5F3FF220DC5B1200D3CFDF /* Filtration */ = {
-			isa = PBXGroup;
-			children = (
-				9B3F41182146DCFC000B4701 /* FiltrationSpecs.swift */,
-				9B6D1C9D21092D3000183DED /* filtration.storyboard */,
-				9B3D3C08216D173D00E68F6A /* FiltrationSchedulerViewController.swift */,
-				9B6D1C9C21092D2F00183DED /* FiltrationPumpDetailViewController.swift */,
-				9B6D1C9B21092D2F00183DED /* FiltrationSettingsViewController.swift */,
-				9B6D1C9E21092D3000183DED /* FiltrationViewController.swift */,
-			);
-			name = Filtration;
-			path = Controller/Filtration;
-			sourceTree = "<group>";
-		};
 		9B5F3FF720DC5B1200D3CFDF /* Water Level */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +909,21 @@
 			path = SystemStatus;
 			sourceTree = "<group>";
 		};
+		BBF365012294647400332E56 /* Filtration */ = {
+			isa = PBXGroup;
+			children = (
+				BBF365022294647400332E56 /* filtration.storyboard */,
+				BBF365032294647400332E56 /* ReadFaultsViewController.swift */,
+				BBF365042294647400332E56 /* ReadSetPointsPopUpViewController.swift */,
+				BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */,
+				BBF365062294647400332E56 /* FiltrationViewController.swift */,
+				BBF365072294647400332E56 /* FiltrationSpecs.swift */,
+				BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */,
+				BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */,
+			);
+			path = Filtration;
+			sourceTree = "<group>";
+		};
 		E5A214DD754AF7C8773615A5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1003,7 +1008,6 @@
 				9B5F3F8720DC5AD900D3CFDF /* COPYING in Resources */,
 				9BCE6F93213ED31D00ED2DDC /* fog.storyboard in Resources */,
 				9B5F3F8320DC5AD900D3CFDF /* AUTHORS in Resources */,
-				9B6D1CA121092D3000183DED /* filtration.storyboard in Resources */,
 				9B5F404C20DC5B1200D3CFDF /* scheduler.storyboard in Resources */,
 				9B5F401A20DC5B1200D3CFDF /* Main.storyboard in Resources */,
 				9B725D7D214775BD008886A2 /* pumps.storyboard in Resources */,
@@ -1018,6 +1022,7 @@
 				9B5F403F20DC5B1200D3CFDF /* showStopperWaterLevel.png in Resources */,
 				BB3DB43521F7C2FB0005A558 /* Assets.xcassets in Resources */,
 				9B5F404320DC5B1200D3CFDF /* ShowStoppers.storyboard in Resources */,
+				BBF3650A2294647400332E56 /* filtration.storyboard in Resources */,
 				BBBBC0B821D6A7F8004EC984 /* Projector.storyboard in Resources */,
 				9B5F403C20DC5B1200D3CFDF /* showStopperRATmode.png in Resources */,
 				9B5F403E20DC5B1200D3CFDF /* showStopperTemp.png in Resources */,
@@ -1089,6 +1094,7 @@
 			files = (
 				9B5F3F2520DC5AB400D3CFDF /* Network+CoreDataProperties.swift in Sources */,
 				9B5F3F2320DC5AB400D3CFDF /* Show+CoreDataClass.swift in Sources */,
+				BBF3650F2294647400332E56 /* FiltrationSpecs.swift in Sources */,
 				9B5F3FB120DC5AF400D3CFDF /* ShowSettings.swift in Sources */,
 				9B8DB3422148337B001CF70D /* ShowStopperSpecs.swift in Sources */,
 				9B5F3FAB20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m in Sources */,
@@ -1098,6 +1104,7 @@
 				9B5F3F8220DC5AD900D3CFDF /* modbus-data.c in Sources */,
 				9B725D7E214775BD008886A2 /* AnimationPumpsSpecs.swift in Sources */,
 				BB3DB42921F7AC9B0005A558 /* TDSViewController.swift in Sources */,
+				BBF365112294647400332E56 /* FiltrationSchedulerViewController.swift in Sources */,
 				9B5F401C20DC5B1200D3CFDF /* SettingsViewController.swift in Sources */,
 				9B5F3F1E20DC5AB400D3CFDF /* Wind+CoreDataProperties.swift in Sources */,
 				BBBE0B8121C166380067A0FE /* SystemStatusViewController.swift in Sources */,
@@ -1110,7 +1117,6 @@
 				9B5F3FA920DC5AF400D3CFDF /* ACTDayValues.m in Sources */,
 				9B5F3F8120DC5AD900D3CFDF /* AFSecurityPolicy.m in Sources */,
 				BB3DB41421F67D1F0005A558 /* PHSetpointViewController.swift in Sources */,
-				9B6D1CA021092D3000183DED /* FiltrationPumpDetailViewController.swift in Sources */,
 				BB3DB41521F67D1F0005A558 /* TDSSetpointViewController.swift in Sources */,
 				BB6A0428225D320400153CEC /* OzonePopupViewController.swift in Sources */,
 				9B5F3F2120DC5AB400D3CFDF /* Network+CoreDataClass.swift in Sources */,
@@ -1130,6 +1136,7 @@
 				9B2105B8218A19C800D36644 /* ACTInstantPlayViewController.m in Sources */,
 				9BB3349521482B350004FFBC /* WeekSchedulerSpecs.swift in Sources */,
 				9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */,
+				BBF365102294647400332E56 /* FiltrationPumpDetailViewController.swift in Sources */,
 				9BA7A04F21920E2D0038D13D /* ACTPlaylistSettingsViewController.m in Sources */,
 				9B5F3F7420DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */,
@@ -1157,13 +1164,11 @@
 				9B006223212C7E160066CC9B /* check12or24Hour.swift in Sources */,
 				9B5F3F1F20DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift in Sources */,
 				9B5F3F7520DC5AD900D3CFDF /* UIImageView+AFNetworking.m in Sources */,
-				9B3D3C09216D173D00E68F6A /* FiltrationSchedulerViewController.swift in Sources */,
 				9B006237212C7E670066CC9B /* CascadePumpsViewController.swift in Sources */,
 				9B5F3F7E20DC5AD900D3CFDF /* AFURLRequestSerialization.m in Sources */,
 				BB3DB43921F902C30005A558 /* DesignateFillerShowViewController.swift in Sources */,
 				9B5F3F7920DC5AD900D3CFDF /* AFURLResponseSerialization.m in Sources */,
 				9B5F3FA620DC5AF400D3CFDF /* CentralSystem.swift in Sources */,
-				9B6D1CA221092D3000183DED /* FiltrationViewController.swift in Sources */,
 				9B5F3FAF20DC5AF400D3CFDF /* Extensions.swift in Sources */,
 				9B5F3F8B20DC5AD900D3CFDF /* ObjectiveLibModbus.m in Sources */,
 				9B5F3F2020DC5AB400D3CFDF /* IntrusionError+CoreDataClass.swift in Sources */,
@@ -1173,6 +1178,7 @@
 				9B5F3F7820DC5AD900D3CFDF /* UIWebView+AFNetworking.m in Sources */,
 				9B725D80214775BD008886A2 /* PumpsViewController.swift in Sources */,
 				BBBE0B8521C177430067A0FE /* SystemStatusSpecs.swift in Sources */,
+				BBF3650C2294647400332E56 /* ReadSetPointsPopUpViewController.swift in Sources */,
 				9B5F3FA820DC5AF400D3CFDF /* Utilits.m in Sources */,
 				BB3DB42D21F7AC9B0005A558 /* ORPViewController.swift in Sources */,
 				9BCE6F94213ED31D00ED2DDC /* FogViewController.swift in Sources */,
@@ -1182,7 +1188,6 @@
 				9B5F404B20DC5B1200D3CFDF /* WaterLevelViewController.swift in Sources */,
 				9B5F3F2420DC5AB400D3CFDF /* IntrusionError+CoreDataProperties.swift in Sources */,
 				9B5F3F1C20DC5AB400D3CFDF /* Show+CoreDataProperties.swift in Sources */,
-				9B3F41192146DCFC000B4701 /* FiltrationSpecs.swift in Sources */,
 				9B5F3F7220DC5AD900D3CFDF /* UIProgressView+AFNetworking.m in Sources */,
 				9B5F3FA520DC5AF400D3CFDF /* HomeGeneralSpecs.swift in Sources */,
 				9B5F3F8E20DC5AD900D3CFDF /* RDVCalendarDayCell.m in Sources */,
@@ -1191,20 +1196,22 @@
 				BBBBC0B621D6A717004EC984 /* ProjectorViewController.swift in Sources */,
 				9B5F401820DC5B1200D3CFDF /* HomeSettingsViewController.swift in Sources */,
 				9B8DB340214832B6001CF70D /* WaterLevelSpecs.swift in Sources */,
+				BBF3650D2294647400332E56 /* FiltrationSettingsViewController.swift in Sources */,
 				BB3B4FDA21E954CD00D64D6F /* FillerShowsViewController.swift in Sources */,
 				BB3DB40A21F67D120005A558 /* ORPSetpointViewController.swift in Sources */,
-				9B6D1C9F21092D3000183DED /* FiltrationSettingsViewController.swift in Sources */,
 				9B5F3FAD20DC5AF400D3CFDF /* ShowManager.swift in Sources */,
 				9B5F3F1A20DC5AB400D3CFDF /* Pump+CoreDataProperties.swift in Sources */,
 				9B5F404D20DC5B1200D3CFDF /* ACTScheduleViewController.m in Sources */,
 				9B5F3F0B20DC5AA000D3CFDF /* iPadControls.xcdatamodeld in Sources */,
 				9B006238212C7E670066CC9B /* CascadePumpDetailViewController.swift in Sources */,
+				BBF3650B2294647400332E56 /* ReadFaultsViewController.swift in Sources */,
 				9B5F3FAE20DC5AF400D3CFDF /* Logger.swift in Sources */,
 				9BBB8EF02135C359001F9F01 /* ShowHideSettingsLabel.swift in Sources */,
 				9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */,
 				9B5F3F8D20DC5AD900D3CFDF /* SwiftRecord.swift in Sources */,
 				BB3DB42B21F7AC9B0005A558 /* WaterQualitySettingsViewController.swift in Sources */,
 				BB3DB42C21F7AC9B0005A558 /* PHViewController.swift in Sources */,
+				BBF3650E2294647400332E56 /* FiltrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
