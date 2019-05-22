@@ -257,7 +257,7 @@ class SettingsViewController: UIViewController{
      ***************************************************************************/
     
     @IBAction func syncServerTimer(_ sender: Any){
-        syncTimeToPLC()
+        syncTimeToServer()
 
         
         self.httpManager.httpGetResponseFromPath(url:RESET_TIME_LAST_COMMAND){ (response) in
