@@ -70,7 +70,6 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     private var langData = [String : String]()
     private var iPadNumber = 0
     private var is24hours = true
-    var faultsData = FAULTS_DATA()
     
     
     //MARK: - Scheduled Backwash Info that has to be added to scheduler files on server
@@ -1529,20 +1528,16 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     }
     
     
-    @IBAction func readFaultsBtnPushed(_ sender: UIButton) {
+    @IBAction func readScaledVal(_ sender: UIButton) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
-        let popoverContent = storyBoard.instantiateViewController(withIdentifier: "FaultsPopup") as! ReadFaultsViewController
+        let popoverContent = storyBoard.instantiateViewController(withIdentifier: "scaledValPopUp") as! ReadSepointsViewController
         let nav = UINavigationController(rootViewController: popoverContent)
         nav.modalPresentationStyle = .popover
         nav.isNavigationBarHidden = true
         let popover = nav.popoverPresentationController
         popoverContent.faultsTag = sender.tag
-        popoverContent.faultsData = faultsData
-        popoverContent.preferredContentSize = CGSize(width: 210, height: 250)
-        popover?.sourceRect = CGRect(x: -128, y: -112, width: 210, height: 250)
-        if sender.tag == 4 {
-             popover?.sourceRect = CGRect(x: -85, y: -112, width: 200, height: 240)
-        }
+        popoverContent.preferredContentSize = CGSize(width: 210, height: 150)
+        popover?.sourceRect = CGRect(x: -64, y: 0, width: 210, height: 150)
         popover?.sourceView = sender
         self.present(nav, animated: true, completion: nil)
     }
