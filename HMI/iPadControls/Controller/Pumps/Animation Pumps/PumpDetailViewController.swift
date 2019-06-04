@@ -437,16 +437,6 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
                 self.readOnce = 1
                 let feedback = Int(truncating: response![8] as! NSNumber)
                 let startStopMode = Int(truncating: response![7] as! NSNumber)
-                if (self.pumpNumber == 301 || self.pumpNumber == 302 || self.pumpNumber  == 303 || self.pumpNumber  == 304 || self.pumpNumber  == 305 || self.pumpNumber  == 306) {
-                    self.pumpState = 2
-                    self.changeAutManModeIndicatorRotation(autoMode: false)
-                    self.autoModeIndicator.alpha = 0
-                    self.handModeIndicator.alpha = 0
-                    self.frequencyIndicator.isHidden = false
-                    self.setFrequencyHandle.isHidden = false
-                    self.autoManualButton.isUserInteractionEnabled = false
-                    self.autoManualButton.setImage(#imageLiteral(resourceName: "pumps_on"), for: .normal)
-                } else {
                 
                 if feedback == 0{
 
@@ -484,7 +474,7 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
 
                 }
 
-               }
+               
             }
         })
     }

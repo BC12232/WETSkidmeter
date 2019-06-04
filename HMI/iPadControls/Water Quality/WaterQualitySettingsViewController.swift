@@ -29,6 +29,12 @@ class WaterQualitySettingsViewController: UIViewController, UITextFieldDelegate 
     @IBOutlet weak var noConnectionView: UIView!
     @IBOutlet weak var noConnectionErrorLabel: UILabel!
     
+    @IBOutlet weak var orpscaleMin: UILabel!
+    @IBOutlet weak var phscaleMin: UILabel!
+    @IBOutlet weak var tdsscaleMin: UILabel!
+    @IBOutlet weak var orpscaleMax: UILabel!
+    @IBOutlet weak var phscaleMax: UILabel!
+    @IBOutlet weak var tdsscaleMax: UILabel!
     
     /***************************************************************************
      * Function :  viewDidLoad
@@ -130,6 +136,9 @@ class WaterQualitySettingsViewController: UIViewController, UITextFieldDelegate 
             }
         })
         
+        getMinMaxValues(register: WQ_PH_CHANNEL_FAULT_BIT, index: 1)
+        getMinMaxValues(register: WQ_OPR_CHANNEL_FAULT_BIT, index: 2)
+        getMinMaxValues(register: WQ_TDS_CHANNEL_FAULT_BIT, index: 3)
         //Get Brominator Timeout Setpoints
         
         CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(WQ_BROMINATOR_TIMEOUT_REGISTER), completion: { (success, response) in
@@ -142,6 +151,34 @@ class WaterQualitySettingsViewController: UIViewController, UITextFieldDelegate 
         
     }
     
+    func getMinMaxValues(register: Int, index: Int){
+        CENTRAL_SYSTEM?.readRealRegister(register: register + 2, length: 2, completion: { (success, response) in
+            
+            if success == true{
+                let minValue  = Float(response)
+                switch index {
+                    case 1: self.phscaleMin.text = String(format: "%.1f", minValue!)
+                    case 2: self.orpscaleMin.text = String(format: "%.1f", minValue!)
+                    case 3: self.tdsscaleMin.text = String(format: "%.1f", minValue!)
+                default:
+                    print("No Tag")
+                }
+            }
+        })
+        CENTRAL_SYSTEM?.readRealRegister(register: register + 4, length: 2, completion: { (success, response) in
+            
+            if success == true{
+                let maxValue  = Float(response)
+                switch index {
+                    case 1: self.phscaleMax.text = String(format: "%.1f", maxValue!)
+                    case 2: self.orpscaleMax.text = String(format: "%.1f", maxValue!)
+                    case 3: self.tdsscaleMax.text = String(format: "%.1f", maxValue!)
+                default:
+                    print("No Tag")
+                }
+            }
+        })
+    }
     /***************************************************************************
      * Function :  readScaleMinMaxSensorDataFromPLC
      * Input    :  none

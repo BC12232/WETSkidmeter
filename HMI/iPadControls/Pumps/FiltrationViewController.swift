@@ -1503,9 +1503,9 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     }
     
     @IBAction func pushToPumpDetails(_ sender: UIButton) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "pumps", bundle:nil)
         
-        let pumpDetail = storyBoard.instantiateViewController(withIdentifier: "FILTRATIONDetailViewController") as! FiltrationPumpDetailViewController
+        let pumpDetail = storyBoard.instantiateViewController(withIdentifier: "pumpDetail") as! PumpDetailViewController
         pumpDetail.pumpNumber = sender.tag
         self.navigationController?.pushViewController(pumpDetail, animated: true)
         
