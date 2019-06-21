@@ -39,17 +39,6 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     @IBOutlet weak var bwashSpeedIndicator: UIView!
     @IBOutlet weak var bwashSpeedIndicatorValue: UILabel!
     
-    @IBOutlet weak var manualBWButton3: UIButton!
-    @IBOutlet weak var manualBwashButton: UIButton!
-    @IBOutlet weak var manualBWButton2: UIButton!
-    @IBOutlet weak var cannotRunBwashLbl: UILabel!
-    
-    @IBOutlet weak var dayPicker: UIPickerView!
-    @IBOutlet weak var backwashDuration: UILabel!
-    
-    @IBOutlet weak var backWashScheduler: UIView!
-    @IBOutlet weak var countDownTimerBG: UIView!
-    @IBOutlet weak var countDownTimer: UILabel!
     
     var manulPumpGesture: UIPanGestureRecognizer!
     var backWashGesture: UIPanGestureRecognizer!
@@ -111,9 +100,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         checkAMPM()
         loadedScheduler = 0
         
-        //Load Backwash Duration for Backwash Scheduler
-        
-        loadBWDuration()
+       
         initializePumpGestureRecognizer()
         initializePump102GestureRecognizer()
         initializePump103GestureRecognizer()
@@ -157,10 +144,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             noConnectionView.alpha = 0
             
             readChannelFault()
-            readManualBwash()
-            readBWFeedback()
             readCurrentFiltrationPumpDetails()
-            readBackWashRunning()
             
         } else {
             noConnectionView.alpha = 1
@@ -325,123 +309,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
      
      ***************************************************************************/
     
-    private func readBWFeedback(){
-        self.httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW"){ (response) in
-            
-            guard let responseDictinary = response as? NSDictionary else { return }
-            
-            
-            let backWashStatus = responseDictinary["SchBWStatus"] as? Int
-            
-            if self.loadedScheduler == 0 {
-                guard
-                    let backWashScheduledDay = responseDictinary["schDay"] as? Int,
-                    let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
-                
-                
-                self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
-                UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
-                
-                if self.is24hours {
-                    
-                    let hour = backWashScheduledTime / 100
-                    let minute = backWashScheduledTime % 100
-                    
-                    self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
-                    self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                    
-                    UserDefaults.standard.set(hour, forKey: "Hour")
-                    UserDefaults.standard.set(minute, forKey: "Minute")
-                    self.loadedScheduler = 1
-                    
-                    
-                } else {
-                    var hour = backWashScheduledTime / 100
-                    let minute = backWashScheduledTime % 100
-                    let timeOfDay = hour - 12
-                    
-                    
-                    // check if its 12 AM
-                    if backWashScheduledTime < 60 {
-                        self.dayPicker.selectRow(11, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(0, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(11, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(0, forKey: "TimeOfDay")
-                        
-                    } else if timeOfDay == 0{
-                        //check if it's 12 PM
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(1, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(12, forKey: "TimeOfDay")
-                        
-                    } else if timeOfDay < 0 {
-                        //check if it's AM in general
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(0, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(0, forKey: "TimeOfDay")
-                        
-                        
-                        
-                    } else {
-                        //check if it's PM
-                        hour = timeOfDay
-                        
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(1, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(12, forKey: "TimeOfDay")
-                        
-                    }
-                    
-                    self.loadedScheduler = 1
-                    
-                }
-                
-            }
-            
-            //If the back wash status is 2: show the count down timer
-            
-            if backWashStatus == 2{
-                self.backWashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = false
-                
-                if let countDownSeconds = responseDictinary["timeoutCountdown"] as? Int {
-                    let hours = countDownSeconds / 3600
-                    let minutes = (countDownSeconds % 3600) / 60
-                    let seconds = (countDownSeconds % 3600) % 60
-                    
-                    self.countDownTimer.text = "\(hours):\(minutes):\(seconds)"
-                }
-          
-                
-              
-                
-            } else if backWashStatus == 0 {
-                self.backWashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = true
-            } else {
-                self.backWashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = true
-            }
-            
-        }
-    }
-    
-    
+   
     
     
     //====================================
@@ -773,57 +641,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     }
     
     
-    /***************************************************************************
-     * Function :  Read Back Wash Running Bit
-     * Input    :  none
-     * Output   :  none
-     * Comment  :  Check whether the back wash is running or not.
-     If back wash is running we cannot play a show.
-     ***************************************************************************/
-    
-    private func readBackWashRunning(){
-        
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_1), completion: { (success, bw1Response) in
-            
-            guard success == true else { return }
-            
-            let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
-            if bw1Status == 1{
-                self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
-            } else {
-                self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
-            }
-       
-            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_2), completion: { (success, bw2Response) in
-                guard success == true else { return }
-                
-                let bw2Status = Int(truncating: bw2Response![0] as! NSNumber)
-                if bw2Status == 1{
-                    self.manualBWButton2.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
-                } else {
-                    self.manualBWButton2.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
-                }
-                
-                CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_3), completion: { (success, bw3Response) in
-                    guard success == true else { return }
-                    
-                    let bw3Status = Int(truncating: bw3Response![0] as! NSNumber)
-                    if bw3Status == 1{
-                        self.manualBWButton3.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
-                    } else {
-                        self.manualBWButton3.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
-                    }
-                    
-                    if bw1Status == 1 || bw2Status == 1 || bw3Status == 1 {
-                        UserDefaults.standard.set(1, forKey: "backWashRunningStat")
-                    } else {
-                        UserDefaults.standard.set(0, forKey: "backWashRunningStat")
-                    }
-            })
-        })
-            
-    })
-}
+   
     
     
     
@@ -1193,39 +1011,6 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         }
     }
     
-    /***************************************************************************
-     * Function :  Read Manual Back Wash
-     * Input    :  none
-     * Output   :  none
-     * Comment  :  It reads from the server. Show/hide label.
-     ***************************************************************************/
-    
-    private func readManualBwash(){
-        
-        self.httpComm.httpGetResponseFromPath(url: READ_BACK_WASH){ (response) in
-            
-            guard let responseDictionary = response as? NSDictionary else { return }
-            
-            let backwash = Int(truncating: responseDictionary.object(forKey: "manBWcanRun") as! NSNumber)
-            
-            if backwash == 1{
-                
-                self.manualBwashButton.isHidden = false
-                self.manualBWButton2.isHidden = false
-                self.manualBWButton3.isHidden = false
-                self.cannotRunBwashLbl.isHidden = true
-                
-            }else{
-                
-                self.manualBwashButton.isHidden = true
-                self.manualBWButton2.isHidden = true
-                self.manualBWButton3.isHidden = true
-                self.cannotRunBwashLbl.isHidden = false
-                
-            }
-        }
-        
-    }
     
     
     /***************************************************************************
@@ -1479,22 +1264,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     }
     
     
-    /***************************************************************************
-     * Function :  Load Back Wash Duration
-     * Input    :  none
-     * Output   :  none
-     * Comment  :
-     ***************************************************************************/
     
-    private func loadBWDuration(){
-        CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(FILTRATION_BW_DURATION_REGISTER), completion: { (success, response) in
-            
-            guard success == true else { return }
-            
-            let bwDuration = Int(truncating: response![0] as! NSNumber)
-            self.backwashDuration.text = "\(bwDuration) m"
-        })
-    }
     
     
     
@@ -1527,19 +1297,36 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         }
     }
     
-    
-    @IBAction func readScaledVal(_ sender: UIButton) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
-        let popoverContent = storyBoard.instantiateViewController(withIdentifier: "scaledValPopUp") as! ReadSepointsViewController
-        let nav = UINavigationController(rootViewController: popoverContent)
-        nav.modalPresentationStyle = .popover
-        nav.isNavigationBarHidden = true
-        let popover = nav.popoverPresentationController
-        popoverContent.faultsTag = sender.tag
-        popoverContent.preferredContentSize = CGSize(width: 210, height: 150)
-        popover?.sourceRect = CGRect(x: -64, y: 0, width: 210, height: 150)
-        popover?.sourceView = sender
-        self.present(nav, animated: true, completion: nil)
+    @IBAction func redirectToFilterSch(_ sender: UIButton) {
+        
+                let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
+                let popoverContent = storyBoard.instantiateViewController(withIdentifier: "pumpSchedulepopUp") as! ReadPumpScheduleViewController
+                let nav = UINavigationController(rootViewController: popoverContent)
+                nav.modalPresentationStyle = .popover
+                nav.isNavigationBarHidden = true
+                let popover = nav.popoverPresentationController
+                popoverContent.pumpTag = sender.tag
+                popoverContent.preferredContentSize = CGSize(width: 768, height: 264)
+                popover?.sourceRect = CGRect(x: -350, y: 10, width: 768, height: 264)
+                popover?.sourceView = sender
+                self.present(nav, animated: true, completion: nil)
+        
     }
+    
+    
+//
+//    @IBAction func readScaledVal(_ sender: UIButton) {
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "filtration", bundle:nil)
+//        let popoverContent = storyBoard.instantiateViewController(withIdentifier: "scaledValPopUp") as! ReadSepointsViewController
+//        let nav = UINavigationController(rootViewController: popoverContent)
+//        nav.modalPresentationStyle = .popover
+//        nav.isNavigationBarHidden = true
+//        let popover = nav.popoverPresentationController
+//        popoverContent.faultsTag = sender.tag
+//        popoverContent.preferredContentSize = CGSize(width: 210, height: 150)
+//        popover?.sourceRect = CGRect(x: -64, y: 0, width: 210, height: 150)
+//        popover?.sourceView = sender
+//        self.present(nav, animated: true, completion: nil)
+//    }
     
 }

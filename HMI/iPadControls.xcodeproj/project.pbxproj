@@ -167,6 +167,7 @@
 		BBF3650F2294647400332E56 /* FiltrationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365072294647400332E56 /* FiltrationSpecs.swift */; };
 		BBF365102294647400332E56 /* FiltrationPumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */; };
 		BBF365112294647400332E56 /* FiltrationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */; };
+		BBF3E7E422BD409100A50446 /* ReadPumpScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -375,6 +376,7 @@
 		BBF365072294647400332E56 /* FiltrationSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSpecs.swift; sourceTree = "<group>"; };
 		BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationPumpDetailViewController.swift; sourceTree = "<group>"; };
 		BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSchedulerViewController.swift; sourceTree = "<group>"; };
+		BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPumpScheduleViewController.swift; sourceTree = "<group>"; };
 		CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.release.xcconfig"; sourceTree = "<group>"; };
 		DABF08559F25EA52E20E4FEF /* Pods-iPadControls.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.debug.xcconfig"; sourceTree = "<group>"; };
 		DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iPadControls.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -912,6 +914,7 @@
 			children = (
 				BBF365022294647400332E56 /* filtration.storyboard */,
 				BB4B7B9D22A09011002BE1D4 /* ReadSepointsViewController.swift */,
+				BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */,
 				BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */,
 				BBF365062294647400332E56 /* FiltrationViewController.swift */,
 				BBF365072294647400332E56 /* FiltrationSpecs.swift */,
@@ -1098,6 +1101,7 @@
 				BB0F3D07228B343D0049613A /* ProjectorStatusViewController.swift in Sources */,
 				9B725D9B214775E5008886A2 /* LightsSpecs.swift in Sources */,
 				9BA7A04E21920E2D0038D13D /* ACTPlaylistViewController.m in Sources */,
+				BBF3E7E422BD409100A50446 /* ReadPumpScheduleViewController.swift in Sources */,
 				9B5F3F8220DC5AD900D3CFDF /* modbus-data.c in Sources */,
 				9B725D7E214775BD008886A2 /* AnimationPumpsSpecs.swift in Sources */,
 				BB3DB42921F7AC9B0005A558 /* TDSViewController.swift in Sources */,

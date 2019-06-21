@@ -462,103 +462,6 @@
                                     <action selector="showSettingsButtonPressed:" destination="1of-uZ-N4L" eventType="touchUpInside" id="DdS-0G-szO"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-4o-cnA">
-                                <rect key="frame" x="148" y="522" width="766" height="212"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xdW-vZ-U0h">
-                                        <rect key="frame" x="130" y="29" width="450" height="149"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="1of-uZ-N4L" id="3id-7K-srV"/>
-                                            <outlet property="delegate" destination="1of-uZ-N4L" id="wnb-ap-HFY"/>
-                                        </connections>
-                                    </pickerView>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SAND FILTER BACK WASH SCHEDULE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIR-1s-AdZ">
-                                        <rect key="frame" x="120" y="0.0" width="310" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CANNOT RUN MANUAL BACK WASH AT THIS MOMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFF-a7-alH">
-                                        <rect key="frame" x="109" y="178" width="508" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DURATION:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTu-kU-Yhf">
-                                        <rect key="frame" x="468" y="0.0" width="94" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60 M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-ZI-dtB">
-                                        <rect key="frame" x="567" y="0.0" width="73" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLo-WS-LAz">
-                                        <rect key="frame" x="600" y="88" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="setbutton"/>
-                                        <connections>
-                                            <action selector="setBackwashScheduler:" destination="1of-uZ-N4L" eventType="touchUpInside" id="DPN-Lf-qxD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6S-OO-Ose">
-                                        <rect key="frame" x="34" y="15" width="45" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="bwashIcon"/>
-                                        <connections>
-                                            <action selector="toggleManualBackwash:" destination="1of-uZ-N4L" eventType="touchUpInside" id="4Ow-zl-DoT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCm-jH-OBm">
-                                        <rect key="frame" x="34" y="75" width="45" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="bwashIcon"/>
-                                        <connections>
-                                            <action selector="toggleManuaBackwash2:" destination="1of-uZ-N4L" eventType="touchUpInside" id="70Q-VB-pIQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlh-oL-5Qy">
-                                        <rect key="frame" x="34" y="135" width="45" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="bwashIcon"/>
-                                        <connections>
-                                            <action selector="toggleManualBackwash3:" destination="1of-uZ-N4L" eventType="touchUpInside" id="q2p-lw-9tU"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymd-CO-Ez6">
-                                <rect key="frame" x="240" y="697" width="564" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CANNOT RUN A SCHEDULED BACKWASH UNTIL COUNT DOWN GOES TO ZERO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6E-Bt-T16">
-                                        <rect key="frame" x="8" y="36" width="521" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNT DOWN TIMER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBK-Ew-Ree">
-                                        <rect key="frame" x="37" y="8" width="450" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
-                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJc-S2-eCE" userLabel="Show Stopper">
                                 <rect key="frame" x="464" y="72" width="540" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -572,15 +475,15 @@
                                     <action selector="pushToPumpDetails:" destination="1of-uZ-N4L" eventType="touchUpInside" id="ims-q9-SMb"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ba-Vvw" userLabel="Frequency-Background">
-                                <rect key="frame" x="294" y="172" width="25" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f8c-l9-biq">
                                 <rect key="frame" x="294" y="430" width="25" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-Ba-Vvw" userLabel="Frequency-Background">
+                                <rect key="frame" x="294" y="172" width="25" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZZ-ST-GWa" userLabel="FrequencyIndicator">
                                 <rect key="frame" x="194" y="418" width="92" height="23"/>
@@ -646,15 +549,15 @@
                                 <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoP-sW-lQT" userLabel="Frequency-Background">
-                                <rect key="frame" x="860" y="171" width="25" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-B1-QUr">
                                 <rect key="frame" x="860" y="430" width="25" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AoP-sW-lQT" userLabel="Frequency-Background">
+                                <rect key="frame" x="860" y="171" width="25" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1U1-cr-T4a" userLabel="FrequencyIndicator">
                                 <rect key="frame" x="760" y="417" width="92" height="23"/>
@@ -761,15 +664,15 @@
                                     <segue destination="wEM-0c-FE8" kind="show" id="W9w-vg-hIt"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwD-hB-SIh">
-                                <rect key="frame" x="580" y="430" width="25" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtG-Ua-wKp" userLabel="Frequency-Background">
                                 <rect key="frame" x="580" y="171" width="25" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zwD-hB-SIh">
+                                <rect key="frame" x="580" y="430" width="25" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kq6-5x-8Yt" userLabel="FrequencyIndicator">
                                 <rect key="frame" x="480" y="417" width="92" height="23"/>
@@ -844,31 +747,31 @@
                                     <action selector="pushToPumpDetails:" destination="1of-uZ-N4L" eventType="touchUpInside" id="53Q-Xy-eRM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="201" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4v-Bb-vAc" userLabel="PumpDetailButton">
-                                <rect key="frame" x="270" y="489" width="72" height="30"/>
+                            <button opaque="NO" tag="131" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFj-Qc-v79" userLabel="PumpDetailButton">
+                                <rect key="frame" x="266" y="489" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="PT-1001" backgroundImage="button_background"/>
+                                <state key="normal" title="FILTR_SCH" backgroundImage="button_background"/>
                                 <connections>
-                                    <action selector="readScaledVal:" destination="1of-uZ-N4L" eventType="touchUpInside" id="kxx-vM-SWN"/>
+                                    <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="Dne-LY-osD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="202" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clY-uj-ODf" userLabel="PumpDetailButton">
-                                <rect key="frame" x="557" y="489" width="72" height="30"/>
+                            <button opaque="NO" tag="132" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ln4-AM-Lxc" userLabel="PumpDetailButton">
+                                <rect key="frame" x="552" y="489" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="PT-1002" backgroundImage="button_background"/>
+                                <state key="normal" title="FILTR_SCH" backgroundImage="button_background"/>
                                 <connections>
-                                    <action selector="readScaledVal:" destination="1of-uZ-N4L" eventType="touchUpInside" id="7Xb-S3-qOb"/>
+                                    <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="y4S-5D-dJ5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="203" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S99-PR-J82" userLabel="PumpDetailButton">
-                                <rect key="frame" x="837" y="489" width="72" height="30"/>
+                            <button opaque="NO" tag="133" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuI-h2-WTU" userLabel="PumpDetailButton">
+                                <rect key="frame" x="832" y="489" width="82" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="PT-1003" backgroundImage="button_background"/>
+                                <state key="normal" title="FILTR_SCH" backgroundImage="button_background"/>
                                 <connections>
-                                    <action selector="readScaledVal:" destination="1of-uZ-N4L" eventType="touchUpInside" id="D9b-uH-8aO"/>
+                                    <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="8ZM-1y-oFq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -880,14 +783,8 @@
                         <outlet property="bWashIndicator103" destination="ofl-Tr-FE1" id="eyf-hy-EGr"/>
                         <outlet property="bWashSpeed102Value" destination="Skn-Kn-3w5" id="bPd-W2-X2i"/>
                         <outlet property="bWashSpeed103Value" destination="1y4-7i-q8J" id="CDn-78-NTA"/>
-                        <outlet property="backWashScheduler" destination="kw8-4o-cnA" id="flf-hy-eT2"/>
-                        <outlet property="backwashDuration" destination="KhG-ZI-dtB" id="lvJ-hG-w7v"/>
                         <outlet property="bwashSpeedIndicator" destination="Div-z3-QKa" id="44t-ax-i3j"/>
                         <outlet property="bwashSpeedIndicatorValue" destination="d90-Ms-k9B" id="it5-My-Wop"/>
-                        <outlet property="cannotRunBwashLbl" destination="ZFF-a7-alH" id="8Og-Uv-nfL"/>
-                        <outlet property="countDownTimer" destination="XBK-Ew-Ree" id="ckz-Aa-IJA"/>
-                        <outlet property="countDownTimerBG" destination="ymd-CO-Ez6" id="gCL-du-5Ez"/>
-                        <outlet property="dayPicker" destination="xdW-vZ-U0h" id="XEq-Qs-2T4"/>
                         <outlet property="filtrationRunningIndicator" destination="sIv-t3-NOG" id="oVt-ku-QkU"/>
                         <outlet property="freq102SetpointBkgd" destination="zwD-hB-SIh" id="Wqs-fR-Fv3"/>
                         <outlet property="freq103SetpointBkgd" destination="6rs-B1-QUr" id="b8a-8Z-0g8"/>
@@ -898,9 +795,6 @@
                         <outlet property="frequencyIndicator" destination="HZZ-ST-GWa" id="eat-Sq-4l9"/>
                         <outlet property="frequencyIndicatorValue" destination="gHu-vj-9K8" id="8Wx-wJ-e2R"/>
                         <outlet property="frequencySetpointBackground" destination="f8c-l9-biq" id="Fus-7R-C0R"/>
-                        <outlet property="manualBWButton2" destination="jCm-jH-OBm" id="77H-PQ-g6t"/>
-                        <outlet property="manualBWButton3" destination="Vlh-oL-5Qy" id="yr4-3I-meG"/>
-                        <outlet property="manualBwashButton" destination="L6S-OO-Ose" id="275-kH-uX0"/>
                         <outlet property="noConnectionErrorLbl" destination="X9g-5n-lVV" id="gVV-Uu-j3w"/>
                         <outlet property="noConnectionView" destination="VOm-AR-5ag" id="sDm-Bf-hU2"/>
                         <outlet property="pump102button" destination="XKq-Lt-0EG" id="jf2-xY-SGS"/>
@@ -1851,6 +1745,125 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5l-uz-nbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1136.1328125" y="-4326.5625"/>
+        </scene>
+        <!--filterSchedulePopUp-->
+        <scene sceneID="7vV-7B-rSb">
+            <objects>
+                <viewController storyboardIdentifier="pumpSchedulepopUp" title="filterSchedulePopUp" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lpB-US-bxf" customClass="ReadPumpScheduleViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMo-W1-lhp"/>
+                        <viewControllerLayoutGuide type="bottom" id="6gi-Bk-huq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VKV-Un-auD">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="264"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pAy-2q-gg4">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hKj-JJ-s7J">
+                                        <rect key="frame" x="8" y="5" width="752" height="254"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sih-9P-JZv">
+                                                <rect key="frame" x="130" y="29" width="436" height="149"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="lpB-US-bxf" id="c96-T0-qXL"/>
+                                                    <outlet property="delegate" destination="lpB-US-bxf" id="9rH-Wj-5fa"/>
+                                                </connections>
+                                            </pickerView>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SAND FILTER BACK WASH SCHEDULE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4R-f2-8uN">
+                                                <rect key="frame" x="120" y="0.0" width="310" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CANNOT RUN MANUAL BACK WASH AT THIS MOMENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Szt-nQ-UHi">
+                                                <rect key="frame" x="109" y="178" width="508" height="34"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DURATION:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVU-ff-mQv">
+                                                <rect key="frame" x="468" y="0.0" width="94" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="14"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="60 M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXU-Le-uXw">
+                                                <rect key="frame" x="567" y="0.0" width="73" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyU-ef-cbM">
+                                                <rect key="frame" x="599" y="81" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" backgroundImage="setbutton"/>
+                                                <connections>
+                                                    <action selector="setBwashScheduler:" destination="lpB-US-bxf" eventType="touchUpInside" id="4n5-an-odB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woA-ZA-UW4">
+                                                <rect key="frame" x="35" y="81" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="bwashIcon"/>
+                                                <connections>
+                                                    <action selector="toggleManualBwash:" destination="lpB-US-bxf" eventType="touchUpInside" id="Glo-Cv-kTY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shI-GO-H2N">
+                                        <rect key="frame" x="102" y="182" width="564" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CANNOT RUN A SCHEDULED BACKWASH UNTIL COUNT DOWN GOES TO ZERO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-5p-beF">
+                                                <rect key="frame" x="8" y="36" width="521" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="COUNT DOWN TIMER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtK-1n-QJZ">
+                                                <rect key="frame" x="37" y="8" width="450" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="PUMPS SETTINGS" id="a8u-oM-olG"/>
+                    <size key="freeformSize" width="768" height="264"/>
+                    <connections>
+                        <outlet property="backwashDuration" destination="TXU-Le-uXw" id="XVm-gz-Azx"/>
+                        <outlet property="backwashScheduler" destination="hKj-JJ-s7J" id="dsH-Gn-ymR"/>
+                        <outlet property="cannotRunBwashLbl" destination="Szt-nQ-UHi" id="qYp-6I-99n"/>
+                        <outlet property="countDownTimer" destination="gtK-1n-QJZ" id="tA0-if-Cp0"/>
+                        <outlet property="countDownTimerBG" destination="shI-GO-H2N" id="RZm-wC-5OD"/>
+                        <outlet property="dayPicker" destination="sih-9P-JZv" id="KlI-Io-EcQ"/>
+                        <outlet property="manualBwashButton" destination="woA-ZA-UW4" id="btV-CX-hXm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ORc-9W-Fig" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1260.3515625" y="-4050"/>
         </scene>
     </scenes>
     <resources>
