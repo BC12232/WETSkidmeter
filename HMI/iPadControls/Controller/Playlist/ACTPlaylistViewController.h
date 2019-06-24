@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIView *noConnectionView;
 @property (weak, nonatomic) IBOutlet UIView *backwashMsg;
 @property (weak, nonatomic) IBOutlet UILabel *noConnectionLabel;
-@property (weak, nonatomic) IBOutlet UIView *specialShwMsg;
 
 // methods for possible overriding:
 - (void)contentsDidChange;

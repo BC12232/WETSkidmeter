@@ -165,7 +165,6 @@
 		BBF3650D2294647400332E56 /* FiltrationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */; };
 		BBF3650E2294647400332E56 /* FiltrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365062294647400332E56 /* FiltrationViewController.swift */; };
 		BBF3650F2294647400332E56 /* FiltrationSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365072294647400332E56 /* FiltrationSpecs.swift */; };
-		BBF365102294647400332E56 /* FiltrationPumpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */; };
 		BBF365112294647400332E56 /* FiltrationSchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */; };
 		BBF3E7E422BD409100A50446 /* ReadPumpScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */; };
 /* End PBXBuildFile section */
@@ -374,7 +373,6 @@
 		BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSettingsViewController.swift; sourceTree = "<group>"; };
 		BBF365062294647400332E56 /* FiltrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationViewController.swift; sourceTree = "<group>"; };
 		BBF365072294647400332E56 /* FiltrationSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSpecs.swift; sourceTree = "<group>"; };
-		BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationPumpDetailViewController.swift; sourceTree = "<group>"; };
 		BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiltrationSchedulerViewController.swift; sourceTree = "<group>"; };
 		BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadPumpScheduleViewController.swift; sourceTree = "<group>"; };
 		CB2F2F21D069A5E44025A19B /* Pods-iPadControls.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iPadControls.release.xcconfig"; path = "Pods/Target Support Files/Pods-iPadControls/Pods-iPadControls.release.xcconfig"; sourceTree = "<group>"; };
@@ -575,7 +573,6 @@
 				9B725D79214775BD008886A2 /* AnimationPumpsSpecs.swift */,
 				BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */,
 				9B725D78214775BC008886A2 /* pumps.storyboard */,
-				9B725D7C214775BD008886A2 /* PumpDetailViewController.swift */,
 				9B725D7A214775BD008886A2 /* PumpSettingsViewController.swift */,
 				9B725D7B214775BD008886A2 /* PumpsViewController.swift */,
 			);
@@ -916,9 +913,9 @@
 				BB4B7B9D22A09011002BE1D4 /* ReadSepointsViewController.swift */,
 				BBF3E7E322BD409100A50446 /* ReadPumpScheduleViewController.swift */,
 				BBF365052294647400332E56 /* FiltrationSettingsViewController.swift */,
+				9B725D7C214775BD008886A2 /* PumpDetailViewController.swift */,
 				BBF365062294647400332E56 /* FiltrationViewController.swift */,
 				BBF365072294647400332E56 /* FiltrationSpecs.swift */,
-				BBF365082294647400332E56 /* FiltrationPumpDetailViewController.swift */,
 				BBF365092294647400332E56 /* FiltrationSchedulerViewController.swift */,
 			);
 			path = Pumps;
@@ -969,7 +966,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 754D679GZJ;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1137,7 +1134,6 @@
 				9B2105B8218A19C800D36644 /* ACTInstantPlayViewController.m in Sources */,
 				9BB3349521482B350004FFBC /* WeekSchedulerSpecs.swift in Sources */,
 				9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */,
-				BBF365102294647400332E56 /* FiltrationPumpDetailViewController.swift in Sources */,
 				9BA7A04F21920E2D0038D13D /* ACTPlaylistSettingsViewController.m in Sources */,
 				9B5F3F7420DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */,
@@ -1352,17 +1348,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 754D679GZJ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iPadControls/Resources/iPadControls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WET.iPadControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -1375,17 +1371,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 754D679GZJ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iPadControls/Resources/iPadControls-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WET.iPadControls;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;

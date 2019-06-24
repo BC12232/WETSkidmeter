@@ -42,14 +42,13 @@ let RAIN_SENSOR_STATUS_REGISTER              = 6000
  * Section  : SYSTEM NETWORK SPECS
  * Comments : Always double check if the addresses & port are correct
  ***************************************************************************/
-//let PLC_IP_ADDRESS                 = "192.168.1.230"
-//let SERVER_IP_ADDRESS              = "192.168.1.1"
-//let SPM_IP_ADDRESS                 = "192.168.1.199"
+let PLC_IP_ADDRESS                 = "192.168.1.230"
+let SERVER_IP_ADDRESS              = "192.168.1.1"
+let SPM_IP_ADDRESS                 = "192.168.1.199"
 
-
-let PLC_IP_ADDRESS                 = "10.0.4.230"
-let SERVER_IP_ADDRESS              = "10.0.4.2"
-let SPM_IP_ADDRESS                 = "192.168.1.201"
+//let PLC_IP_ADDRESS                 = "10.0.4.230"
+//let SERVER_IP_ADDRESS              = "10.0.4.2"
+//let SPM_IP_ADDRESS                 = "192.168.1.201"
 let PLC_PORT:Int32                 = 502
 let WARNING_RESET_REGISTER         = 10503
 let FAULT_RESET_REGISTER           = 10504

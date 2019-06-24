@@ -73,10 +73,10 @@
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="rgQ-R2-hWr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-Am-Sem" userLabel="WaterQuality">
+                            <button opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-Am-Sem" userLabel="WaterQuality">
                                 <rect key="frame" x="855" y="312" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="water_quality">
+                                <state key="normal" backgroundImage="background">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -518,6 +518,5 @@
         <image name="settings" width="251" height="251"/>
         <image name="shortcut_playlist_off" width="75.599998474121094" height="75.599998474121094"/>
         <image name="systemstatus" width="78" height="70"/>
-        <image name="water_quality" width="120" height="120"/>
     </resources>
 </document>

@@ -14,7 +14,9 @@ import Foundation
  * Note     :  Double check if the read and write server path is correct
  ***************************************************************************/
 
-let READ_BACK_WASH                              = "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW"
+let READ_BACK_WASH1                              = "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW1"
+let READ_BACK_WASH2                              = "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW2"
+let READ_BACK_WASH3                              = "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW3"
 let FILTRATION_PUMP_NUMBER                      = 1001
 
 /* NOTE For Filtration Scheduler.. Will leave just in case Kranti decided to add one */
@@ -27,17 +29,19 @@ let FILTRATION_AUTO_HAND_PLC_REGISTER           = (register: 2010,type:"EBOOL", 
 /* SHOWN ON BACKWASH TAB ON EXCEL */
 let FILTRATION_BW_DURATION_REGISTER             = 6514 // BW_Duration_SP
 let FILTRATION_TOGGLE_BWASH_BIT_1               = 4002 // iPad_BW1_Trigger
-let FILTRATION_BWASH_RUNNING_BIT_1              = 4001 // BW1_Running
+let FILTRATION_BWASH_RUNNING_BIT_1              = 4003 // BW1_Running
 let FILTRATION_TOGGLE_BWASH_BIT_2               = 4004 // iPad_BW2_Trigger
-let FILTRATION_BWASH_RUNNING_BIT_2              = 4003 // BW2_Running
+let FILTRATION_BWASH_RUNNING_BIT_2              = 4005 // BW2_Running
 let FILTRATION_TOGGLE_BWASH_BIT_3               = 4006 // iPad_BW3_Trigger
-let FILTRATION_BWASH_RUNNING_BIT_3              = 4005 // BW3_Running
+let FILTRATION_BWASH_RUNNING_BIT_3              = 4007 // BW3_Running
 let FILTRATION_VALVE_OPEN_CLOSE_TIME_BIT        = 6516 // BW_ValveActuation_Time. If not present check timer tab
 
 /* SHOWN ON PUMPS TAB ON EXCEL -- SHOULD SAY FILTRATION */
 let FILTRATION_PUMP_FAULT                       = 1008   // Check Pump Fault
 let FILTRATION_PUMP_FAULT_102                   = 1022
 let FILTRATION_PUMP_FAULT_103                   = 1036
+let FILTRATION_PUMP_FAULT_105                   = 1064
+
 
 /* SHOWN ON STRAINER TAB ON EXCEL -- SHOULD SAY FILTRATION */
 let FILTRATION_CLEAN_STRAINER_START_BIT         = 4500 // Check spread sheet, see what's the first register

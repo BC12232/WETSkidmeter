@@ -20,6 +20,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
     
     @IBOutlet weak var filtrationRunningIndicator: UIImageView!
     
+    @IBOutlet weak var pump105button: UIButton!
     @IBOutlet weak var pump102button: UIButton!
     @IBOutlet weak var pump103button: UIButton!
     @IBOutlet weak var freq102SetpointBkgd: UIView!
@@ -363,7 +364,20 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
                 
             }
         })
-        
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_PUMP_FAULT_105), completion: { (success, response) in
+            
+            guard response != nil else{
+                return
+            }
+            let state = Int(truncating: response![0] as! NSNumber)
+            
+            if state == 1 {
+                self.pump105button.setTitleColor(RED_COLOR, for: .normal)
+            } else if state == 0 {
+                self.pump105button.setTitleColor(DEFAULT_GRAY, for: .normal)
+                
+            }
+        })
         
     }
     
@@ -1307,7 +1321,8 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
                 let popover = nav.popoverPresentationController
                 popoverContent.pumpTag = sender.tag
                 popoverContent.preferredContentSize = CGSize(width: 768, height: 264)
-                popover?.sourceRect = CGRect(x: -350, y: 10, width: 768, height: 264)
+//                popover?.sourceRect = CGRect(x: -70, y:0, width: 768, height: 264)
+        
                 popover?.sourceView = sender
                 self.present(nav, animated: true, completion: nil)
         

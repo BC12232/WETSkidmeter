@@ -188,24 +188,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="coE-rj-zT6">
-                                <rect key="frame" x="20" y="483" width="204" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DISABLE SPECIAL SHOW TO CONTROL PLAYLIST SCREEN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfj-Dj-W3s">
-                                        <rect key="frame" x="0.0" y="76" width="204" height="54"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rainSense" translatesAutoresizingMaskIntoConstraints="NO" id="4sJ-xu-u82">
-                                        <rect key="frame" x="72" y="8" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -236,7 +218,6 @@
                         <outlet property="noConnectionView" destination="nMq-L6-mES" id="IY2-Ri-xow"/>
                         <outlet property="playStopButton" destination="3Kt-qv-O5Q" id="qZ0-UI-VCn"/>
                         <outlet property="playlistTable" destination="7fa-lj-c29" id="7Ei-Ov-TGC"/>
-                        <outlet property="specialShwMsg" destination="coE-rj-zT6" id="Pxc-P2-GDx"/>
                         <outlet property="totalDuration" destination="7BL-fT-T2W" id="JIe-zY-GGD"/>
                     </connections>
                 </viewController>
@@ -341,6 +322,5 @@
         <image name="outOfRange" width="265.20001220703125" height="187.44000244140625"/>
         <image name="playButton" width="125" height="125"/>
         <image name="playlist" width="120" height="120"/>
-        <image name="rainSense" width="79" height="86.160003662109375"/>
     </resources>
 </document>

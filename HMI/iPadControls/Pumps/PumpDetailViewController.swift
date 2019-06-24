@@ -1,15 +1,15 @@
 //
-//  FiltrationPumpDetailViewController.swift
+//  PumpDetailViewController.swift
 //  iPadControls
 //
-//  Created by Arpi Derm on 2/17/17.
-//  Copyright © 2017 WET. All rights reserved.
+//  Created by Arpi Derm on 12/27/16.
+//  Copyright © 2016 WET. All rights reserved.
 //
 
 import UIKit
 
-class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
-
+class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
+    
     var pumpNumber = 0
     
     private var pumpIndicatorLimit = 0
@@ -28,16 +28,18 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     
     //MARK: - Frequency Label Indicators
     
-    
+
     @IBOutlet weak var setFrequencyHandle: UIView!
-    @IBOutlet weak var setPointer: UIImageView!
     @IBOutlet weak var frequencySetLabel: UILabel!
+    
     
     @IBOutlet weak var frequencyLabel: UILabel!
     @IBOutlet weak var frequencyValueLabel: UILabel!
     @IBOutlet weak var frequencyIndicator: UIView!
     @IBOutlet weak var frequencyIndicatorValue: UILabel!
     @IBOutlet weak var frequencySetpointBackground: UIView!
+    @IBOutlet weak var manualSpeedView: UIView!
+    @IBOutlet weak var manualSpeedValue: UITextField!
     
     
     //MARK: - Voltage Label Indicators
@@ -67,7 +69,10 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     @IBOutlet weak var temperatureBackground: UIView!
     @IBOutlet weak var temperatureLabel: UILabel!
     
-    
+
+    @IBOutlet weak var playStopButtonIcon: UIButton!
+    private var isManualMode = false
+   
     
     //MARK: - Data Structures
     
@@ -80,7 +85,8 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     private var readFrequencyCount = 0
     private var readOnce = 0
     private var readPumpDetailSpecsOnce = 0
-    
+    private var readManualFrequencySpeed = false
+    private var readManualFrequencySpeedOnce = false
     private var HZMax = 0
     
     private var voltageMaxRangeValue = 0
@@ -96,10 +102,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     private var pixelPerTemperature = 0.0
     private var temperatureLimit = 100
     private var pumpFaulted = false
-    private var readManualSpeedPLC = false
-    private var readManualSpeedOncePLC = false
     
-
     var manualPumpGesture: UIPanGestureRecognizer!
     
     @IBOutlet weak var vfdNumber: UILabel!
@@ -108,34 +111,45 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     //MARK: - View Life Cycle
     
     override func viewDidLoad(){
-        
+        self.manualSpeedView.alpha = 0
         super.viewDidLoad()
         
     }
     
-
+    //MARK: - Memory Management
+    
+    override func didReceiveMemoryWarning(){
+        
+        super.didReceiveMemoryWarning()
+        
+    }
     
     //MARK: - View Will Appear
     
     override func viewWillAppear(_ animated: Bool){
-        if pumpNumber == 101{
-            vfdNumber.text = "VFD - 101"
-        } else if pumpNumber == 102 {
-            vfdNumber.text = "VFD - 102"
-        } else if pumpNumber == 103 {
-            vfdNumber.text = "VFD - 103"
+        
+        if CENTRAL_SYSTEM == nil{
+            
+            CENTRAL_SYSTEM = CentralSystem()
+            
+            //Initialize the central system so we can establish all the system config
+            CENTRAL_SYSTEM?.initialize()
+            CENTRAL_SYSTEM?.connect()
         }
         
+        vfdNumber.text = "VFD - \(pumpNumber)"
         pumpIndicatorLimit = 0
+        readSchedulerEnable()
+        initializePumpGestureRecognizer()
 
+        
         //Configure Pump Screen Text Content Based On Device Language
         configureScreenTextContent()
         getIpadNumber()
         
-        initializePumpGestureRecognizer()
-
-        //Add show stoppers
         
+        //Add show stoppers
+        addShowStoppers()
         
         setPumpNumber()
         readCurrentPumpDetailsSpecs()
@@ -158,8 +172,8 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         NotificationCenter.default.removeObserver(self)
         
     }
-    
-    
+
+
     
     //MARK: - Set Pump Number To PLC
     
@@ -171,21 +185,34 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         let iPadNumberRegister = registersSET1[0]
         
         CENTRAL_SYSTEM!.writeRegister(register: iPadNumberRegister.register, value: pumpNumber)
-        
+    
     }
     
+    //====================================
+    //                                     CONNECTION AND SHOW STOPPERS CHECK POINTS
+    //====================================
+    
+    
+    //MARK: - Check Status Of The Connections To Server and PLC
+    
     @objc func checkSystemStat(){
-        let (plcConnection, _) = CENTRAL_SYSTEM!.getConnectivityStat()
         
-        if plcConnection == CONNECTION_STATE_CONNECTED {
+        let (plcConnection,_) = CENTRAL_SYSTEM!.getConnectivityStat()
+        
+        if plcConnection == CONNECTION_STATE_CONNECTED{
             
             //Change the connection stat indicator
             noConnectionView.alpha = 0
+            noConnectionView.isUserInteractionEnabled = false
             
+            //Check if the pumps or on auto mode or hand mode
+            
+            logger.logData(data: "PUMP: CONNECTION SUCCESS")
+           
             readCurrentPumpSpeed()
             acquireDataFromPLC()
             
-        } else {
+        } else  {
             noConnectionView.alpha = 1
             if plcConnection == CONNECTION_STATE_FAILED {
                 noConnectionErrorLbl.text = "PLC CONNECTION FAILED, SERVER GOOD"
@@ -195,8 +222,8 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 noConnectionErrorLbl.text = "PLC POOR CONNECTION, SERVER CONNECTED"
             }
         }
+        
     }
-    
     
     
     //====================================
@@ -246,10 +273,9 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         } else {
             self.iPadNumber = ipadNum!
         }
-        
+
     }
     
-
     //MARK: - Initialize Filtration Pump Gesture Recognizer
     
     private func initializePumpGestureRecognizer(){
@@ -263,46 +289,46 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
     }
     
-    @objc private func readCurrentPumpDetailsSpecs() {
+   @objc private func readCurrentPumpDetailsSpecs() {
         var pumpSet = 0
         
         iPadNumber == 1 ? (pumpSet = 0) : (pumpSet = 1)
         
         let registersSET1 = PUMP_DETAILS_SETS[pumpSet]
         let startRegister = registersSET1[0]
-        
+
         CENTRAL_SYSTEM!.readRegister(length: 5, startingRegister: Int32(startRegister.register), completion:{ (success, response) in
-            
+
             guard success == true else { return }
-            
+
             if self.readPumpDetailSpecsOnce == 0 {
                 self.readPumpDetailSpecsOnce = 1
-                
-                
+
+
                 self.HZMax = Int(truncating: response![0] as! NSNumber) / 10
                 self.voltageMaxRangeValue  = Int(truncating: response![1] as! NSNumber)
                 self.voltageMinRangeValue = Int(truncating: response![2] as! NSNumber)
                 self.currentMaxRangeValue = Int(truncating: response![3] as! NSNumber) / 10
                 self.temperatureMaxRangeValue = Int(truncating: response![4] as! NSNumber)
-                
+
                 self.frequencyValueLabel.text = "\(self.HZMax)"
-                
+
                 // What we are getting is a range, not the maximum value. So to get the maximum volatage value just add 100.
-                
+
                 self.voltageLimit = self.voltageMaxRangeValue + 100
                 self.voltageValueLabel.text   = "\(self.voltageLimit)"
-                
+
                 // What we are getting is a range, not the maximum value. So to get the maximum current value just add 10.
                 self.currentLimit = self.currentMaxRangeValue + 10
                 self.currentValueLabel.text = "\(self.currentLimit)"
-                
+
                 //Note temperature always stays at 100 limit.
-                
-                
+
+
                 //Add necessary view elements to the view
                 self.constructViewElements()
             }
-            
+
         })
     }
     
@@ -312,23 +338,21 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         constructVoltageSlider()
         constructCurrentSlider()
         constructTemperatureSlider()
-
-        
     }
-    
+
     
     private func constructVoltageSlider(){
         let frame = 450.0
         pixelPerVoltage = frame / Double(voltageLimit)
-        
         if pixelPerVoltage == Double.infinity {
             pixelPerVoltage = 0
         }
         
+        
         let length = Double(voltageMaxRangeValue) * pixelPerVoltage
         let height = Double(voltageMaxRangeValue - voltageMinRangeValue) * pixelPerVoltage
-        
-        
+    
+       
         voltageSetpointBackground.backgroundColor = GREEN_COLOR
         voltageSetpointBackground.frame = CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - length), width: 25, height: height)
         
@@ -337,7 +361,6 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     private func constructCurrentSlider(){
         let frame = 450.0
         pixelPerCurrent = frame / Double(currentLimit)
-       
         if pixelPerCurrent == Double.infinity {
             pixelPerCurrent = 0
         }
@@ -348,7 +371,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
             length = 450
         }
         
-        
+  
         currentSetpointBackground.backgroundColor = GREEN_COLOR
         currentSetpointBackground.frame = CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - length), width: 25, height: length)
     }
@@ -357,10 +380,10 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         let frame = 450.0
         let temperatureMidRangeValue = 50.0
         pixelPerTemperature = frame / Double(temperatureLimit)
-        
         if pixelPerTemperature == Double.infinity {
             pixelPerTemperature = 0
         }
+        
         
         let temperatureRange = Double(temperatureMaxRangeValue) * pixelPerTemperature
         let temperatureFrameHeight = (Double(temperatureMaxRangeValue) - temperatureMidRangeValue) * pixelPerTemperature
@@ -370,7 +393,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
         temperatureYellow.frame = CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - temperatureRange), width: 25, height: temperatureFrameHeight)
         temperatureGreen.frame = CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - temperatureRange), width: 25, height: temperatureRange)
-        
+       
         
     }
     
@@ -381,25 +404,56 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     
     private func readCurrentPumpSpeed() {
         pumpIndicatorLimit += 1
-        
+    
         var pumpSet = 0
         
         iPadNumber == 1 ? (pumpSet = 0) : (pumpSet = 1)
-        
+
         let registersSET1 = PUMP_SETS[pumpSet]
         let startRegister = registersSET1[1]
-        
-        CENTRAL_SYSTEM!.readRegister(length: 14, startingRegister: Int32(startRegister.register), completion:{ (success, response) in
+  
+        CENTRAL_SYSTEM!.readRegister(length: 11, startingRegister: Int32(startRegister.register), completion:{ (success, response) in
             
             guard response != nil else { return }
-            
+    
             self.getVoltageReading(response: response)
             self.getCurrentReading(response: response)
             self.getTemperatureReading(response: response)
             self.getManualSpeedReading(response: response)
             self.getFrequencyReading(response: response)
+            self.getManualSpeedReading(response: response)
+         
             
-            
+            if self.readOnce == 0 {
+                self.readOnce = 1
+                let feedback = Int(truncating: response![8] as! NSNumber)
+                let startStopMode = Int(truncating: response![7] as! NSNumber)
+                
+                if feedback == 0{
+
+                    //Pump is in auto mode
+                    self.localStat = 0
+                    self.frequencyIndicator.isHidden = false
+                    self.setFrequencyHandle.isHidden = true
+
+                }else if feedback == 1 && startStopMode == 1{
+
+                    //Pump is in manual mode
+                    self.localStat = 2
+                    self.frequencyIndicator.isHidden = false
+                    self.setFrequencyHandle.isHidden = false
+                    self.isManualMode = true
+
+                }else if feedback == 1 && startStopMode == 0{
+
+                    //Pump is in off mode
+                    self.localStat = 1
+                    self.frequencyIndicator.isHidden = true
+                    self.setFrequencyHandle.isHidden = false
+                }
+
+               
+            }
         })
     }
     
@@ -407,7 +461,7 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         
         var padded = string
         
-        for _ in 0..<toSize - string.count{
+        for _ in 0..<toSize - string.characters.count{
             padded = "0" + padded
         }
         
@@ -435,22 +489,35 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 let decimalRsp = Int(truncating: response![0] as! NSNumber)
                 let base_2_binary = String(decimalRsp, radix: 2)
                 let Bit_16:String = self.pad(string: base_2_binary, toSize: 16)  //Convert to 16 bit
-                let bits =  Bit_16.map { String($0) }
+                let bits =  Bit_16.characters.map { String($0) }
                 self.parseStates(bits: bits)
                 
             }
         })
     }
     
+    func readSchedulerEnable(){
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2010, completion: { (success, response) in
+            guard success == true else { return }
+            let switchOnOff = Int(truncating: response![0] as! NSNumber)
+            if switchOnOff == 0{
+                self.playStopButtonIcon.isHidden = false
+            } else {
+                self.playStopButtonIcon.isHidden = true
+            }
+        })
+    }
+    
     private func parseStates(bits:[String]){
 
+        
         for fault in PUMP_FAULT_SET {
             
             let faultTag = fault.tag
             let state = Int(bits[15 - fault.bitwiseLocation])
             let indicator = view.viewWithTag(faultTag) as? UILabel
             
-            if faultTag != 200 && faultTag != 204 {
+            if faultTag != 200 && faultTag != 204 && faultTag != 207 {
                 if state == 1 {
                     indicator?.isHidden = false
                 } else {
@@ -476,26 +543,41 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
                 }
             }
             
+            if faultTag == 207 {
+             
+                readPlayStopBit(startStopMode: state ?? 0)
+            }
+            
+            if faultTag == 208 {
+                if state == 1 {
+                    indicator?.isHidden = false
+                } else {
+                    indicator?.isHidden = true
+                }
+            }
+         
             
         }
         
     }
     
     
-    
+
     
     //MARK: - Get Voltage Reading
     
     private func getVoltageReading(response:[AnyObject]?){
+        
         let voltage = Int(truncating: response![3] as! NSNumber)
         let voltageValue = voltage / 10
         let voltageRemainder = voltage % 10
         let indicatorLocation = abs(690 - (Double(voltageValue) * pixelPerVoltage))
         
-        if voltageValue >= voltageLimit {
-            voltageIndicator.frame = CGRect(x: 419, y: 240, width: 92, height: 23)
-        } else if voltageValue <= 0 {
+        
+        if indicatorLocation > 690 {
             voltageIndicator.frame = CGRect(x: 419, y: 690, width: 92, height: 23)
+        } else if indicatorLocation < 240 {
+            voltageIndicator.frame = CGRect(x: 419, y: 240, width: 92, height: 23)
         } else {
             voltageIndicator.frame = CGRect(x: 419, y: indicatorLocation, width: 92, height: 23)
         }
@@ -503,8 +585,11 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         voltageIndicatorValue.text = "\(voltageValue).\(voltageRemainder)"
         
         if voltageValue > voltageMaxRangeValue || voltageValue < voltageMinRangeValue {
+            
             voltageIndicatorValue.textColor = RED_COLOR
+            
         } else {
+            
             voltageIndicatorValue.textColor = GREEN_COLOR
         }
     }
@@ -513,14 +598,15 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     
     private func getCurrentReading(response:[AnyObject]?){
         let current = Int(truncating: response![2] as! NSNumber)
-        let currentValue = current / 100
-        let currentRemainder = current % 100
+        let currentValue = current / 10
+        let currentRemainder = current % 10
         let indicatorLocation = abs(690 - (Double(currentValue) * pixelPerCurrent))
         
-        if currentValue >= currentLimit {
-            currentIndicator.frame = CGRect(x: 600, y: 240, width: 92, height: 23)
-        } else if currentValue <= 0 {
+        
+        if indicatorLocation > 690 {
             currentIndicator.frame = CGRect(x: 600, y: 690, width: 92, height: 23)
+        } else if indicatorLocation < 240 {
+            currentIndicator.frame = CGRect(x: 600, y: 240, width: 92, height: 23)
         } else {
             currentIndicator.frame = CGRect(x: 600, y: indicatorLocation, width: 92, height: 23)
         }
@@ -541,23 +627,25 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
         let temperature = Int(truncating: response![4] as! NSNumber)
         let temperatureMid = 50
         let indicatorLocation = 690 - (Double(temperature) * pixelPerTemperature)
-
-        if temperature >= 100 {
+        
+        
+        
+        if indicatorLocation > 690 {
+             temperatureIndicator.frame = CGRect(x: 790, y: 690, width: 75, height: 23)
+        } else if indicatorLocation < 240 {
             temperatureIndicator.frame = CGRect(x: 790, y: 240, width: 75, height: 23)
-        } else if temperature <= 0 {
-            temperatureIndicator.frame = CGRect(x: 790, y: 690, width: 75, height: 23)
         } else {
             temperatureIndicator.frame = CGRect(x: 790, y: indicatorLocation, width: 75, height: 23)
         }
         
-        
+       
         temperatureIndicatorValue.text = "\(temperature)"
         
         if temperature > temperatureMaxRangeValue {
             temperatureIndicatorValue.textColor = RED_COLOR
-        } else if temperature > temperatureMid && temperature < temperatureMaxRangeValue {
+        }else if temperature > temperatureMid && temperature < temperatureMaxRangeValue {
             temperatureIndicatorValue.textColor = .yellow
-        } else {
+        }else{
             temperatureIndicatorValue.textColor = GREEN_COLOR
         }
         
@@ -566,105 +654,290 @@ class FiltrationPumpDetailViewController: UIViewController,UIGestureRecognizerDe
     //MARK: - Get Frequency Reading
     
     private func getFrequencyReading(response:[AnyObject]?){
+        // If pumpstate == 0 (Auto) then show the frequency indicator/background frame/indicator value. Note: the frequency indicator's user interaction is disabled.
+
+            let frequency = Int(truncating: response![1] as! NSNumber)
+            
+            let frequencyValue = frequency / 10
+            let frequencyRemainder = frequency % 10
+            var pixelPerFrequency = 450.0 / Double(HZMax)
+            if pixelPerFrequency == Double.infinity {
+                pixelPerFrequency = 0
+            }
+            
+            let length = Double(frequencyValue) * pixelPerFrequency
+            
+            if frequencyValue > Int(HZMax){
+                frequencySetpointBackground.frame =  CGRect(x: 0, y: 0, width: 25, height: 450)
+                frequencyIndicator.frame = CGRect(x: 212, y: 240, width: 86, height: 23)
+                frequencyIndicatorValue.text = "\(HZMax)"
+            } else {
+                frequencySetpointBackground.frame =  CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - length), width: 25, height: length)
+                frequencyIndicator.frame = CGRect(x: 212, y: (690 - length), width: 86, height: 23)
+                frequencyIndicatorValue.text = "\(frequencyValue).\(frequencyRemainder)"
+                
+                
+            }
+
+    }
     
-        // If pumpstate == 2 (Manual) then show only the frequency background frame. See get manual speed reading function.
-        let frequency = Int(truncating: response![1] as! NSNumber)
-        let frequencyValue = frequency / 10
-        let frequencyRemainder = frequency % 10
-        var pixelPerFrequency = 450.0 / Double(HZMax)
-        if pixelPerFrequency == Double.infinity {
-            pixelPerFrequency = 0
+    
+    //====================================
+    //                                      AUTO / MANUAL MODE
+    //====================================
+    
+    
+    
+
+    
+    
+    
+    @IBAction func changeAutoManMode(_ sender: Any) {
+        
+        var manualBit = 0
+        var autoBit = 0
+        var startStopBit = 0
+       
+        
+        if iPadNumber == 1{
+            
+            let registerSet = PUMP_SETS[0]
+            
+            autoBit = registerSet[6].register
+            manualBit = registerSet[7].register
+            startStopBit = registerSet[8].register
+          
+            
+        }else{
+            
+            let registerSet = PUMP_SETS[1]
+            
+            
+            autoBit = registerSet[6].register
+            manualBit = registerSet[7].register
+            startStopBit = registerSet[8].register
+          
+   
         }
         
-  
-        let length = Double(frequencyValue) * pixelPerFrequency
-        
-        if frequencyValue > Int(HZMax){
-            frequencySetpointBackground.frame =  CGRect(x: 0, y: 0, width: 25, height: 450)
-            frequencyIndicator.frame = CGRect(x: 212, y: 240, width: 86, height: 23)
-            frequencyIndicatorValue.text = "\(HZMax)"
-        } else {
-            frequencySetpointBackground.frame =  CGRect(x: 0, y: (SLIDER_PIXEL_RANGE - length), width: 25, height: length)
-            frequencyIndicator.frame = CGRect(x: 212, y: (690 - length), width: 86, height: 23)
-            frequencyIndicatorValue.text = "\(frequencyValue).\(frequencyRemainder)"
+        switch pumpState{
             
+        case 0:
+            
+            //Switch to off mode
+            self.localStat = 1
+            CENTRAL_SYSTEM?.writeRegister(register: manualBit, value: 1)
+            CENTRAL_SYSTEM?.writeRegister(register: autoBit, value: 0)
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 0)
+            isManualMode = false
+            
+            break
+            
+        case 1:
+            
+            //Switch to Manual Mode mode
+            self.localStat = 2
+            
+            CENTRAL_SYSTEM?.writeRegister(register: manualBit, value: 1)
+            CENTRAL_SYSTEM?.writeRegister(register: autoBit, value: 0)
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 0)
+            isManualMode = true
+           
+            
+            break
+            
+        case 2:
+            
+            //Switch to off mode
+            self.localStat = 3
+            CENTRAL_SYSTEM?.writeRegister(register: manualBit, value: 1)
+            CENTRAL_SYSTEM?.writeRegister(register: autoBit, value: 0)
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 0)
+            isManualMode = false
+        
+            
+            break
+            
+        case 3:
+            
+            //Switch To Auto Mode
+            self.localStat = 0
+            CENTRAL_SYSTEM?.writeRegister(register: manualBit, value: 0)
+            CENTRAL_SYSTEM?.writeRegister(register: autoBit, value: 1)
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 0)
+            isManualMode = false
+
+           
+            
+            break
+            
+            
+        default:
+            
+            print("PUMP STATE NOT FOUND")
+            
+        }
+        
+        
+        
+    }
+    
+    
+    private func readPlayStopBit(startStopMode: Int) {
+       if startStopMode == 1 {
+                //stop
+            playStopButtonIcon.setImage(#imageLiteral(resourceName: "stopButton"), for: .normal)
+              
+       } else {
+                //play
+            playStopButtonIcon.setImage(#imageLiteral(resourceName: "playButton"), for: .normal)
+              
+       }
+    }
+    
+    @IBAction func playStopButtonPressed(_ sender: Any) {
+        var startStopBit = 0
+        
+        if iPadNumber == 1 {
+            startStopBit = 9
+        } else {
+            startStopBit = 29
+        }
+        
+        
+        if playStopButtonIcon.imageView?.image == #imageLiteral(resourceName: "playButton") {
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 1)
+        } else {
+            CENTRAL_SYSTEM?.writeRegister(register: startStopBit, value: 0)
         }
     }
     
-
+    
+   
+    
+    
+  
+    
+    //====================================
+    //                                      MANUAL PUMP CONTROL
+    //====================================
     
     
     private func getManualSpeedReading(response: [AnyObject]?){
-        if  readManualSpeedPLC || !readManualSpeedOncePLC {
-            readManualSpeedPLC = false
-            readManualSpeedOncePLC = true
+        if readManualFrequencySpeed || !readManualFrequencySpeedOnce {
+            readManualFrequencySpeedOnce = true
+            readManualFrequencySpeed = false
+
+            let manualSpeed = Int(truncating: response![0] as! NSNumber)
+            let manualSpeedValue = manualSpeed / 10
+            let manualSpeedRemainder = manualSpeed % 10
+            var pixelPerFrequency = 450.0 / Double(HZMax)
             
-        let manualSpeed = Int(truncating: response![0] as! NSNumber)
-        
-        let manualSpeedValue = manualSpeed / 10
-        let manualSpeedRemainder = manualSpeed % 10
-        var pixelPerFrequency = 450.0 / Double(HZMax)
-        
-        if pixelPerFrequency == Double.infinity {
-            pixelPerFrequency = 0
+            if pixelPerFrequency == Double.infinity {
+                pixelPerFrequency = 0
+            }
+            
+            let length = Double(manualSpeedValue) * pixelPerFrequency
+            
+            
+            if manualSpeedValue > Int(HZMax){
+                setFrequencyHandle.frame = CGRect(x: 403, y: 237, width: 108, height: 26)
+                frequencySetLabel.textColor = GREEN_COLOR
+                frequencySetLabel.text = "\(HZMax)"
+                self.manualSpeedValue.text  = "\(HZMax)"
+            } else {
+                setFrequencyHandle.frame = CGRect(x: 403, y: (687 - length), width: 108, height: 26)
+                frequencySetLabel.textColor = GREEN_COLOR
+                frequencySetLabel.text = "\(manualSpeedValue).\(manualSpeedRemainder)"
+                self.manualSpeedValue.text  = "\(manualSpeedValue).\(manualSpeedRemainder)"
+                print("this is the manual speed: \(manualSpeedValue).\(manualSpeedRemainder)")
+            }
+            
+            
         }
-        let length = Double(manualSpeedValue) * pixelPerFrequency
         
-        
-        if manualSpeedValue > Int(HZMax){
-            setFrequencyHandle.frame = CGRect(x: 403, y: 237, width: 108, height: 26)
-            frequencySetLabel.textColor = GREEN_COLOR
-            frequencySetLabel.text = "\(HZMax)"
-            readManualSpeedOncePLC = true
-        } else {
-            setFrequencyHandle.frame = CGRect(x: 403, y: (687 - length), width: 108, height: 26)
-            frequencySetLabel.textColor = GREEN_COLOR
-            frequencySetLabel.text = "\(manualSpeedValue).\(manualSpeedRemainder)"
-            readManualSpeedOncePLC = true
-        }
-        }
     }
     
+    
+    
     @objc func changePumpSpeedFrequency(sender: UIPanGestureRecognizer){
-        
-        setFrequencyHandle.isUserInteractionEnabled = true
-        frequencySetLabel.textColor = GREEN_COLOR
-        var touchLocation:CGPoint = sender.location(in: self.view)
-        print(touchLocation.y)
-        //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 250 {
-            touchLocation.y = 250
-        }
-        if touchLocation.y  > 700 {
-            touchLocation.y = 700
-        }
-        //Make sure that we don't go more than pump flow limit
-        if touchLocation.y >= 250 && touchLocation.y <= 700 {
-            
-            sender.view?.center.y = touchLocation.y
-            
-            let flowRange = 700 - Int(touchLocation.y)
-            let pixelPerFrequency = 450.0 / Double(HZMax)
-            let herts = Double(flowRange) / pixelPerFrequency
-            let formattedHerts = String(format: "%.1f", herts)
-            let convertedHerts = Int(herts * 10)
-            
-            frequencySetLabel.text = formattedHerts
-            
-            if sender.state == .ended {
-                if iPadNumber == 1{
-                    CENTRAL_SYSTEM?.writeRegister(register: 2, value: convertedHerts) //NOTE: We multiply the frequency by 10 becuase PLC expects 3 digit number
-                    readManualSpeedPLC = true
-                } else {
-                    CENTRAL_SYSTEM?.writeRegister(register: 22, value: convertedHerts) //NOTE: We multiply the frequency by 10 becuase PLC expects 3 digit number
-                    readManualSpeedPLC = true
-                }
+      
+            setFrequencyHandle.isUserInteractionEnabled = true
+            frequencySetLabel.textColor = GREEN_COLOR
+            var touchLocation:CGPoint = sender.location(in: self.view)
+            print(touchLocation.y)
+            //Make sure that we don't go more than pump flow limit
+            if touchLocation.y  < 250 {
+                touchLocation.y = 250
             }
-       
+            if touchLocation.y  > 700 {
+                touchLocation.y = 700
+            }
+            if touchLocation.y >= 250 && touchLocation.y <= 700 {
+                
+                sender.view?.center.y = touchLocation.y
+                
+                let flowRange = 700 - Int(touchLocation.y)
+                let pixelPerFrequency = 450.0 / Double(HZMax)
+                var herts = Double(flowRange) / pixelPerFrequency
+                if herts > 50.0 {
+                    herts = 50.0
+                }
+                let formattedHerts = String(format: "%.1f", herts)
+                let convertedHerts = Int(herts * 10)
+                
+                print(convertedHerts)
+                frequencySetLabel.text = formattedHerts
+                
+                
+                if sender.state == .ended {
+                    if iPadNumber == 1{
+                        CENTRAL_SYSTEM?.writeRegister(register: 2, value: convertedHerts) //NOTE: We multiply the frequency by 10 becuase PLC expects 3 digit number
+                        setReadManualSpeedBoolean()
+                        
+                    } else {
+                        CENTRAL_SYSTEM?.writeRegister(register: 22, value: convertedHerts) //NOTE: We multiply the frequency by 10 becuase PLC expects 3 digit number
+                        setReadManualSpeedBoolean()
+                    }
+                }
+     
+            }
+  
+    
+    }
+    
+    @IBAction func setManualSpeed(_ sender: Any) {
+        var manSpeed  = Float(self.manualSpeedValue.text!)
+        self.manualSpeedValue.text = ""
+        if manSpeed == nil{
+            manSpeed = 0
         }
-        
-        
+        if manSpeed! > 50 {
+            manSpeed = 50
+        }
+        manSpeed = manSpeed! * 10
+        if iPadNumber == 1{
+            
+            
+            CENTRAL_SYSTEM?.writeRegister(register: 2, value: Int(manSpeed!))
+            
+            
+        } else {
+            
+            
+            CENTRAL_SYSTEM?.writeRegister(register: 22, value: Int(manSpeed!))
+            
+        }
+        readManualFrequencySpeedOnce = false
+    }
+    
+    
+    
+   
+    private func setReadManualSpeedBoolean(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
+            self.readManualFrequencySpeed = true
+        }
     }
     
 }
-

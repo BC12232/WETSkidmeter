@@ -32,7 +32,7 @@ class FiltrationSchedulerViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        navigationItem.title = "FILTRATION SCHEDULER"
+        navigationItem.title = "PUMP SCHEDULER"
     
     }
     
@@ -172,7 +172,7 @@ class FiltrationSchedulerViewController: UIViewController {
 //
 
     func readSchedulerEnable(){
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2110, completion: { (success, response) in
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2010, completion: { (success, response) in
             
             guard success == true else { return }
             
@@ -258,9 +258,9 @@ class FiltrationSchedulerViewController: UIViewController {
 
     @IBAction func enableSchedulerOnOff(_ sender: Any) {
         if schedulerSwitch.isOn{
-             CENTRAL_SYSTEM?.writeBit(bit: 2110, value: 1)
+             CENTRAL_SYSTEM?.writeBit(bit: 2010, value: 1)
         } else {
-             CENTRAL_SYSTEM?.writeBit(bit: 2110, value: 0)
+             CENTRAL_SYSTEM?.writeBit(bit: 2010, value: 0)
         }
     }
     

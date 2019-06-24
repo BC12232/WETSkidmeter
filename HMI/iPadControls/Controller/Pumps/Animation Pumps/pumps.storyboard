@@ -26,28 +26,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="autoMode" translatesAutoresizingMaskIntoConstraints="NO" id="M5t-ma-bf2">
-                                <rect key="frame" x="103" y="280" width="27" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-to-3VR" userLabel="autoManualButton">
-                                <rect key="frame" x="79" y="314" width="75" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                                <state key="normal" image="pumps_on">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeAutoManMode:" destination="6B3-j5-ofQ" eventType="touchUpInside" id="FiT-px-dGv"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="handMode" translatesAutoresizingMaskIntoConstraints="NO" id="i5J-Ax-2b9">
-                                <rect key="frame" x="106" y="280" width="21" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aon-D6-bzp" userLabel="Frequency-Background">
                                 <rect key="frame" x="312" y="250" width="25" height="450"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -418,7 +396,7 @@
                                 <gestureRecognizers/>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EDh-bw-rhv" userLabel="No Connection">
-                                <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                                <rect key="frame" x="0.0" y="64" width="1024" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO CONNECTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRe-Le-02W">
@@ -435,12 +413,21 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH8-to-3VR" userLabel="autoManualButton">
+                                <rect key="frame" x="79" y="302" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <state key="normal" image="pumps">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="autoManualButton" destination="jH8-to-3VR" id="3NX-Jl-r9Y"/>
-                        <outlet property="autoModeIndicator" destination="M5t-ma-bf2" id="lUC-dq-djd"/>
                         <outlet property="cleanStrainerLbl" destination="93A-Iw-acs" id="FSI-gg-o8T"/>
                         <outlet property="currentBackground" destination="tR1-dH-BUW" id="eHv-22-OPg"/>
                         <outlet property="currentIndicator" destination="rKC-DI-RvH" id="Ddh-Pd-qfD"/>
@@ -454,7 +441,6 @@
                         <outlet property="frequencySetLabel" destination="BJw-Dh-KaT" id="k64-h7-opx"/>
                         <outlet property="frequencySetpointBackground" destination="GXb-iW-TBL" id="qDx-hJ-rlx"/>
                         <outlet property="frequencyValueLabel" destination="b47-QP-rqq" id="YAh-lM-lvC"/>
-                        <outlet property="handModeIndicator" destination="i5J-Ax-2b9" id="5V7-lV-WrV"/>
                         <outlet property="manualSpeedValue" destination="abp-oV-Y8I" id="aFO-X4-Oah"/>
                         <outlet property="manualSpeedView" destination="iWM-de-BQU" id="J1e-p9-aRN"/>
                         <outlet property="noConnectionErrorLbl" destination="LRe-Le-02W" id="qPH-10-H3F"/>
@@ -1372,16 +1358,14 @@
         <image name="WETLogo" width="138" height="36"/>
         <image name="arrowRight" width="20.159999847412109" height="20.879999160766602"/>
         <image name="autoButton" width="49.919998168945312" height="49.919998168945312"/>
-        <image name="autoMode" width="23" height="21.120000839233398"/>
         <image name="backgroundSquare" width="61" height="62"/>
         <image name="basinPump1" width="1024.0799560546875" height="768"/>
-        <image name="handMode" width="19.680000305175781" height="25.920000076293945"/>
         <image name="ios_settings_icon" width="512" height="512"/>
         <image name="lockRed" width="20.159999847412109" height="28.319999694824219"/>
         <image name="outOfRange" width="265.20001220703125" height="187.44000244140625"/>
         <image name="playButton" width="125" height="125"/>
+        <image name="pumps" width="120" height="120"/>
         <image name="pumpsNoFault" width="71" height="76.080001831054688"/>
-        <image name="pumps_on" width="75.120002746582031" height="75.120002746582031"/>
         <image name="quadAlock" width="52.080001831054688" height="30"/>
         <image name="quadBlock" width="52.080001831054688" height="30"/>
         <image name="quadClock" width="52.080001831054688" height="30"/>

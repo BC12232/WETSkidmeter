@@ -102,7 +102,6 @@ static NSString *returnTappedTextFieldHint = @"~"; // HACK to mark when return w
     [super viewWillAppear:animated];
     [self initializeFile];
     [self addShowStoppers];
-    [self getSpecialShowData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -122,28 +121,7 @@ static NSString *returnTappedTextFieldHint = @"~"; // HACK to mark when return w
     
 }
 
--(void)getSpecialShowData{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    _rainState = [[defaults objectForKey:@"rainSensor"] intValue];
-    NSString *fullpath = [NSString stringWithFormat:@"%@%@:8080/readFillerShow", _pass, _ip];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-    
-    [manager GET:fullpath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
-        NSMutableDictionary *dictobj = [[NSMutableDictionary alloc]init];
-        dictobj = responseObject;
-        int value = [[dictobj valueForKey:@"SpecialShow_Enable"] integerValue];
-        if (value == 1 && self.rainState == 1) {
-            self.specialShwMsg.alpha = 1;
-        } else {
-            self.specialShwMsg.alpha = 0;
-        }
-        
-    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        
-    }];
-}
+
 
 #pragma mark - construct controller
 

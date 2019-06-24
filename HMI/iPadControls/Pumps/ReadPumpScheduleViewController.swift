@@ -48,10 +48,24 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
     
     
     @IBAction func toggleManualBwash(_ sender: UIButton) {
-        CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 1)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 0)
-            
+        if pumpTag == 131{
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_1, value: 0)
+                
+            }
+        } else if pumpTag == 132 {
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_2, value: 1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_2, value: 0)
+                
+            }
+        } else if pumpTag == 133 {
+            CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_3, value: 1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                CENTRAL_SYSTEM?.writeBit(bit: FILTRATION_TOGGLE_BWASH_BIT_3, value: 0)
+                
+            }
         }
     }
     
@@ -81,12 +95,22 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
             }
         }
         
-        
+        if pumpTag == 131 {
+            httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/writeBW1?[\(day),\(time)]"){ (response) in
+                self.loadedScheduler = 0
+            }
+        } else if pumpTag == 132 {
+            httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/writeBW2?[\(day),\(time)]"){ (response) in
+                self.loadedScheduler = 0
+            }
+        } else if pumpTag == 133 {
+            httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/writeBW3?[\(day),\(time)]"){ (response) in
+                self.loadedScheduler = 0
+            }
+        }
         
         //NOTE: The Data Structure be [DAY,TIME]
-        httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/writeBW?[\(day),\(time)]"){ (response) in
-            self.loadedScheduler = 0
-        }
+        
         
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
@@ -255,155 +279,452 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
         
     }
     private func readBWFeedback(){
-        self.httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW"){ (response) in
-            
-            guard let responseDictinary = response as? NSDictionary else { return }
-            
-            
-            let backWashStatus = responseDictinary["SchBWStatus"] as? Int
-            
-            if self.loadedScheduler == 0 {
-                guard
-                    let backWashScheduledDay = responseDictinary["schDay"] as? Int,
-                    let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
+        if pumpTag == 131 {
+            self.httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW1"){ (response) in
+                
+                guard let responseDictinary = response as? NSDictionary else { return }
                 
                 
-                self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
-                UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                let backWashStatus = responseDictinary["SchBWStatus"] as? Int
                 
-                if self.is24hours {
-                    
-                    let hour = backWashScheduledTime / 100
-                    let minute = backWashScheduledTime % 100
-                    
-                    self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
-                    self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                    
-                    UserDefaults.standard.set(hour, forKey: "Hour")
-                    UserDefaults.standard.set(minute, forKey: "Minute")
-                    self.loadedScheduler = 1
+                if self.loadedScheduler == 0 {
+                    guard
+                        let backWashScheduledDay = responseDictinary["schDay"] as? Int,
+                        let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
                     
                     
-                } else {
-                    var hour = backWashScheduledTime / 100
-                    let minute = backWashScheduledTime % 100
-                    let timeOfDay = hour - 12
+                    self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
                     
-                    
-                    // check if its 12 AM
-                    if backWashScheduledTime < 60 {
-                        self.dayPicker.selectRow(11, inComponent: 1, animated: true)
+                    if self.is24hours {
+                        
+                        let hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        
+                        self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                         
-                        UserDefaults.standard.set(11, forKey: "Hour")
+                        UserDefaults.standard.set(hour, forKey: "Hour")
                         UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(0, forKey: "TimeOfDay")
-                        
-                    } else if timeOfDay == 0{
-                        //check if it's 12 PM
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(1, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(12, forKey: "TimeOfDay")
-                        
-                    } else if timeOfDay < 0 {
-                        //check if it's AM in general
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(0, inComponent: 3, animated: true)
-                        
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(0, forKey: "TimeOfDay")
-                        
+                        self.loadedScheduler = 1
                         
                         
                     } else {
-                        //check if it's PM
-                        hour = timeOfDay
+                        var hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        let timeOfDay = hour - 12
                         
-                        self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
-                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
-                        self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                         
-                        UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
-                        UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                        // check if its 12 AM
+                        if backWashScheduledTime < 60 {
+                            self.dayPicker.selectRow(11, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(11, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay == 0{
+                            //check if it's 12 PM
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay < 0 {
+                            //check if it's AM in general
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                            
+                            
+                        } else {
+                            //check if it's PM
+                            hour = timeOfDay
+                            
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        }
+                        
+                        self.loadedScheduler = 1
                         
                     }
                     
-                    self.loadedScheduler = 1
+                }
+                
+                //If the back wash status is 2: show the count down timer
+                
+                if backWashStatus == 2{
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = false
                     
+                    if let countDownSeconds = responseDictinary["timeoutCountdown"] as? Int {
+                        let hours = countDownSeconds / 3600
+                        let minutes = (countDownSeconds % 3600) / 60
+                        let seconds = (countDownSeconds % 3600) % 60
+                        
+                        self.countDownTimer.text = "\(hours):\(minutes):\(seconds)"
+                    }
+                    
+                    
+                    
+                    
+                } else if backWashStatus == 0 {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
+                } else {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
                 }
                 
             }
-            
-            //If the back wash status is 2: show the count down timer
-            
-            if backWashStatus == 2{
-                self.backwashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = false
+        } else if pumpTag == 132{
+            self.httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW2"){ (response) in
                 
-                if let countDownSeconds = responseDictinary["timeoutCountdown"] as? Int {
-                    let hours = countDownSeconds / 3600
-                    let minutes = (countDownSeconds % 3600) / 60
-                    let seconds = (countDownSeconds % 3600) % 60
+                guard let responseDictinary = response as? NSDictionary else { return }
+                
+                
+                let backWashStatus = responseDictinary["SchBWStatus"] as? Int
+                
+                if self.loadedScheduler == 0 {
+                    guard
+                        let backWashScheduledDay = responseDictinary["schDay"] as? Int,
+                        let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
                     
-                    self.countDownTimer.text = "\(hours):\(minutes):\(seconds)"
+                    
+                    self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                    
+                    if self.is24hours {
+                        
+                        let hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        
+                        self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
+                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                        
+                        UserDefaults.standard.set(hour, forKey: "Hour")
+                        UserDefaults.standard.set(minute, forKey: "Minute")
+                        self.loadedScheduler = 1
+                        
+                        
+                    } else {
+                        var hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        let timeOfDay = hour - 12
+                        
+                        
+                        // check if its 12 AM
+                        if backWashScheduledTime < 60 {
+                            self.dayPicker.selectRow(11, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(11, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay == 0{
+                            //check if it's 12 PM
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay < 0 {
+                            //check if it's AM in general
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                            
+                            
+                        } else {
+                            //check if it's PM
+                            hour = timeOfDay
+                            
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        }
+                        
+                        self.loadedScheduler = 1
+                        
+                    }
+                    
                 }
                 
+                //If the back wash status is 2: show the count down timer
                 
+                if backWashStatus == 2{
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = false
+                    
+                    if let countDownSeconds = responseDictinary["timeoutCountdown"] as? Int {
+                        let hours = countDownSeconds / 3600
+                        let minutes = (countDownSeconds % 3600) / 60
+                        let seconds = (countDownSeconds % 3600) % 60
+                        
+                        self.countDownTimer.text = "\(hours):\(minutes):\(seconds)"
+                    }
+                    
+                    
+                    
+                    
+                } else if backWashStatus == 0 {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
+                } else {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
+                }
                 
-                
-            } else if backWashStatus == 0 {
-                self.backwashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = true
-            } else {
-                self.backwashScheduler.isHidden = false
-                self.countDownTimerBG.isHidden = true
             }
-            
+        } else if pumpTag == 133{
+            self.httpComm.httpGetResponseFromPath(url: "\(HTTP_PASS)\(SERVER_IP_ADDRESS):8080/readBW3"){ (response) in
+                
+                guard let responseDictinary = response as? NSDictionary else { return }
+                
+                
+                let backWashStatus = responseDictinary["SchBWStatus"] as? Int
+                
+                if self.loadedScheduler == 0 {
+                    guard
+                        let backWashScheduledDay = responseDictinary["schDay"] as? Int,
+                        let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
+                    
+                    
+                    self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                    
+                    if self.is24hours {
+                        
+                        let hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        
+                        self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
+                        self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                        
+                        UserDefaults.standard.set(hour, forKey: "Hour")
+                        UserDefaults.standard.set(minute, forKey: "Minute")
+                        self.loadedScheduler = 1
+                        
+                        
+                    } else {
+                        var hour = backWashScheduledTime / 100
+                        let minute = backWashScheduledTime % 100
+                        let timeOfDay = hour - 12
+                        
+                        
+                        // check if its 12 AM
+                        if backWashScheduledTime < 60 {
+                            self.dayPicker.selectRow(11, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(11, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay == 0{
+                            //check if it's 12 PM
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        } else if timeOfDay < 0 {
+                            //check if it's AM in general
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(0, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            
+                            
+                            
+                        } else {
+                            //check if it's PM
+                            hour = timeOfDay
+                            
+                            self.dayPicker.selectRow(hour - 1, inComponent: 1, animated: true)
+                            self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
+                            self.dayPicker.selectRow(1, inComponent: 3, animated: true)
+                            
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
+                            UserDefaults.standard.set(minute, forKey: "Minute")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            
+                        }
+                        
+                        self.loadedScheduler = 1
+                        
+                    }
+                    
+                }
+                
+                //If the back wash status is 2: show the count down timer
+                
+                if backWashStatus == 2{
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = false
+                    
+                    if let countDownSeconds = responseDictinary["timeoutCountdown"] as? Int {
+                        let hours = countDownSeconds / 3600
+                        let minutes = (countDownSeconds % 3600) / 60
+                        let seconds = (countDownSeconds % 3600) % 60
+                        
+                        self.countDownTimer.text = "\(hours):\(minutes):\(seconds)"
+                    }
+                    
+                    
+                    
+                    
+                } else if backWashStatus == 0 {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
+                } else {
+                    self.backwashScheduler.isHidden = false
+                    self.countDownTimerBG.isHidden = true
+                }
+                
+            }
         }
+        
     }
     private func readBackWashRunning(){
-        
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_1), completion: { (success, bw1Response) in
-            
-            guard success == true else { return }
-            
-            let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
-            if bw1Status == 1{
-                self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
-            } else {
-                self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
-            }
-        })
+        if pumpTag == 131 {
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_1), completion: { (success, bw1Response) in
+                
+                guard success == true else { return }
+                
+                let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
+                if bw1Status == 1{
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
+                } else {
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
+                }
+            })
+        } else if pumpTag == 132 {
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_2), completion: { (success, bw1Response) in
+                
+                guard success == true else { return }
+                
+                let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
+                if bw1Status == 1{
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
+                } else {
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
+                }
+            })
+        } else if pumpTag == 133 {
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(FILTRATION_BWASH_RUNNING_BIT_3), completion: { (success, bw1Response) in
+                
+                guard success == true else { return }
+                
+                let bw1Status = Int(truncating: bw1Response![0] as! NSNumber)
+                if bw1Status == 1{
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashRunning"), for: .normal)
+                } else {
+                    self.manualBwashButton.setImage(#imageLiteral(resourceName: "bwashIcon"), for: .normal)
+                }
+            })
+        }
+       
     }
     
     private func readManualBwash(){
-        
-        self.httpComm.httpGetResponseFromPath(url: READ_BACK_WASH){ (response) in
-            
-            guard let responseDictionary = response as? NSDictionary else { return }
-            
-            let backwash = Int(truncating: responseDictionary.object(forKey: "manBWcanRun") as! NSNumber)
-            
-            if backwash == 1{
+        if pumpTag == 131{
+            self.httpComm.httpGetResponseFromPath(url: READ_BACK_WASH1){ (response) in
                 
-                self.manualBwashButton.isHidden = false
-                self.cannotRunBwashLbl.isHidden = true
+                guard let responseDictionary = response as? NSDictionary else { return }
                 
-            }else{
+                let backwash = Int(truncating: responseDictionary.object(forKey: "manBWcanRun") as! NSNumber)
                 
-                self.manualBwashButton.isHidden = true
-                self.cannotRunBwashLbl.isHidden = false
+                if backwash == 1{
+                    
+                    self.manualBwashButton.isHidden = false
+                    self.cannotRunBwashLbl.isHidden = true
+                    
+                }else{
+                    
+                    self.manualBwashButton.isHidden = true
+                    self.cannotRunBwashLbl.isHidden = false
+                    
+                }
+            }
+        } else if pumpTag == 132{
+            self.httpComm.httpGetResponseFromPath(url: READ_BACK_WASH2){ (response) in
                 
+                guard let responseDictionary = response as? NSDictionary else { return }
+                
+                let backwash = Int(truncating: responseDictionary.object(forKey: "manBWcanRun") as! NSNumber)
+                
+                if backwash == 1{
+                    
+                    self.manualBwashButton.isHidden = false
+                    self.cannotRunBwashLbl.isHidden = true
+                    
+                }else{
+                    
+                    self.manualBwashButton.isHidden = true
+                    self.cannotRunBwashLbl.isHidden = false
+                    
+                }
+            }
+        } else if pumpTag == 133{
+            self.httpComm.httpGetResponseFromPath(url: READ_BACK_WASH3){ (response) in
+                
+                guard let responseDictionary = response as? NSDictionary else { return }
+                
+                let backwash = Int(truncating: responseDictionary.object(forKey: "manBWcanRun") as! NSNumber)
+                
+                if backwash == 1{
+                    
+                    self.manualBwashButton.isHidden = false
+                    self.cannotRunBwashLbl.isHidden = true
+                    
+                }else{
+                    
+                    self.manualBwashButton.isHidden = true
+                    self.cannotRunBwashLbl.isHidden = false
+                    
+                }
             }
         }
+        
         
     }
     /***************************************************************************
