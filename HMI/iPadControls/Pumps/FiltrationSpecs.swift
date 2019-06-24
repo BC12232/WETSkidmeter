@@ -40,7 +40,9 @@ let FILTRATION_VALVE_OPEN_CLOSE_TIME_BIT        = 6516 // BW_ValveActuation_Time
 let FILTRATION_PUMP_FAULT                       = 1008   // Check Pump Fault
 let FILTRATION_PUMP_FAULT_102                   = 1022
 let FILTRATION_PUMP_FAULT_103                   = 1036
+let FILTRATION_PUMP_FAULT_104                   = 1050
 let FILTRATION_PUMP_FAULT_105                   = 1064
+
 
 
 /* SHOWN ON STRAINER TAB ON EXCEL -- SHOULD SAY FILTRATION */

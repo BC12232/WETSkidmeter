@@ -462,9 +462,9 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
             
             
             if integer > Int(MAX_FILTRATION_FREQUENCY){
-                freq102SetpointBkgd.frame =  CGRect(x: 860, y: 172, width: 25, height: 258)
+                freq102SetpointBkgd.frame =  CGRect(x: 580, y: 172, width: 25, height: 258)
             }else{
-                freq102SetpointBkgd.frame =  CGRect(x: 860, y: indicatorLocation, width: 25, height:frequencyLocation)
+                freq102SetpointBkgd.frame =  CGRect(x: 580, y: indicatorLocation, width: 25, height:frequencyLocation)
             }
         }
     }

@@ -29,16 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpZ-fF-Lqq" userLabel="Scheduler">
-                                <rect key="frame" x="599" y="184" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="scheduler">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="3f7-Ol-44E"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3H-1W-WS7" userLabel="Playlist">
                                 <rect key="frame" x="471" y="184" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -48,6 +38,16 @@
                                 </state>
                                 <connections>
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="aRg-gP-4Lp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpZ-fF-Lqq" userLabel="Scheduler">
+                                <rect key="frame" x="599" y="184" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="scheduler">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="3f7-Ol-44E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-WA-LGS" userLabel="Lights">
@@ -61,29 +61,6 @@
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="rBY-dL-lSt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-0Y-owg" userLabel="Help">
-                                <rect key="frame" x="855" y="568" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" backgroundImage="settings">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="rgQ-R2-hWr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-Am-Sem" userLabel="WaterQuality">
-                                <rect key="frame" x="855" y="312" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="background">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="obr-n9-pkg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opI-cK-w2S" userLabel="SystemStatus">
                                 <rect key="frame" x="855" y="184" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -93,6 +70,28 @@
                                 </state>
                                 <connections>
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="yZu-zX-yzh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msl-CT-WJI" userLabel="Pumps">
+                                <rect key="frame" x="471" y="312" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="pumps">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="q0j-dZ-kas"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-Ix-tbN" userLabel="WaterSkin">
+                                <rect key="frame" x="599" y="312" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="cascadePump">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="Ns2-1I-eVv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAP-C0-n5L" userLabel="Cascade">
@@ -107,6 +106,17 @@
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="5gM-hP-HgV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eir-Am-Sem" userLabel="WaterQuality">
+                                <rect key="frame" x="855" y="312" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="background">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="obr-n9-pkg"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7j-fn-kHj" userLabel="WaterLevel">
                                 <rect key="frame" x="471" y="440" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,15 +128,16 @@
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="EwX-kI-IME"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rj-Ix-tbN" userLabel="FillerShow">
-                                <rect key="frame" x="599" y="312" width="120" height="120"/>
+                            <button opaque="NO" tag="16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ox0-0Y-owg" userLabel="Help">
+                                <rect key="frame" x="855" y="568" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="background">
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" backgroundImage="settings">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="Ns2-1I-eVv"/>
+                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="rgQ-R2-hWr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0j-15-PDo" userLabel="Fog">
@@ -149,17 +160,6 @@
                                 </state>
                                 <connections>
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="S4J-MQ-hbm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msl-CT-WJI" userLabel="Pumps">
-                                <rect key="frame" x="471" y="312" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="pumps">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="q0j-dZ-kas"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKd-ua-qfy" userLabel="Filtration">
@@ -509,6 +509,7 @@
         <image name="WETLogo" width="138" height="36"/>
         <image name="background" width="75.120002746582031" height="75.120002746582031"/>
         <image name="button_background" width="130.08000183105469" height="30"/>
+        <image name="cascadePump" width="120" height="120"/>
         <image name="ios_settings_icon" width="512" height="512"/>
         <image name="lights" width="120" height="120"/>
         <image name="outOfRange" width="265.20001220703125" height="187.44000244140625"/>

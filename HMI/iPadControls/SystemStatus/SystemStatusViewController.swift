@@ -132,7 +132,7 @@ class SystemStatusViewController: UIViewController {
                         checkStrainerFault.isHidden = false
                         checkStrainerFault.frame.origin.y = CGFloat(yPosition-offset-3)
                         
-                        for index in 0...10 {
+                        for index in 0...5 {
                             CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: Int32(STRAINER_STATUS.startingregister+index), completion:{ (success, response) in
                                 
                                 guard success == true else { return }

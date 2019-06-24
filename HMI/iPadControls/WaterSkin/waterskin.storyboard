@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xYq-iO-ENh">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Verdana.ttf">
+            <string>Verdana</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--WATERSKIN PUMPS-->
+        <scene sceneID="5AC-CB-b5h">
+            <objects>
+                <viewController storyboardIdentifier="waterskinViewController" title="WATERSKIN PUMPS" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xYq-iO-ENh" customClass="WaterSkinViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WDX-j6-lHM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fju-m2-bJ9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QiY-fk-gNH">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WETLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3DQ-EF-r9R">
+                                <rect key="frame" x="16" y="88" width="69" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aya-kS-VaJ">
+                                <rect key="frame" x="100" y="448" width="825" height="300"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="6V4-D9-my2" kind="embed" id="4CX-cq-jVb"/>
+                                </connections>
+                            </containerView>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fqk-uV-B5o">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO CONNECTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZO-Mx-krX">
+                                        <rect key="frame" x="69" y="446" width="887" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="outOfRange" translatesAutoresizingMaskIntoConstraints="NO" id="OrY-rg-994">
+                                        <rect key="frame" x="343" y="147" width="338" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6y7-EZ-zSm">
+                                <rect key="frame" x="513" y="391" width="10" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-4s-eRX" userLabel="Frequency-Background">
+                                <rect key="frame" x="505" y="131" width="25" height="258"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZwH-ay-Xze" userLabel="FrequencyIndicator">
+                                <rect key="frame" x="405" y="377" width="92" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrowRight" translatesAutoresizingMaskIntoConstraints="NO" id="mcg-oW-kcd">
+                                        <rect key="frame" x="69" y="0.0" width="23" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y31-YF-4gN">
+                                        <rect key="frame" x="-6" y="0.0" width="71" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                        <color key="textColor" red="0.50980392159999999" green="0.70588235290000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hz" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pb-gb-SI7">
+                                        <rect key="frame" x="49" y="20" width="20" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aK7-rU-zo4">
+                                <rect key="frame" x="505" y="390" width="25" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGg-ur-fPr" userLabel="PumpDetailButton">
+                                <rect key="frame" x="481" y="410" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="P - 104" backgroundImage="button_background"/>
+                                <connections>
+                                    <action selector="readPumpDetails:" destination="xYq-iO-ENh" eventType="touchUpInside" id="tgV-hE-M1u"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oG7-zE-PFO" userLabel="BackWashSpeed">
+                                <rect key="frame" x="528" y="377" width="92" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BACK WASH" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph9-Xm-WaG">
+                                        <rect key="frame" x="34" y="20" width="87" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nY-pm-JaK">
+                                        <rect key="frame" x="35" y="0.0" width="71" height="23"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                        <color key="textColor" red="0.0" green="0.66666666669999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrowLeft" translatesAutoresizingMaskIntoConstraints="NO" id="z8A-Xn-1Z9">
+                                        <rect key="frame" x="8" y="0.0" width="23" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocs-7N-3f8">
+                                <rect key="frame" x="509" y="117" width="18" height="11"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WATERSKIN" id="iKr-Nf-1UW"/>
+                    <connections>
+                        <outlet property="bwashSpeedIndicator" destination="oG7-zE-PFO" id="XJd-65-6Xp"/>
+                        <outlet property="bwashSpeedIndicatorValue" destination="9nY-pm-JaK" id="q4Y-M4-pQn"/>
+                        <outlet property="frequencyIndicator" destination="ZwH-ay-Xze" id="Tl6-5Q-SLv"/>
+                        <outlet property="frequencyIndicatorValue" destination="Y31-YF-4gN" id="sf2-Uj-AtY"/>
+                        <outlet property="frequencySetpointBackground" destination="aK7-rU-zo4" id="NeJ-I2-ZXk"/>
+                        <outlet property="noConnectionErrorLbl" destination="YZO-Mx-krX" id="ITa-pg-hUw"/>
+                        <outlet property="noConnectionView" destination="Fqk-uV-B5o" id="dod-hY-4iU"/>
+                        <outlet property="pumpbutton104" destination="EGg-ur-fPr" id="kvE-Ak-7gf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNw-lf-YQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782.4218749999998" y="-3855.46875"/>
+        </scene>
+        <!--Week Scheduler View Controller-->
+        <scene sceneID="fkS-8z-aeY">
+            <objects>
+                <viewController id="6V4-D9-my2" customClass="WeekSchedulerViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jBm-Yd-yvP"/>
+                        <viewControllerLayoutGuide type="bottom" id="XNx-VL-Bti"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dKG-yV-osm">
+                        <rect key="frame" x="0.0" y="0.0" width="825" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeekTimeInterval12" translatesAutoresizingMaskIntoConstraints="NO" id="UCl-ci-ttk">
+                                <rect key="frame" x="163" y="13" width="633" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dh-4b-dQv">
+                                <rect key="frame" x="180" y="57" width="600" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" tag="10000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xj5-Su-Z7C">
+                                        <rect key="frame" x="147" y="0.0" width="0.0" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98039215686274506" green="0.95294117647058818" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <slider opaque="NO" tag="1000" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="450" minValue="360" maxValue="1799" translatesAutoresizingMaskIntoConstraints="NO" id="mYW-o6-hQu">
+                                <rect key="frame" x="173" y="35" width="612" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="presentTimePicker:" destination="6V4-D9-my2" eventType="touchUpInside" id="J9j-7j-uLG"/>
+                                    <action selector="sliderDragInside:" destination="6V4-D9-my2" eventType="touchDragInside" id="sn9-XY-sRZ"/>
+                                    <action selector="sliderValueChanged:" destination="6V4-D9-my2" eventType="valueChanged" id="PmA-L9-j6t"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" tag="2000" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1799" minValue="360" maxValue="1799" translatesAutoresizingMaskIntoConstraints="NO" id="0bN-IO-aQD">
+                                <rect key="frame" x="173" y="76" width="612" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="presentTimePicker:" destination="6V4-D9-my2" eventType="touchUpInside" id="7nF-yN-kZr"/>
+                                    <action selector="sliderDragInside:" destination="6V4-D9-my2" eventType="touchDragInside" id="Ly5-hM-2Y6"/>
+                                    <action selector="sliderValueChanged:" destination="6V4-D9-my2" eventType="valueChanged" id="Ibl-tM-1yi"/>
+                                </connections>
+                            </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeekTimeInterval12" translatesAutoresizingMaskIntoConstraints="NO" id="wtD-Eu-Nm5">
+                                <rect key="frame" x="163" y="169" width="633" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEk-op-x1p" userLabel="Weekend Scheduler View">
+                                <rect key="frame" x="180" y="214" width="600" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" tag="20000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dka-lB-b8u">
+                                        <rect key="frame" x="259" y="0.0" width="0.0" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.9882352941176471" green="0.96078431372549022" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <slider opaque="NO" tag="3000" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="450" minValue="360" maxValue="1799" translatesAutoresizingMaskIntoConstraints="NO" id="bmp-jp-Tm9">
+                                <rect key="frame" x="173" y="192" width="612" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="presentTimePicker:" destination="6V4-D9-my2" eventType="touchUpInside" id="TRz-FD-tsm"/>
+                                    <action selector="sliderDragInside:" destination="6V4-D9-my2" eventType="touchDragInside" id="sSu-a5-4Ju"/>
+                                    <action selector="sliderValueChanged:" destination="6V4-D9-my2" eventType="valueChanged" id="fuw-Wr-VB4"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" tag="4000" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1799" minValue="360" maxValue="1799" translatesAutoresizingMaskIntoConstraints="NO" id="09L-Gp-TfY">
+                                <rect key="frame" x="173" y="232" width="612" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" red="0.31764705882352939" green="0.14117647058823529" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="presentTimePicker:" destination="6V4-D9-my2" eventType="touchUpInside" id="2o3-RA-NvM"/>
+                                    <action selector="sliderDragInside:" destination="6V4-D9-my2" eventType="touchDragInside" id="5tt-KI-dhk"/>
+                                    <action selector="sliderValueChanged:" destination="6V4-D9-my2" eventType="valueChanged" id="gBL-Kv-Vh9"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WEEKDAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqV-O8-mgc">
+                                <rect key="frame" x="20" y="65" width="139" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIu-Ja-9uo">
+                                <rect key="frame" x="85" y="81" width="8" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="111" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATT-E3-9B0">
+                                <rect key="frame" x="3" y="83" width="80" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="222" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aQ-cv-mo4">
+                                <rect key="frame" x="95" y="83" width="80" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pip-qh-9Z3">
+                                <rect key="frame" x="85" y="243" width="8" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="333" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AO-iB-uZD">
+                                <rect key="frame" x="3" y="243" width="80" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="444" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYT-ZD-8ej">
+                                <rect key="frame" x="96" y="243" width="80" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lW-bq-eUl">
+                                <rect key="frame" x="14" y="209" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="WEEKENDS" backgroundImage="button_background">
+                                    <color key="titleColor" red="0.78039215689999997" green="0.7843137255" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="weekendButtonPressed:" destination="6V4-D9-my2" eventType="touchUpInside" id="lLi-Lk-Jm3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <size key="freeformSize" width="825" height="300"/>
+                    <connections>
+                        <outlet property="bottomWeekdaySlider" destination="0bN-IO-aQD" id="Wg7-EC-58O"/>
+                        <outlet property="bottomWeekendSlider" destination="09L-Gp-TfY" id="1lf-yL-ADa"/>
+                        <outlet property="topWeekdaySlider" destination="mYW-o6-hQu" id="emw-KB-bqg"/>
+                        <outlet property="topWeekendSlider" destination="bmp-jp-Tm9" id="jDa-zW-GNV"/>
+                        <outlet property="weekdayEndTimeLabel" destination="8aQ-cv-mo4" id="9Zr-aJ-8WJ"/>
+                        <outlet property="weekdayStartTimeLabel" destination="ATT-E3-9B0" id="ihi-8h-MEh"/>
+                        <outlet property="weekdayTimeIntervalImageView" destination="UCl-ci-ttk" id="Ibe-7P-gfA"/>
+                        <outlet property="weekdayTrackerView" destination="xj5-Su-Z7C" id="zZk-ie-E5L"/>
+                        <outlet property="weekendEndTimeLabel" destination="AYT-ZD-8ej" id="dHR-aX-aEA"/>
+                        <outlet property="weekendStartTimeLabel" destination="5AO-iB-uZD" id="nX3-lP-ypB"/>
+                        <outlet property="weekendTimeIntervalImageView" destination="wtD-Eu-Nm5" id="OQt-nS-zuC"/>
+                        <outlet property="weekendTrackerView" destination="Dka-lB-b8u" id="QpX-6t-Ail"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qav-Rz-Spy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="-3289"/>
+        </scene>
+        <!--Week Scheduler Popover View-->
+        <scene sceneID="K7X-89-K8U">
+            <objects>
+                <viewController storyboardIdentifier="weekSchedulerPopover" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fvj-v1-5np" customClass="WeekSchedulerPopoverView" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yWT-Uh-y1r"/>
+                        <viewControllerLayoutGuide type="bottom" id="WFY-xq-EzT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SFx-Na-ryk">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nLA-ut-ptF">
+                                <rect key="frame" x="0.0" y="15" width="300" height="221"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fvj-v1-5np" id="4yS-4c-5CS"/>
+                                    <outlet property="delegate" destination="Fvj-v1-5np" id="1h1-3q-tqn"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmt-b3-maE">
+                                <rect key="frame" x="110" y="255" width="80" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="DONE" backgroundImage="button_background">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="Fvj-v1-5np" eventType="touchUpInside" id="PSE-AK-KAQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <size key="freeformSize" width="300" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yap-7g-jZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2141" y="-3289"/>
+        </scene>
+        <!--Weekend View Controller-->
+        <scene sceneID="75T-Vl-Mvg">
+            <objects>
+                <viewController storyboardIdentifier="weekendView" id="o0o-jQ-rG4" customClass="WeekendViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nhv-10-H9y"/>
+                        <viewControllerLayoutGuide type="bottom" id="7WB-Ag-TAC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EgH-KK-0UN">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="225"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgi-4v-q4D">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="225"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-sT-fNu">
+                                        <rect key="frame" x="8" y="63" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="SUNDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="4gb-Jk-i2l"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zs8-ia-SNh">
+                                        <rect key="frame" x="116" y="63" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="MONDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="1YD-L2-4Fp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyg-Gu-oTT">
+                                        <rect key="frame" x="224" y="61" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="TUESDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="t6D-r1-UAJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcJ-i3-TFJ">
+                                        <rect key="frame" x="332" y="61" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="WEDNESDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="ecN-L6-y61"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KON-5R-ATi">
+                                        <rect key="frame" x="62" y="139" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="THURSDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="Gss-WW-GSR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKf-fX-TPa">
+                                        <rect key="frame" x="170" y="139" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="FRIDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="KGR-Ws-4h7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="18" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndp-54-v20">
+                                        <rect key="frame" x="278" y="139" width="100" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="SATURDAY" backgroundImage="backgroundSquare">
+                                            <color key="titleColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayButtonPressed:" destination="o0o-jQ-rG4" eventType="touchUpInside" id="pgH-i3-iL7"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SELECT WEEKEND DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy9-PF-34m">
+                                        <rect key="frame" x="8" y="8" width="172" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.70196078429999997" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="440" height="225"/>
+                    <size key="freeformSize" width="440" height="225"/>
+                    <connections>
+                        <outlet property="fridayButton" destination="LKf-fX-TPa" id="nWD-Oi-Oyc"/>
+                        <outlet property="mondayButton" destination="Zs8-ia-SNh" id="Okb-Kc-Usj"/>
+                        <outlet property="saturdayButton" destination="Ndp-54-v20" id="NQf-j7-Dcg"/>
+                        <outlet property="sundayButton" destination="dcY-sT-fNu" id="nnu-Y8-NLc"/>
+                        <outlet property="thursdayButton" destination="KON-5R-ATi" id="8FU-KL-qUG"/>
+                        <outlet property="tuesdayButton" destination="uyg-Gu-oTT" id="hAJ-EX-BPE"/>
+                        <outlet property="wednesdayButton" destination="PcJ-i3-TFJ" id="cZA-HR-KPH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMg-RD-6AT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891" y="-3318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="WETLogo" width="138" height="36"/>
+        <image name="WeekTimeInterval12" width="2640" height="167"/>
+        <image name="arrowLeft" width="20.159999847412109" height="20.879999160766602"/>
+        <image name="arrowRight" width="20.159999847412109" height="20.879999160766602"/>
+        <image name="backgroundSquare" width="61" height="62"/>
+        <image name="button_background" width="130.08000183105469" height="30"/>
+        <image name="outOfRange" width="265.20001220703125" height="187.44000244140625"/>
+    </resources>
+</document>

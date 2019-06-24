@@ -240,9 +240,9 @@ class ACTHomeViewController: UIViewController{
                 readServerPath = READ_LIGHT_SERVER_PATH
                 writeServerPath = WRITE_LIGHT_SERVER_PATH
                 screen_Name = screenName
-            } else if screenName == "cascade" {
-                readServerPath = READ_CASCADE_PUMPS_SERVER_PATH
-                writeServerPath = WRITE_CASCADE_PUMPS_SERVER_PATH
+            } else if screenName == "waterskin" {
+                readServerPath = READ_WATERSKIN_PUMPS_SERVER_PATH
+                writeServerPath = WRITE_WATERSKIN_PUMPS_SERVER_PATH
                 screen_Name = screenName
             } else if screenName == "filtration" {
                 readServerPath = READ_FILTRATION_SERVER_PATH 

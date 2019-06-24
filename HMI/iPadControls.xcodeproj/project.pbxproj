@@ -18,7 +18,7 @@
 		9B2105B9218A19C800D36644 /* showList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2105B6218A19C700D36644 /* showList.storyboard */; };
 		9B3D3B6F20DC615B00E34BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */; };
 		9B3EB64120C70D8C0071D3AA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */; };
-		9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F411A2146F967000B4701 /* CascadeSpecs.swift */; };
+		9B3F411B2146F967000B4701 /* waterskinSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3F411A2146F967000B4701 /* waterskinSpecs.swift */; };
 		9B5F3F0220DC5A8D00D3CFDF /* versionNum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */; };
 		9B5F3F0320DC5A8D00D3CFDF /* MIDF.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */; };
 		9B5F3F0B20DC5AA000D3CFDF /* iPadControls.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F3F0620DC5AA000D3CFDF /* iPadControls.xcdatamodeld */; };
@@ -154,6 +154,8 @@
 		BB4B7B9E22A09011002BE1D4 /* ReadSepointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4B7B9D22A09011002BE1D4 /* ReadSepointsViewController.swift */; };
 		BB6A0428225D320400153CEC /* OzonePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6A0427225D320400153CEC /* OzonePopupViewController.swift */; };
 		BB7D48AB2267D06F00346EA9 /* DesignateShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7D48AA2267D06F00346EA9 /* DesignateShowsViewController.swift */; };
+		BB9AD18822C16D29008316ED /* waterskin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9AD18722C16D29008316ED /* waterskin.storyboard */; };
+		BB9AD18A22C16EC0008316ED /* WaterSkinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AD18922C16EC0008316ED /* WaterSkinViewController.swift */; };
 		BBA144F3224BE7B700C11357 /* tank_leakshowStopper.png in Resources */ = {isa = PBXBuildFile; fileRef = BBA144F2224BE7B700C11357 /* tank_leakshowStopper.png */; };
 		BBA1C8AC21E5545C00885683 /* QuadrantsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */; };
 		BBBBC0B621D6A717004EC984 /* ProjectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBBC0B521D6A717004EC984 /* ProjectorViewController.swift */; };
@@ -183,7 +185,7 @@
 		9B3D3B6D20DC5EFD00E34BE4 /* iPadControls-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iPadControls-Bridging-Header.h"; path = "Resources/iPadControls-Bridging-Header.h"; sourceTree = "<group>"; };
 		9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B3EB64020C70D8C0071D3AA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		9B3F411A2146F967000B4701 /* CascadeSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CascadeSpecs.swift; path = "Controller/Pumps/Cascade Pumps/CascadeSpecs.swift"; sourceTree = "<group>"; };
+		9B3F411A2146F967000B4701 /* waterskinSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waterskinSpecs.swift; sourceTree = "<group>"; };
 		9B5F3F0020DC5A8D00D3CFDF /* versionNum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = versionNum.txt; path = Specs/versionNum.txt; sourceTree = "<group>"; };
 		9B5F3F0120DC5A8D00D3CFDF /* MIDF.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = MIDF.rtf; path = Specs/MIDF.rtf; sourceTree = "<group>"; };
 		9B5F3F0720DC5AA000D3CFDF /* iPadControls.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iPadControls.xcdatamodel; sourceTree = "<group>"; };
@@ -362,6 +364,8 @@
 		BB4B7B9D22A09011002BE1D4 /* ReadSepointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSepointsViewController.swift; sourceTree = "<group>"; };
 		BB6A0427225D320400153CEC /* OzonePopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OzonePopupViewController.swift; sourceTree = "<group>"; };
 		BB7D48AA2267D06F00346EA9 /* DesignateShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignateShowsViewController.swift; sourceTree = "<group>"; };
+		BB9AD18722C16D29008316ED /* waterskin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = waterskin.storyboard; sourceTree = "<group>"; };
+		BB9AD18922C16EC0008316ED /* WaterSkinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterSkinViewController.swift; sourceTree = "<group>"; };
 		BBA144F2224BE7B700C11357 /* tank_leakshowStopper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tank_leakshowStopper.png; sourceTree = "<group>"; };
 		BBA1C8AB21E5545C00885683 /* QuadrantsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrantsPopUpViewController.swift; sourceTree = "<group>"; };
 		BBBBC0B521D6A717004EC984 /* ProjectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectorViewController.swift; sourceTree = "<group>"; };
@@ -460,6 +464,7 @@
 				BBBE0B7F21C165D20067A0FE /* SystemStatus */,
 				9B2105B4218A19C700D36644 /* ShowList */,
 				9BCE6F90213ED31D00ED2DDC /* Fog */,
+				BB9AD18622C16C9C008316ED /* WaterSkin */,
 				9BA7A04121920E2C0038D13D /* Playlist */,
 				9B006224212C7E510066CC9B /* Lights */,
 				9B006229212C7E600066CC9B /* Week Scheduler */,
@@ -547,7 +552,6 @@
 		9B006232212C7E670066CC9B /* Cascade Pumps */ = {
 			isa = PBXGroup;
 			children = (
-				9B3F411A2146F967000B4701 /* CascadeSpecs.swift */,
 				9B006233212C7E670066CC9B /* cascade.storyboard */,
 				9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */,
 				9B006235212C7E670066CC9B /* CascadePumpDetailViewController.swift */,
@@ -885,6 +889,16 @@
 			path = "Water Quality";
 			sourceTree = "<group>";
 		};
+		BB9AD18622C16C9C008316ED /* WaterSkin */ = {
+			isa = PBXGroup;
+			children = (
+				BB9AD18722C16D29008316ED /* waterskin.storyboard */,
+				9B3F411A2146F967000B4701 /* waterskinSpecs.swift */,
+				BB9AD18922C16EC0008316ED /* WaterSkinViewController.swift */,
+			);
+			path = WaterSkin;
+			sourceTree = "<group>";
+		};
 		BBBBC0B421D6A6DE004EC984 /* Projector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,6 +1034,7 @@
 				BB3DB43521F7C2FB0005A558 /* Assets.xcassets in Resources */,
 				9B5F404320DC5B1200D3CFDF /* ShowStoppers.storyboard in Resources */,
 				BBF3650A2294647400332E56 /* filtration.storyboard in Resources */,
+				BB9AD18822C16D29008316ED /* waterskin.storyboard in Resources */,
 				BBBBC0B821D6A7F8004EC984 /* Projector.storyboard in Resources */,
 				9B5F403C20DC5B1200D3CFDF /* showStopperRATmode.png in Resources */,
 				9B5F403E20DC5B1200D3CFDF /* showStopperTemp.png in Resources */,
@@ -1136,6 +1151,7 @@
 				9B5F404F20DC5B1200D3CFDF /* ACTCalendarScheduleViewController.m in Sources */,
 				9BA7A04F21920E2D0038D13D /* ACTPlaylistSettingsViewController.m in Sources */,
 				9B5F3F7420DC5AD900D3CFDF /* AFNetworkActivityIndicatorManager.m in Sources */,
+				BB9AD18A22C16EC0008316ED /* WaterSkinViewController.swift in Sources */,
 				9B5F404E20DC5B1200D3CFDF /* ACTAddShowPlaylistViewController.m in Sources */,
 				9B5F403A20DC5B1200D3CFDF /* OperationManual.swift in Sources */,
 				9B5F3F8920DC5AD900D3CFDF /* modbus-rtu.c in Sources */,
@@ -1203,7 +1219,7 @@
 				9B006238212C7E670066CC9B /* CascadePumpDetailViewController.swift in Sources */,
 				9B5F3FAE20DC5AF400D3CFDF /* Logger.swift in Sources */,
 				9BBB8EF02135C359001F9F01 /* ShowHideSettingsLabel.swift in Sources */,
-				9B3F411B2146F967000B4701 /* CascadeSpecs.swift in Sources */,
+				9B3F411B2146F967000B4701 /* waterskinSpecs.swift in Sources */,
 				9B5F3F8D20DC5AD900D3CFDF /* SwiftRecord.swift in Sources */,
 				BB3DB42B21F7AC9B0005A558 /* WaterQualitySettingsViewController.swift in Sources */,
 				BB3DB42C21F7AC9B0005A558 /* PHViewController.swift in Sources */,
