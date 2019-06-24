@@ -12,9 +12,7 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var pumpbutton104: UIButton!
     @IBOutlet weak var frequencyIndicator: UIView!
-    @IBOutlet weak var bwashSpeedIndicator: UIView!
     @IBOutlet weak var frequencyIndicatorValue: UILabel!
-    @IBOutlet weak var bwashSpeedIndicatorValue: UILabel!
     @IBOutlet weak var noConnectionView: UIView!
     @IBOutlet weak var noConnectionErrorLbl: UILabel!
     @IBOutlet weak var frequencySetpointBackground: UIView!
@@ -34,7 +32,6 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewWillAppear(_ animated: Bool){
         initializePumpGestureRecognizer()
-        initializeBackWashGestureRecognizer()
         getIpadNumber()
         NotificationCenter.default.addObserver(self, selector: #selector(checkSystemStat), name: NSNotification.Name(rawValue: "updateSystemStat"), object: nil)
     }
@@ -122,16 +119,6 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
         frequencyIndicator.isUserInteractionEnabled = true
         frequencyIndicator.addGestureRecognizer(self.manulPumpGesture)
         manulPumpGesture.delegate = self
-        
-    }
-    
-    
-    private func initializeBackWashGestureRecognizer(){
-        
-        backWashGesture = UIPanGestureRecognizer(target: self, action: #selector(changeBackWashFrequency(sender:)))
-        bwashSpeedIndicator.isUserInteractionEnabled = true
-        bwashSpeedIndicator.addGestureRecognizer(self.backWashGesture)
-        backWashGesture.delegate = self
         
     }
     
@@ -230,7 +217,6 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
             
             self.readCurrentFiltrationSpeed(response: response)
             self.readCurrentManualSpeed(response: response)
-            self.readCurrentBackwashSpeed(response: response)
         })
     }
     
@@ -250,31 +236,6 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
-    
-    private func readCurrentBackwashSpeed(response:[AnyObject]?){
-        
-        let backWash = Int(truncating: response![6] as! NSNumber)
-        let integer = backWash / 10
-        let decimal = backWash % 10
-        let indicatorLocation = 379 - (Double(integer) * FILTRATION_PIXEL_PER_BACKWASH)
-        
-        if !readBackWashSpeedOnce {
-            bwashSpeedIndicatorValue.textColor = BABY_BLUE_COLOR
-            
-            if integer > Int(MAX_FILTRATION_BACKWASH_SPEED) {
-                readBackWashSpeedOnce = true
-                bwashSpeedIndicator.frame = CGRect(x: 528, y: 190, width: 86, height: 23)
-                bwashSpeedIndicatorValue.text = "\(MAX_FILTRATION_BACKWASH_SPEED)"
-                
-            }else{
-                readBackWashSpeedOnce = true
-                bwashSpeedIndicator.frame = CGRect(x: 528, y: Int(indicatorLocation), width: 86, height: 23)
-                bwashSpeedIndicatorValue.text = "\(integer).\(decimal)"
-            }
-        }
-        
-    }
-    
     private func readCurrentManualSpeed(response:[AnyObject]?) {
         if  readManualSpeedPLC || !readManualSpeedOncePLC {
             readManualSpeedPLC = false
@@ -298,62 +259,6 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
                     readManualSpeedOncePLC = true
                 }
             }
-        }
-    }
-    @objc func changeBackWashFrequency(sender: UIPanGestureRecognizer){
-        bwashSpeedIndicatorValue.textColor = DEFAULT_GRAY
-        var touchLocation:CGPoint = sender.location(in: self.view)
-        print(touchLocation.y)
-        //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 130 {
-            touchLocation.y = 130
-        }
-        if touchLocation.y  > 394 {
-            touchLocation.y = 394
-        }
-        
-        //This is set.
-        if touchLocation.y >= 130 && touchLocation.y <= 394 {
-            
-            sender.view?.center.y = touchLocation.y
-            
-            
-            let flowRange = 394.0 - touchLocation.y
-            let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_BW!
-            
-            
-            var convertedBWFrequency = Int(hertz * 10)
-            let BWfrequencyValue = convertedBWFrequency / 10
-            var BWfrequencyRemainder = convertedBWFrequency % 10
-            
-            if BWfrequencyValue == 50 && BWfrequencyRemainder > 0 {
-                BWfrequencyRemainder = 0
-            }
-            
-            if BWfrequencyValue == 0 && BWfrequencyRemainder < 0 {
-                BWfrequencyRemainder = 0
-            }
-            
-            bwashSpeedIndicatorValue.text = "\(BWfrequencyValue).\(BWfrequencyRemainder)"
-            
-            if convertedBWFrequency > CONVERTED_BW_SPEED_LIMIT {
-                convertedBWFrequency = CONVERTED_BW_SPEED_LIMIT
-            } else if convertedBWFrequency < 0 {
-                convertedBWFrequency = 0
-            }
-            
-            
-            if sender.state == .ended {
-                
-                if convertedBWFrequency < 10{
-                    CENTRAL_SYSTEM?.writeRegister(register: 1049, value: 0)
-                }else{
-                    CENTRAL_SYSTEM?.writeRegister(register: 1049, value: convertedBWFrequency)
-                }
-                
-                readBackWashSpeedOnce = false
-            }
-            
         }
     }
 }

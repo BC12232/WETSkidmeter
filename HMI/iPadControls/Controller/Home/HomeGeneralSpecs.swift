@@ -191,7 +191,7 @@ let SCREENS = [
     "systemstatus",
     "filtration",
     "waterskin",
-    "cascade",
+    "fog",
     "waterQuality",
     "waterLevel",
     "",

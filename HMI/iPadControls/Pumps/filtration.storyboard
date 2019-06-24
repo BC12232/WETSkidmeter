@@ -410,7 +410,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PUMPS" id="GdH-LC-WlV"/>
+                    <navigationItem key="navigationItem" title="LEAPFROG PUMPS" id="GdH-LC-WlV"/>
                     <connections>
                         <outlet property="bWashIndicator102" destination="yOa-Wn-U6k" id="hjE-vd-DLN"/>
                         <outlet property="bWashIndicator103" destination="ofl-Tr-FE1" id="eyf-hy-EGr"/>

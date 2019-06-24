@@ -15,8 +15,8 @@ import Foundation
  * Comments :  This file is use for any pumps with scheduler. Just change the word which should be the path to access the server
  ***************************************************************************/
 
-let READ_WATERSKIN_PUMPS_SERVER_PATH          = "readWeirSch"
-let WRITE_WATERSKIN_PUMPS_SERVER_PATH         = "writeWeirSch"
+let READ_WATERSKIN_PUMPS_SERVER_PATH          = "readWeirPumpSch"
+let WRITE_WATERSKIN_PUMPS_SERVER_PATH         = "writeWeirPumpSch"
 let WATER_SKIN_STATUS                       = (startBit: 2003, count: 5)
 let WATER_SKIN_AUTO_HAND_MODE               = 2000
 let WATER_SKIN_ON_OFF_REGISTERS             = [2002, 2004, 2006]

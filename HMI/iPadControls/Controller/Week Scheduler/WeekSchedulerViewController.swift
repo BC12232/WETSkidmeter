@@ -622,7 +622,7 @@ class WeekSchedulerViewController: UIViewController, UIPopoverPresentationContro
             weekendPopover.preferredContentSize = CGSize(width: 440.0, height: 225.0)
             weekendPopover.popoverPresentationController?.sourceView = self.view
             weekendPopover.popoverPresentationController?.sourceRect = CGRect(x: 85, y: 230, width: 0, height: 0)
-            if readServerPath == "readWeirSch" {
+            if readServerPath == "readWeirPumpSch" {
                 weekendPopover.popoverPresentationController?.sourceRect = CGRect(x: 50, y:205, width: 0, height: 0)
                 weekendPopover.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
             }

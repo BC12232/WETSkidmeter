@@ -36,7 +36,6 @@ class FogSettingsViewController: UIViewController  {
             CENTRAL_SYSTEM?.connect()
             
         }
-        readZoneStates()
         readDefaultFogDelay()
     }
     
@@ -54,7 +53,6 @@ class FogSettingsViewController: UIViewController  {
             //Change the connection stat indicator
             noConnectionView.alpha = 0
             noConnectionView.isUserInteractionEnabled = false
-            readZoneStates()
             readDefaultFogDelay()
         }else {
             noConnectionView.alpha = 1
@@ -69,41 +67,6 @@ class FogSettingsViewController: UIViewController  {
     }
     
     
-    func readZoneStates(){
-        
-          CENTRAL_SYSTEM?.readBits(length: 4, startingRegister: Int32(FOG_ZONE_STATS), completion: { (success, response) in
-            
-                let zone1State = Int(truncating: response![0] as! NSNumber)
-                let zone2State = Int(truncating: response![1] as! NSNumber)
-                let zone3State = Int(truncating: response![2] as! NSNumber)
-                let zone4State = Int(truncating: response![3] as! NSNumber)
-            
-                if zone1State == 1{
-                    self.zone1State.isHidden = false
-                } else {
-                    self.zone1State.isHidden = true
-                }
-            
-                if zone2State == 1{
-                    self.zone2State.isHidden = false
-                } else {
-                    self.zone2State.isHidden = true
-                }
-            
-                if zone3State == 1{
-                    self.zonee3State.isHidden = false
-                } else {
-                    self.zonee3State.isHidden = true
-                }
-            
-                if zone4State == 1{
-                    self.zone4State.isHidden = false
-                } else {
-                    self.zone4State.isHidden = true
-                }
-          
-          })
-    }
     private func readDefaultFogDelay() {
         if !readOnce {
             CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(FOG_JOCKEYPUMP_TRIGGER), completion: { (success, response) in
