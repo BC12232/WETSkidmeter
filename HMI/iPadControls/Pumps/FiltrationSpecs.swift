@@ -48,20 +48,20 @@ let FILTRATION_PUMP_FAULT_105                   = 1064
 /* SHOWN ON STRAINER TAB ON EXCEL -- SHOULD SAY FILTRATION */
 let FILTRATION_CLEAN_STRAINER_START_BIT         = 4500 // Check spread sheet, see what's the first register
 let FILTRATION_CLEAN_STRAINER_BIT_COUNT         = 7    // How many clean strainer does it have. Modify function that use this accordingly
-let CONVERTED_FREQUENCY_LIMIT                   = 500  // Change to 600 if limit is 60 hertz. Change to 500 if limit is 50 hertz
-let CONVERTED_BW_SPEED_LIMIT                    = 500  // Change to 600 if limit is 60 hertz. Change to 500 if limit is 50 hertz
+let CONVERTED_FREQUENCY_LIMIT                   = 600  // Change to 600 if limit is 60 hertz. Change to 500 if limit is 50 hertz
+let CONVERTED_BW_SPEED_LIMIT                    = 600  // Change to 600 if limit is 60 hertz. Change to 500 if limit is 50 hertz
 
 /* NOTE change 50.0 to 60.0 if limit is 60 hertz, if not leave it. Double check with Kranti*/
-let FILTRATION_PIXEL_PER_BACKWASH               = 258.0 / 50.0
-let PIXEL_PER_FREQUENCY                         = 258.0 / 50.0
-let FILTRATION_PIXEL_PER_MANUAL_SPEED           = 258.0 / 50.0
+let FILTRATION_PIXEL_PER_BACKWASH               = 258.0 / 60.0
+let PIXEL_PER_FREQUENCY                         = 258.0 / 60.0
+let FILTRATION_PIXEL_PER_MANUAL_SPEED           = 258.0 / 60.0
 let FILTRATION_PUMP_SPEED_INDICATOR_READ_LIMIT  = 2
 let FILTRATION_BW_SPEED_INDICATOR_READ_LIMIT    = 2
-let FILTRATION_PIXEL_PER_FREQUENCY              = 50.0 / 258.0
+let FILTRATION_PIXEL_PER_FREQUENCY              = 60.0 / 258.0
 let CONVERTED_FILTRATION_PIXEL_PER_FREQUENCY    = Float(String(format: "%.2f", FILTRATION_PIXEL_PER_FREQUENCY))
 let CONVERTED_FILTRATION_PIXEL_PER_BW           = Float(String(format: "%.2f", FILTRATION_PIXEL_PER_FREQUENCY))
-let MAX_FILTRATION_BACKWASH_SPEED               = 50.0
-let MAX_FILTRATION_FREQUENCY                    = 50.0
+let MAX_FILTRATION_BACKWASH_SPEED               = 60.0
+let MAX_FILTRATION_FREQUENCY                    = 60.0
 let DAY_PICKER_DATA_SOURCE                      = ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"]
 
 

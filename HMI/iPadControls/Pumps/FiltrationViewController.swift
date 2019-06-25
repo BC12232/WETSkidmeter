@@ -673,15 +673,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         // This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -733,15 +733,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         // This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -793,15 +793,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         // This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -859,15 +859,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         //This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -917,15 +917,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         //This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -973,15 +973,15 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 164 {
-            touchLocation.y = 164
+        if touchLocation.y  < 167 {
+            touchLocation.y = 167
         }
         if touchLocation.y  > 428 {
             touchLocation.y = 428
         }
         
         //This is set.
-        if touchLocation.y >= 164 && touchLocation.y <= 428 {
+        if touchLocation.y >= 167 && touchLocation.y <= 428 {
             
             sender.view?.center.y = touchLocation.y
             
@@ -1321,7 +1321,7 @@ class FiltrationViewController: UIViewController,UIGestureRecognizerDelegate, UI
                 let popover = nav.popoverPresentationController
                 popoverContent.pumpTag = sender.tag
                 popoverContent.preferredContentSize = CGSize(width: 768, height: 264)
-//                popover?.sourceRect = CGRect(x: -70, y:0, width: 768, height: 264)
+                popoverContent.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.down
         
                 popover?.sourceView = sender
                 self.present(nav, animated: true, completion: nil)

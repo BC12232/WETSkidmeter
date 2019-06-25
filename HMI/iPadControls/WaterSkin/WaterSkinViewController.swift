@@ -10,6 +10,7 @@ import UIKit
 
 class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var schedulerSwitch: UISwitch!
     @IBOutlet weak var pumpbutton104: UIButton!
     @IBOutlet weak var frequencyIndicator: UIView!
     @IBOutlet weak var frequencyIndicatorValue: UILabel!
@@ -33,6 +34,7 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillAppear(_ animated: Bool){
         initializePumpGestureRecognizer()
         getIpadNumber()
+        readwaterSkinSchedulerEnable()
         NotificationCenter.default.addObserver(self, selector: #selector(checkSystemStat), name: NSNotification.Name(rawValue: "updateSystemStat"), object: nil)
     }
     
@@ -57,6 +59,7 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
             noConnectionView.alpha = 0
             readChannelFault()
             readCurrentFiltrationPumpDetails()
+            readwaterSkinSchedulerEnable()
             
         } else {
             noConnectionView.alpha = 1
@@ -261,4 +264,28 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
     }
+    
+    @IBAction func enableDisableSwitch(_ sender: UISwitch) {
+        if schedulerSwitch.isOn{
+            CENTRAL_SYSTEM?.writeBit(bit: 2020, value: 1)
+        } else {
+            CENTRAL_SYSTEM?.writeBit(bit: 2020, value: 0)
+        }
+    }
+    
+    func readwaterSkinSchedulerEnable(){
+        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2020, completion: { (success, response) in
+            
+            guard success == true else { return }
+            
+            let switchOnOff = Int(truncating: response![0] as! NSNumber)
+            
+            if switchOnOff == 1{
+                self.schedulerSwitch.isOn = true
+            } else {
+                self.schedulerSwitch.isOn = false
+            }
+        })
+    }
+    
 }

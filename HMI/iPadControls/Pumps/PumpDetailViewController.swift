@@ -434,7 +434,7 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
                     //Pump is in auto mode
                     self.localStat = 0
                     self.frequencyIndicator.isHidden = false
-                    self.setFrequencyHandle.isHidden = true
+                    self.setFrequencyHandle.isHidden = false
 
                 }else if feedback == 1 && startStopMode == 1{
 
@@ -497,15 +497,28 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
     }
     
     func readSchedulerEnable(){
-        CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2010, completion: { (success, response) in
-            guard success == true else { return }
-            let switchOnOff = Int(truncating: response![0] as! NSNumber)
-            if switchOnOff == 0{
-                self.playStopButtonIcon.isHidden = false
-            } else {
-                self.playStopButtonIcon.isHidden = true
-            }
-        })
+        if pumpNumber == 104{
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2020, completion: { (success, response) in
+                guard success == true else { return }
+                let switchOnOff = Int(truncating: response![0] as! NSNumber)
+                if switchOnOff == 0{
+                    self.playStopButtonIcon.isHidden = false
+                } else {
+                    self.playStopButtonIcon.isHidden = true
+                }
+            })
+        } else {
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2010, completion: { (success, response) in
+                guard success == true else { return }
+                let switchOnOff = Int(truncating: response![0] as! NSNumber)
+                if switchOnOff == 0{
+                    self.playStopButtonIcon.isHidden = false
+                } else {
+                    self.playStopButtonIcon.isHidden = true
+                }
+            })
+        }
+        
     }
     
     private func parseStates(bits:[String]){
@@ -880,8 +893,8 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
                 let flowRange = 700 - Int(touchLocation.y)
                 let pixelPerFrequency = 450.0 / Double(HZMax)
                 var herts = Double(flowRange) / pixelPerFrequency
-                if herts > 50.0 {
-                    herts = 50.0
+                if herts > 60.0 {
+                    herts = 60.0
                 }
                 let formattedHerts = String(format: "%.1f", herts)
                 let convertedHerts = Int(herts * 10)

@@ -132,7 +132,6 @@
 		9BCE6F96213ED40C00ED2DDC /* FogSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCE6F95213ED40B00ED2DDC /* FogSpecs.swift */; };
 		9BD68EBD21C2F09100D93CB0 /* SystemFaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD68EBC21C2F09100D93CB0 /* SystemFaultViewController.swift */; };
 		9BDE72A8216BFF6A0075CF3E /* FogSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDE72A7216BFF6A0075CF3E /* FogSettingsViewController.swift */; };
-		9BF5679D20DC69DE001AFD30 /* iPadControls-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BF5679C20DC69DE001AFD30 /* iPadControls-Info.plist */; };
 		BB0F3D07228B343D0049613A /* ProjectorStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0F3D06228B343D0049613A /* ProjectorStatusViewController.swift */; };
 		BB36C54021EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36C53F21EFBC9300901838 /* WaterLevelSettingsPopUpViewController.swift */; };
 		BB3B4FDA21E954CD00D64D6F /* FillerShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B4FD521E954CC00D64D6F /* FillerShowsViewController.swift */; };
@@ -455,16 +454,16 @@
 			isa = PBXGroup;
 			children = (
 				9B3F410D2146CC22000B4701 /* Animation Pumps */,
+				9B006232212C7E670066CC9B /* Cascade Pumps */,
 				BBF365012294647400332E56 /* Pumps */,
+				BB9AD18622C16C9C008316ED /* WaterSkin */,
+				BBBE0B7F21C165D20067A0FE /* SystemStatus */,
 				9B5F3FB220DC5B1200D3CFDF /* Home */,
+				9BCE6F90213ED31D00ED2DDC /* DrainPump */,
 				BB3DB41F21F7AC9B0005A558 /* Water Quality */,
 				BBBBC0B421D6A6DE004EC984 /* Projector */,
 				BB3B4FD321E954CC00D64D6F /* FillerShows */,
-				9B006232212C7E670066CC9B /* Cascade Pumps */,
-				BBBE0B7F21C165D20067A0FE /* SystemStatus */,
 				9B2105B4218A19C700D36644 /* ShowList */,
-				9BCE6F90213ED31D00ED2DDC /* Fog */,
-				BB9AD18622C16C9C008316ED /* WaterSkin */,
 				9BA7A04121920E2C0038D13D /* Playlist */,
 				9B006224212C7E510066CC9B /* Lights */,
 				9B006229212C7E600066CC9B /* Week Scheduler */,
@@ -846,7 +845,7 @@
 			path = Controller/Playlist;
 			sourceTree = "<group>";
 		};
-		9BCE6F90213ED31D00ED2DDC /* Fog */ = {
+		9BCE6F90213ED31D00ED2DDC /* DrainPump */ = {
 			isa = PBXGroup;
 			children = (
 				9BCE6F95213ED40B00ED2DDC /* FogSpecs.swift */,
@@ -854,8 +853,8 @@
 				9BCE6F92213ED31D00ED2DDC /* FogViewController.swift */,
 				9BDE72A7216BFF6A0075CF3E /* FogSettingsViewController.swift */,
 			);
-			name = Fog;
-			path = Controller/Fog;
+			name = DrainPump;
+			path = Controller/DrainPump;
 			sourceTree = "<group>";
 		};
 		BB3B4FD321E954CC00D64D6F /* FillerShows */ = {
@@ -973,7 +972,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = WET;
 				TargetAttributes = {
 					88243C091DEF5965004D39D8 = {
@@ -1015,7 +1014,6 @@
 				BBA144F3224BE7B700C11357 /* tank_leakshowStopper.png in Resources */,
 				9B5F401B20DC5B1200D3CFDF /* settings.storyboard in Resources */,
 				9B725D9C214775E5008886A2 /* lights.storyboard in Resources */,
-				9BF5679D20DC69DE001AFD30 /* iPadControls-Info.plist in Resources */,
 				9B5F3F8720DC5AD900D3CFDF /* COPYING in Resources */,
 				9BCE6F93213ED31D00ED2DDC /* fog.storyboard in Resources */,
 				9B5F3F8320DC5AD900D3CFDF /* AUTHORS in Resources */,

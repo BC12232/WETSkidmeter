@@ -95,10 +95,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAP-C0-n5L" userLabel="Cascade">
-                                <rect key="frame" x="727" y="312" width="120" height="120"/>
+                                <rect key="frame" x="727" y="312" width="121" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <size key="titleShadowOffset" width="1" height="0.0"/>
-                                <state key="normal" backgroundImage="fog">
+                                <state key="normal" backgroundImage="DrainWater">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -506,11 +506,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DrainWater" width="121.91999816894531" height="120"/>
         <image name="WETLogo" width="138" height="36"/>
         <image name="background" width="75.120002746582031" height="75.120002746582031"/>
         <image name="button_background" width="130.08000183105469" height="30"/>
         <image name="cascadePump" width="120" height="120"/>
-        <image name="fog" width="120" height="120"/>
         <image name="ios_settings_icon" width="512" height="512"/>
         <image name="lights" width="120" height="120"/>
         <image name="outOfRange" width="265.20001220703125" height="187.44000244140625"/>
