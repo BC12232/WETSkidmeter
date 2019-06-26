@@ -273,7 +273,7 @@ class WaterLevelSettingsViewController: UIViewController{
         nav.modalPresentationStyle = .popover
         nav.isNavigationBarHidden = true
         let popover = nav.popoverPresentationController
-        popover?.sourceRect = CGRect(x: -200, y: -130, width: 580, height: 190)
+        popover?.sourceRect = CGRect(x: -250, y: -130, width: 580, height: 190)
         popoverContent.preferredContentSize = CGSize(width: 580, height: 190)
         popover?.sourceView = sender
         self.present(nav, animated: true, completion: nil)

@@ -392,7 +392,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7WB-Ag-TAC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EgH-KK-0UN">
-                        <rect key="frame" x="0.0" y="0.0" width="440" height="225"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lgi-4v-q4D">

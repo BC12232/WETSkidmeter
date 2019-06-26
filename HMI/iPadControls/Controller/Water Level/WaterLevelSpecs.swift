@@ -21,7 +21,7 @@ public struct WATER_LEVEL_SENSOR_VALUES{
     var below_ll_2           = 0
     var below_lll            = 0
     var above_High           = 0
-    var malfunction          = 0
+    var channelfault         = 0
     var waterMakeup          = 0
     var waterMakeupTimeout   = 0
     var above_high_timer     = 0
@@ -48,18 +48,10 @@ public struct WATER_LEVEL_SENSOR_VALUES{
 let WATER_LEVEL_SETTINGS_SCREEN_SEGUE          = "waterLevelSettings"
 let WATER_LEVEL_LANGUAGE_DATA_PARAM            = "waterLevel"
 
-let WATER_LEVEL_SENSOR_BITS_LT110             = (startBit: 3003, count: 5)
-let WATER_LEVEL_SENSOR_BITS_LT213             = (startBit: 3023, count: 5)
-let WATER_LEVEL_SENSOR_BITS_LT401             = (startBit: 3043, count: 3)
-let WATER_LEVEL_SENSOR_BITS_LT402             = (startBit: 3063, count: 3)
-let WATER_LEVEL_SENSOR_BITS_LT403             = (startBit: 3083, count: 3)
-let WATER_LEVEL_SENSOR_BITS_LT404             = (startBit: 3103, count: 3)
-let WATER_LEVEL_SENSOR_BITS_LT405             = (startBit: 3123, count: 5)
+let WATER_LEVEL_SENSOR_BITS_LT1001             = (startBit: 3000, count: 8)
+let WATER_LEVEL_SENSOR_BITS_LT1002             = (startBit: 3020, count: 8)
+let WATER_LEVEL_SENSOR_BITS_LT1003             = (startBit: 3040, count: 8)
 
-let QUAD_A_LEAK_REGISTER             = 3402
-let QUAD_B_LEAK_REGISTER             = 3405
-let QUAD_C_LEAK_REGISTER             = 3408
-let QUAD_D_LEAK_REGISTER             = 3411
 
 
 let ALL_WATER_LEVEL_BELOW_LL_REGISTER          = (register: 3003, count: 3)

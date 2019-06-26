@@ -117,10 +117,10 @@
                                     <action selector="pushToStoryboard:" destination="pKM-ao-vnB" eventType="touchUpInside" id="obr-n9-pkg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7j-fn-kHj" userLabel="WaterLevel">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7j-fn-kHj" userLabel="WaterLevel">
                                 <rect key="frame" x="471" y="440" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="background">
+                                <state key="normal" backgroundImage="water_level">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -506,7 +506,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DrainWater" width="121.91999816894531" height="120"/>
+        <image name="DrainWater" width="120" height="120"/>
         <image name="WETLogo" width="138" height="36"/>
         <image name="background" width="75.120002746582031" height="75.120002746582031"/>
         <image name="button_background" width="130.08000183105469" height="30"/>
@@ -520,5 +520,6 @@
         <image name="settings" width="251" height="251"/>
         <image name="shortcut_playlist_off" width="75.599998474121094" height="75.599998474121094"/>
         <image name="systemstatus" width="78" height="70"/>
+        <image name="water_level" width="120" height="120"/>
     </resources>
 </document>

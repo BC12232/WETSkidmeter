@@ -147,19 +147,19 @@ class WaterSkinViewController: UIViewController, UIGestureRecognizerDelegate {
         var touchLocation:CGPoint = sender.location(in: self.view)
         print(touchLocation.y)
         //Make sure that we don't go more than pump flow limit
-        if touchLocation.y  < 130 {
-            touchLocation.y = 130
+        if touchLocation.y  < 129 {
+            touchLocation.y = 129
         }
-        if touchLocation.y  > 394 {
-            touchLocation.y = 394
+        if touchLocation.y  > 391 {
+            touchLocation.y = 391
         }
         
         // This is set.
-        if touchLocation.y >= 130 && touchLocation.y <= 394 {
+        if touchLocation.y >= 129 && touchLocation.y <= 391 {
             
             sender.view?.center.y = touchLocation.y
             
-            let flowRange = 394.0 - touchLocation.y
+            let flowRange = 391.0 - touchLocation.y
             let hertz = Float(flowRange) * CONVERTED_FILTRATION_PIXEL_PER_FREQUENCY!
             
             
