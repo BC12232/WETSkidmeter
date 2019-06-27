@@ -451,17 +451,6 @@
                                     <action selector="faultResetBtnPushed:" destination="eFz-kV-idR" eventType="touchUpInside" id="X5L-gQ-sTV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3333" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB5-oE-9qs">
-                                <rect key="frame" x="82" y="322" width="250" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="DESIGNATE TEST SHOWS" backgroundImage="button_background">
-                                    <color key="titleColor" red="0.5116012096" green="0.74391287569999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="designateFillerShowPopover:" destination="eFz-kV-idR" eventType="touchUpInside" id="gO8-wo-lcs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

@@ -337,11 +337,11 @@
                                     <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="Dne-LY-osD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="132" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ln4-AM-Lxc" userLabel="PumpDetailButton">
+                            <button opaque="NO" tag="133" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ln4-AM-Lxc" userLabel="PumpDetailButton">
                                 <rect key="frame" x="682" y="703" width="170" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="BWASH_SCH_102" backgroundImage="button_background"/>
+                                <state key="normal" title="BWASH_SCH_103" backgroundImage="button_background"/>
                                 <connections>
                                     <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="y4S-5D-dJ5"/>
                                 </connections>
@@ -387,11 +387,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" tag="133" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuI-h2-WTU" userLabel="PumpDetailButton">
+                            <button opaque="NO" tag="132" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuI-h2-WTU" userLabel="PumpDetailButton">
                                 <rect key="frame" x="682" y="631" width="170" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="BWASH_SCH_103" backgroundImage="button_background"/>
+                                <state key="normal" title="BWASH_SCH_102" backgroundImage="button_background"/>
                                 <connections>
                                     <action selector="redirectToFilterSch:" destination="1of-uZ-N4L" eventType="touchUpInside" id="8ZM-1y-oFq"/>
                                 </connections>
