@@ -11,12 +11,7 @@ import Foundation
 class FogSettingsViewController: UIViewController  {
     
 
-    @IBOutlet weak var zone4State: UILabel!
-    @IBOutlet weak var zonee3State: UILabel!
-    @IBOutlet weak var zone2State: UILabel!
-    @IBOutlet weak var zone1State: UILabel!
-    @IBOutlet weak var fogTimerTxt: UITextField!
-    @IBOutlet weak var fogBoosterTxt: UITextField!
+    @IBOutlet weak var drainTimeout: UITextField!
     @IBOutlet weak var noConnectionView: UIView!
     @IBOutlet weak var noConnectionErrorLbl: UILabel!
     private var readOnce = false
@@ -69,20 +64,12 @@ class FogSettingsViewController: UIViewController  {
     
     private func readDefaultFogDelay() {
         if !readOnce {
-            CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(FOG_JOCKEYPUMP_TRIGGER), completion: { (success, response) in
+            CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(DRAIN_TIMEOUT), completion: { (success, response) in
                 guard success == true else { return }
                 
                 let delay = Int(truncating: response![0] as! NSNumber)
                 
-                self.fogTimerTxt.text = "\(delay)"
-                
-            })
-            CENTRAL_SYSTEM?.readRegister(length: 1, startingRegister: Int32(FOG_BOOSTER_TRIGGER), completion: { (success, response) in
-                guard success == true else { return }
-                
-                let delay = Int(truncating: response![0] as! NSNumber)
-                
-                self.fogBoosterTxt.text = "\(delay)"
+                self.drainTimeout.text = "\(delay)"
                 
             })
             self.readOnce = true
@@ -94,25 +81,13 @@ class FogSettingsViewController: UIViewController  {
 
     
     @IBAction func saveSettings(_ sender: Any) {
-        guard let text = fogTimerTxt.text, !text.isEmpty else { return }
-        guard let booster = fogBoosterTxt.text, !text.isEmpty else { return }
+        guard let text = drainTimeout.text, !text.isEmpty else { return }
         if let value = Int(text) {
-            if value >= 0 && value <= 30 {
-                CENTRAL_SYSTEM?.writeRegister(register: FOG_JOCKEYPUMP_TRIGGER, value: value)
+            if value >= 0 && value <= 300 {
+                CENTRAL_SYSTEM?.writeRegister(register: DRAIN_TIMEOUT, value: value)
                 readOnce = false
             } else {
                showAlert()
-            }
-        } else {
-            errorTextAlert()
-        }
-        
-        if let value = Int(booster) {
-            if value >= 0 && value <= 30 {
-                CENTRAL_SYSTEM?.writeRegister(register: FOG_BOOSTER_TRIGGER, value: value)
-                readOnce = false
-            } else {
-                showAlert()
             }
         } else {
             errorTextAlert()

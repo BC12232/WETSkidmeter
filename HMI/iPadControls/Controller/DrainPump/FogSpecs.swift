@@ -16,7 +16,7 @@ import Foundation
 let FOG_FAULTS_121                 = (startAddr: 2252, count:4)
 let FOG_PLAY_STOP_BIT_ADDR_121     = 2251
 let FOG_ONSTATUS               = 7004
-let FOG_JOCKEYPUMP_TRIGGER     = 6520
+let DRAIN_TIMEOUT     = 6524
 let FOG_BOOSTER_TRIGGER     = 6523
 
 struct FOG_MOTOR_LIVE_VALUES{
