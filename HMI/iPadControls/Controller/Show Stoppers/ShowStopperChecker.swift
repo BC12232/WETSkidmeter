@@ -91,7 +91,7 @@ class ShowStopperChecker: UIViewController{
                 return
             }
 
-            self.processShowStoppers(response: response!)
+            //self.processShowStoppers(response: response!)
             
         })
         
