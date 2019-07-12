@@ -44,7 +44,7 @@ let RAIN_SENSOR_STATUS_REGISTER              = 6000
  ***************************************************************************/
 let PLC_IP_ADDRESS                 = "192.168.1.230"
 let SERVER_IP_ADDRESS              = "192.168.1.2"
-let SPM_IP_ADDRESS                 = "192.168.1.199"
+let SPM_IP_ADDRESS                 = "192.168.1.201"
 
 //let PLC_IP_ADDRESS                 = "10.0.4.230"
 //let SERVER_IP_ADDRESS              = "10.0.4.2"

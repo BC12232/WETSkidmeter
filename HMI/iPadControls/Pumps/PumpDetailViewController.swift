@@ -25,6 +25,7 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
     @IBOutlet weak var vfdFaultLbl: UILabel!
     @IBOutlet weak var cleanStrainerLbl: UILabel!
     @IBOutlet weak var pumpFaultLbl: UILabel!
+    @IBOutlet weak var pidEnable: UISwitch!
     
     //MARK: - Frequency Label Indicators
     
@@ -38,8 +39,7 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
     @IBOutlet weak var frequencyIndicator: UIView!
     @IBOutlet weak var frequencyIndicatorValue: UILabel!
     @IBOutlet weak var frequencySetpointBackground: UIView!
-    @IBOutlet weak var manualSpeedView: UIView!
-    @IBOutlet weak var manualSpeedValue: UITextField!
+    @IBOutlet weak var pidControllerView: UIView!
     
     
     //MARK: - Voltage Label Indicators
@@ -111,7 +111,7 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
     //MARK: - View Life Cycle
     
     override func viewDidLoad(){
-        self.manualSpeedView.alpha = 0
+        self.pidControllerView.alpha = 0
         super.viewDidLoad()
         
     }
@@ -519,6 +519,18 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
             })
         }
         
+        if pumpNumber == 105{
+            self.pidControllerView.alpha = 1
+            CENTRAL_SYSTEM?.readBits(length: 1, startingRegister: 2999, completion: { (success, response) in
+                guard success == true else { return }
+                let switchOnOff = Int(truncating: response![0] as! NSNumber)
+                if switchOnOff == 0{
+                    self.pidEnable.isOn = false
+                } else {
+                    self.pidEnable.isOn = true
+                }
+            })
+        }
     }
     
     private func parseStates(bits:[String]){
@@ -857,12 +869,10 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
                 setFrequencyHandle.frame = CGRect(x: 403, y: 237, width: 108, height: 26)
                 frequencySetLabel.textColor = GREEN_COLOR
                 frequencySetLabel.text = "\(HZMax)"
-                self.manualSpeedValue.text  = "\(HZMax)"
             } else {
                 setFrequencyHandle.frame = CGRect(x: 403, y: (687 - length), width: 108, height: 26)
                 frequencySetLabel.textColor = GREEN_COLOR
                 frequencySetLabel.text = "\(manualSpeedValue).\(manualSpeedRemainder)"
-                self.manualSpeedValue.text  = "\(manualSpeedValue).\(manualSpeedRemainder)"
                 print("this is the manual speed: \(manualSpeedValue).\(manualSpeedRemainder)")
             }
             
@@ -919,33 +929,6 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
     
     }
     
-    @IBAction func setManualSpeed(_ sender: Any) {
-        var manSpeed  = Float(self.manualSpeedValue.text!)
-        self.manualSpeedValue.text = ""
-        if manSpeed == nil{
-            manSpeed = 0
-        }
-        if manSpeed! > 50 {
-            manSpeed = 50
-        }
-        manSpeed = manSpeed! * 10
-        if iPadNumber == 1{
-            
-            
-            CENTRAL_SYSTEM?.writeRegister(register: 2, value: Int(manSpeed!))
-            
-            
-        } else {
-            
-            
-            CENTRAL_SYSTEM?.writeRegister(register: 22, value: Int(manSpeed!))
-            
-        }
-        readManualFrequencySpeedOnce = false
-    }
-    
-    
-    
    
     private func setReadManualSpeedBoolean(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
@@ -953,4 +936,11 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
         }
     }
     
+    @IBAction func enableDisablePID(_ sender: UISwitch) {
+        if pidEnable.isOn{
+            CENTRAL_SYSTEM?.writeBit(bit: 2999, value: 1)
+        } else {
+            CENTRAL_SYSTEM?.writeBit(bit: 2999, value: 0)
+        }
+    }
 }
