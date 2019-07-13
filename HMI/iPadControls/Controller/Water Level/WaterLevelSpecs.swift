@@ -16,6 +16,7 @@ import Foundation
 public struct WATER_LEVEL_SENSOR_VALUES{
     
     var channelFault         = 0
+    var above_high           = 0
     var below_l              = 0
     var below_ll             = 0
     var below_ll_2           = 0

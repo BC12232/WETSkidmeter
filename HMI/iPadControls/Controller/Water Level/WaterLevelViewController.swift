@@ -36,6 +36,10 @@ class WaterLevelViewController: UIViewController{
     @IBOutlet weak var waterLevelIcon:                      UIImageView!
     @IBOutlet weak var noConnectionView:                    UIView!
     @IBOutlet weak var noConnectionErrorLbl:                UILabel!
+    @IBOutlet weak var faultLowHigh: UILabel!
+    @IBOutlet weak var faultLowHigh1003: UILabel!
+    @IBOutlet weak var faultLowHigh1002: UILabel!
+    @IBOutlet weak var scaledValuePercent: UILabel!
     
     //MARK: - Water Level Sensors Faults
     
@@ -74,6 +78,10 @@ class WaterLevelViewController: UIViewController{
     var quadBstatus = 0
     var quadCstatus = 0
     var quadDstatus = 0
+    
+    var belowLow = 0.0
+    var aboveHigh = 0.0
+    var scalValue = 0.0
     private var acquiredTimersFromPLC = 0
      let CHANNEL_FAULT_TANK_REGISTER     = 3000
      let LT1001_TANK_REGISTER            = 3001
@@ -113,7 +121,7 @@ class WaterLevelViewController: UIViewController{
             CENTRAL_SYSTEM?.connect()
             
         }
-        
+    
         //Add notification observer to get system stat
         NotificationCenter.default.addObserver(self, selector: #selector(WaterLevelViewController.checkSystemStat), name: NSNotification.Name(rawValue: "updateSystemStat"), object: nil)
         
@@ -122,7 +130,7 @@ class WaterLevelViewController: UIViewController{
         
         //Configure WaterLeveScreen Text Content Based On Device Language
         configureScreenTextContent()
-        
+        readLT1003WaterLevel()
         addShowStoppers()
         //This line of code is an extension added to the view controller by showStoppers module
         //This is the only line needed to add show stopper
@@ -164,6 +172,7 @@ class WaterLevelViewController: UIViewController{
             readWaterLevelLiveValuesLT1001()
             readWaterLevelLiveValuesLT1002()
             readWaterLevelLiveValuesLT1003()
+            readLT1003WaterLevel()
             parseWaterLevelFaults()
             parseWaterLevelStat()
 
@@ -225,10 +234,11 @@ class WaterLevelViewController: UIViewController{
             //Check points to make sure the PLC Call was successful
             
             guard sucess == true else{
-                self.logger.logData(data: "WATER LEVEL LT1002: FAILED TO GET RESPONSE FROM PLC")
+                self.logger.logData(data: "WATER LEVEL LT1001: FAILED TO GET RESPONSE FROM PLC")
                 return
             }
             self.liveSensorValues1001.channelFault      = Int(truncating: response![0] as! NSNumber)
+            self.liveSensorValues1001.above_high       = Int(truncating: response![1] as! NSNumber)
             self.liveSensorValues1001.below_ll         = Int(truncating: response![3] as! NSNumber)
             self.liveSensorValues1001.below_lll        = Int(truncating: response![4] as! NSNumber)
             self.liveSensorValues1001.waterMakeup      = Int(truncating: response![6] as! NSNumber)
@@ -300,23 +310,45 @@ class WaterLevelViewController: UIViewController{
      * Output   :  none
      * Comment  :
      ***************************************************************************/
-    
+    func readLT1003WaterLevel(){
+        CENTRAL_SYSTEM?.readRealRegister(register: 3040, length: 2, completion: { (success, response) in
+            guard success == true else { return }
+            self.scalValue = Double(response)!
+        })
+        CENTRAL_SYSTEM?.readRealRegister(register: 3050, length: 2, completion: { (success, response) in
+            guard success == true else { return }
+            self.belowLow = Double(response)!
+        })
+        CENTRAL_SYSTEM?.readRealRegister(register: 3052, length: 2, completion: { (success, response) in
+            guard success == true else { return }
+            self.aboveHigh = Double(response)!
+        })
+    }
     
     func parseWaterLevelStat(){
         CENTRAL_SYSTEM?.readBits(length: 4, startingRegister: Int32(LT1001_TANK_REGISTER), completion: { (success, response) in
             guard success == true else { return }
+            let aboveHigh = Int(truncating: response![0] as! NSNumber)
             let below_l   = Int(truncating: response![1] as! NSNumber)
             let below_ll  = Int(truncating: response![2] as! NSNumber)
             let below_lll = Int(truncating: response![3] as! NSNumber)
-            
+           
             if self.liveSensorValues1001.waterMakeup == 1{
                self.outerBasin.image = #imageLiteral(resourceName: "outerBasinGray")
                self.fillFaucet.isHidden = false
+               self.faultLowHigh.isHidden = true
             } else {
                 self.fillFaucet.isHidden = true
                 if below_l == 1 || below_ll == 1 || below_lll == 1{
-                   self.outerBasin.image = #imageLiteral(resourceName: "outerBasinRed")
+                    self.faultLowHigh.isHidden = false
+                    self.outerBasin.image = #imageLiteral(resourceName: "outerBasinRed")
+                    self.faultLowHigh.text = "LOW"
+                } else if aboveHigh == 1{
+                    self.faultLowHigh.isHidden = false
+                    self.outerBasin.image = #imageLiteral(resourceName: "outerBasinRed")
+                    self.faultLowHigh.text = "HIGH"
                 } else {
+                    self.faultLowHigh.isHidden = true
                     self.outerBasin.image = #imageLiteral(resourceName: "outerBasinGreen")
                 }
             }
@@ -324,27 +356,48 @@ class WaterLevelViewController: UIViewController{
         })
         CENTRAL_SYSTEM?.readBits(length: 4, startingRegister: Int32(LT1002_TANK_REGISTER), completion: { (success, response) in
             guard success == true else { return }
+            let above_High = Int(truncating: response![0] as! NSNumber)
             let below_l   = Int(truncating: response![1] as! NSNumber)
             let below_ll  = Int(truncating: response![2] as! NSNumber)
             let below_lll = Int(truncating: response![3] as! NSNumber)
             
-            if below_l == 0 || below_ll == 1 || below_lll == 1{
+            if below_l == 1 || below_ll == 1 || below_lll == 1{
+                self.faultLowHigh1002.isHidden = false
                 self.innerBasin.image = #imageLiteral(resourceName: "innerBasinRed")
+                self.faultLowHigh1002.text = "LOW"
+            } else if above_High == 1{
+                self.faultLowHigh1002.isHidden = false
+                self.innerBasin.image = #imageLiteral(resourceName: "innerBasinRed")
+                self.faultLowHigh1002.text = "HIGH"
             } else {
+                self.faultLowHigh1002.isHidden = true
                 self.innerBasin.image = #imageLiteral(resourceName: "innerBasinGreen")
             }
         })
        
         CENTRAL_SYSTEM?.readBits(length: 4, startingRegister: Int32(LT1003_TANK_REGISTER), completion: { (success, response) in
             guard success == true else { return }
+            let above_High = Int(truncating: response![0] as! NSNumber)
             let below_l   = Int(truncating: response![1] as! NSNumber)
             let below_ll  = Int(truncating: response![2] as! NSNumber)
             let below_lll = Int(truncating: response![3] as! NSNumber)
             
+            var value = self.scalValue
+            self.scaledValuePercent.text = "\(value)%"
+            value = value * 3
+            self.lt1003Basin.frame =  CGRect(x: 892, y: 688-value, width: 110, height:value)
+            
             if below_l == 1 || below_ll == 1 || below_lll == 1{
-                self.lt1003Basin.backgroundColor = RED_COLOR
+                 self.faultLowHigh1003.isHidden = false
+                 self.lt1003Basin.backgroundColor = RED_COLOR
+                 self.faultLowHigh1003.text = "LOW"
+            } else if above_High == 1 {
+                 self.faultLowHigh1003.isHidden = false
+                 self.lt1003Basin.backgroundColor = RED_COLOR
+                 self.faultLowHigh1003.text = "HIGH"
             } else {
                 self.lt1003Basin.backgroundColor = GREEN_COLOR
+                self.faultLowHigh1003.isHidden = true
             }
             
         })
