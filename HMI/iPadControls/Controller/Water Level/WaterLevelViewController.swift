@@ -383,8 +383,8 @@ class WaterLevelViewController: UIViewController{
             let below_lll = Int(truncating: response![3] as! NSNumber)
             
             var value = self.scalValue
-            self.scaledValuePercent.text = "\(value)%"
-            value = value * 3
+            self.scaledValuePercent.text = String(format: "%.1f", value + 6)
+            value = (value + 6) * 3
             self.lt1003Basin.frame =  CGRect(x: 892, y: 688-value, width: 110, height:value)
             
             if below_l == 1 || below_ll == 1 || below_lll == 1{

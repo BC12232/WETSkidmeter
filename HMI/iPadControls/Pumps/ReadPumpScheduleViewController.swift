@@ -17,6 +17,7 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
     @IBOutlet weak var countDownTimerBG: UIView!
     @IBOutlet weak var backwashDuration: UILabel!
     @IBOutlet weak var backwashScheduler: UIView!
+    @IBOutlet weak var schedulerTxt: UILabel!
     
     private let httpComm = HTTPComm()
     private var loadedScheduler = 0
@@ -115,69 +116,207 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
-        //Selected Day
-        if component == 0 {
-            
-            selectedDay = row + 1
-            UserDefaults.standard.set(selectedDay, forKey: "SelectedDay")
-            component0AlreadySelected = true
-        } else {
-            if !component0AlreadySelected {
-                let defaultDay = UserDefaults.standard.integer(forKey: "Day")
-                UserDefaults.standard.set(defaultDay, forKey: "SelectedDay")
-            }
-        }
-        
-        if component == 1 {
-            if is24hours {
-                selectedHour = row
-            } else {
-                selectedHour = row + 1
-            }
-            
-            UserDefaults.standard.set(selectedHour, forKey: "SelectedHour")
-            component1AlreadySelected = true
-        } else {
-            if !component1AlreadySelected {
-                let hour = UserDefaults.standard.integer(forKey: "Hour")
+        if pumpTag == 131{
+            //Selected Day
+            if component == 0 {
                 
-                if is24hours {
-                    UserDefaults.standard.set(hour, forKey: "SelectedHour")
-                } else {
-                    UserDefaults.standard.set(hour + 1, forKey: "SelectedHour")
-                }
-            }
-        }
-        
-        if component == 2 {
-            
-            selectedMinute = row
-            UserDefaults.standard.set(selectedMinute, forKey: "SelectedMinute")
-            component2AlreadySelected = true
-        } else {
-            if !component2AlreadySelected {
-                let minute = UserDefaults.standard.integer(forKey: "Minute")
-                UserDefaults.standard.set(minute, forKey: "SelectedMinute")
-            }
-        }
-        
-        if component == 3 {
-            if !is24hours {
-                if row == 0 {
-                    selectedTimeOfDay = 0
-                } else {
-                    selectedTimeOfDay = 12
-                }
+                selectedDay = row + 1
+                UserDefaults.standard.set(selectedDay, forKey: "SelectedDay")
+                component0AlreadySelected = true
             } else {
-                selectedTimeOfDay = 0
+                if !component0AlreadySelected {
+                    let defaultDay = UserDefaults.standard.integer(forKey: "Day1")
+                    UserDefaults.standard.set(defaultDay, forKey: "SelectedDay")
+                }
             }
             
-            UserDefaults.standard.set(selectedTimeOfDay, forKey: "SelectedTimeOfDay")
-            component3AlreadySelected = true
-        } else {
-            if !component3AlreadySelected {
-                let day = UserDefaults.standard.integer(forKey: "TimeOfDay")
-                UserDefaults.standard.set(day, forKey: "SelectedTimeOfDay")
+            if component == 1 {
+                if is24hours {
+                    selectedHour = row
+                } else {
+                    selectedHour = row + 1
+                }
+                
+                UserDefaults.standard.set(selectedHour, forKey: "SelectedHour")
+                component1AlreadySelected = true
+            } else {
+                if !component1AlreadySelected {
+                    let hour = UserDefaults.standard.integer(forKey: "Hour1")
+                    
+                    if is24hours {
+                        UserDefaults.standard.set(hour, forKey: "SelectedHour")
+                    } else {
+                        UserDefaults.standard.set(hour + 1, forKey: "SelectedHour")
+                    }
+                }
+            }
+            
+            if component == 2 {
+                
+                selectedMinute = row
+                UserDefaults.standard.set(selectedMinute, forKey: "SelectedMinute")
+                component2AlreadySelected = true
+            } else {
+                if !component2AlreadySelected {
+                    let minute = UserDefaults.standard.integer(forKey: "Minute1")
+                    UserDefaults.standard.set(minute, forKey: "SelectedMinute")
+                }
+            }
+            
+            if component == 3 {
+                if !is24hours {
+                    if row == 0 {
+                        selectedTimeOfDay = 0
+                    } else {
+                        selectedTimeOfDay = 12
+                    }
+                } else {
+                    selectedTimeOfDay = 0
+                }
+                
+                UserDefaults.standard.set(selectedTimeOfDay, forKey: "SelectedTimeOfDay")
+                component3AlreadySelected = true
+            } else {
+                if !component3AlreadySelected {
+                    let day = UserDefaults.standard.integer(forKey: "TimeOfDay1")
+                    UserDefaults.standard.set(day, forKey: "SelectedTimeOfDay")
+                }
+            }
+        }
+        
+        if pumpTag == 132{
+            //Selected Day
+            if component == 0 {
+                
+                selectedDay = row + 1
+                UserDefaults.standard.set(selectedDay, forKey: "SelectedDay")
+                component0AlreadySelected = true
+            } else {
+                if !component0AlreadySelected {
+                    let defaultDay = UserDefaults.standard.integer(forKey: "Day2")
+                    UserDefaults.standard.set(defaultDay, forKey: "SelectedDay")
+                }
+            }
+            
+            if component == 1 {
+                if is24hours {
+                    selectedHour = row
+                } else {
+                    selectedHour = row + 1
+                }
+                
+                UserDefaults.standard.set(selectedHour, forKey: "SelectedHour")
+                component1AlreadySelected = true
+            } else {
+                if !component1AlreadySelected {
+                    let hour = UserDefaults.standard.integer(forKey: "Hour2")
+                    
+                    if is24hours {
+                        UserDefaults.standard.set(hour, forKey: "SelectedHour")
+                    } else {
+                        UserDefaults.standard.set(hour + 1, forKey: "SelectedHour")
+                    }
+                }
+            }
+            
+            if component == 2 {
+                
+                selectedMinute = row
+                UserDefaults.standard.set(selectedMinute, forKey: "SelectedMinute")
+                component2AlreadySelected = true
+            } else {
+                if !component2AlreadySelected {
+                    let minute = UserDefaults.standard.integer(forKey: "Minute2")
+                    UserDefaults.standard.set(minute, forKey: "SelectedMinute")
+                }
+            }
+            
+            if component == 3 {
+                if !is24hours {
+                    if row == 0 {
+                        selectedTimeOfDay = 0
+                    } else {
+                        selectedTimeOfDay = 12
+                    }
+                } else {
+                    selectedTimeOfDay = 0
+                }
+                
+                UserDefaults.standard.set(selectedTimeOfDay, forKey: "SelectedTimeOfDay")
+                component3AlreadySelected = true
+            } else {
+                if !component3AlreadySelected {
+                    let day = UserDefaults.standard.integer(forKey: "TimeOfDay2")
+                    UserDefaults.standard.set(day, forKey: "SelectedTimeOfDay")
+                }
+            }
+        }
+        
+        if pumpTag == 133{
+            //Selected Day
+            if component == 0 {
+                
+                selectedDay = row + 1
+                UserDefaults.standard.set(selectedDay, forKey: "SelectedDay")
+                component0AlreadySelected = true
+            } else {
+                if !component0AlreadySelected {
+                    let defaultDay = UserDefaults.standard.integer(forKey: "Day3")
+                    UserDefaults.standard.set(defaultDay, forKey: "SelectedDay")
+                }
+            }
+            
+            if component == 1 {
+                if is24hours {
+                    selectedHour = row
+                } else {
+                    selectedHour = row + 1
+                }
+                
+                UserDefaults.standard.set(selectedHour, forKey: "SelectedHour")
+                component1AlreadySelected = true
+            } else {
+                if !component1AlreadySelected {
+                    let hour = UserDefaults.standard.integer(forKey: "Hour3")
+                    
+                    if is24hours {
+                        UserDefaults.standard.set(hour, forKey: "SelectedHour")
+                    } else {
+                        UserDefaults.standard.set(hour + 1, forKey: "SelectedHour")
+                    }
+                }
+            }
+            
+            if component == 2 {
+                
+                selectedMinute = row
+                UserDefaults.standard.set(selectedMinute, forKey: "SelectedMinute")
+                component2AlreadySelected = true
+            } else {
+                if !component2AlreadySelected {
+                    let minute = UserDefaults.standard.integer(forKey: "Minute3")
+                    UserDefaults.standard.set(minute, forKey: "SelectedMinute")
+                }
+            }
+            
+            if component == 3 {
+                if !is24hours {
+                    if row == 0 {
+                        selectedTimeOfDay = 0
+                    } else {
+                        selectedTimeOfDay = 12
+                    }
+                } else {
+                    selectedTimeOfDay = 0
+                }
+                
+                UserDefaults.standard.set(selectedTimeOfDay, forKey: "SelectedTimeOfDay")
+                component3AlreadySelected = true
+            } else {
+                if !component3AlreadySelected {
+                    let day = UserDefaults.standard.integer(forKey: "TimeOfDay3")
+                    UserDefaults.standard.set(day, forKey: "SelectedTimeOfDay")
+                }
             }
         }
         
@@ -292,20 +431,19 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         let backWashScheduledDay = responseDictinary["schDay"] as? Int,
                         let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
                     
-                    
                     self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
-                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day1")
                     
                     if self.is24hours {
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
-                        
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "  " + "\(hour)" + ":" + "\(minute)"
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                         
-                        UserDefaults.standard.set(hour, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
+                        UserDefaults.standard.set(hour, forKey: "Hour1")
+                        UserDefaults.standard.set(minute, forKey: "Minute1")
                         self.loadedScheduler = 1
                         
                         
@@ -321,9 +459,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(11, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(11, forKey: "Hour1")
+                            UserDefaults.standard.set(minute, forKey: "Minute1")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay1")
                             
                         } else if timeOfDay == 0{
                             //check if it's 12 PM
@@ -331,9 +469,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour1")
+                            UserDefaults.standard.set(minute, forKey: "Minute1")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay1")
                             
                         } else if timeOfDay < 0 {
                             //check if it's AM in general
@@ -341,9 +479,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour1")
+                            UserDefaults.standard.set(minute, forKey: "Minute1")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay1")
                             
                             
                             
@@ -355,9 +493,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour1")
+                            UserDefaults.standard.set(minute, forKey: "Minute1")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay1")
                             
                         }
                         
@@ -406,20 +544,21 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         let backWashScheduledDay = responseDictinary["schDay"] as? Int,
                         let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
                     
-                    
                     self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
-                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day2")
                     
                     if self.is24hours {
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
                         
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "\(hour)" + ":" + "\(minute)"
+                        
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                         
-                        UserDefaults.standard.set(hour, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
+                        UserDefaults.standard.set(hour, forKey: "Hour2")
+                        UserDefaults.standard.set(minute, forKey: "Minute2")
                         self.loadedScheduler = 1
                         
                         
@@ -435,9 +574,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(11, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(11, forKey: "Hour2")
+                            UserDefaults.standard.set(minute, forKey: "Minute2")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay2")
                             
                         } else if timeOfDay == 0{
                             //check if it's 12 PM
@@ -445,9 +584,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour2")
+                            UserDefaults.standard.set(minute, forKey: "Minute2")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay2")
                             
                         } else if timeOfDay < 0 {
                             //check if it's AM in general
@@ -455,9 +594,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour2")
+                            UserDefaults.standard.set(minute, forKey: "Minute2")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay2")
                             
                             
                             
@@ -469,9 +608,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour2")
+                            UserDefaults.standard.set(minute, forKey: "Minute2")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay2")
                             
                         }
                         
@@ -520,20 +659,23 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         let backWashScheduledDay = responseDictinary["schDay"] as? Int,
                         let backWashScheduledTime = responseDictinary["schTime"] as? Int else { return }
                     
+                        
                     
                     self.dayPicker.selectRow(backWashScheduledDay - 1, inComponent: 0, animated: true)
-                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day")
+                    UserDefaults.standard.set(backWashScheduledDay, forKey: "Day3")
                     
                     if self.is24hours {
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
                         
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "\(hour)" + ":" + "\(minute)"
+                        
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                         
-                        UserDefaults.standard.set(hour, forKey: "Hour")
-                        UserDefaults.standard.set(minute, forKey: "Minute")
+                        UserDefaults.standard.set(hour, forKey: "Hour3")
+                        UserDefaults.standard.set(minute, forKey: "Minute3")
                         self.loadedScheduler = 1
                         
                         
@@ -549,9 +691,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(11, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(11, forKey: "Hour3")
+                            UserDefaults.standard.set(minute, forKey: "Minute3")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay3")
                             
                         } else if timeOfDay == 0{
                             //check if it's 12 PM
@@ -559,9 +701,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour3")
+                            UserDefaults.standard.set(minute, forKey: "Minute3")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay3")
                             
                         } else if timeOfDay < 0 {
                             //check if it's AM in general
@@ -569,9 +711,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(0, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(0, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour3")
+                            UserDefaults.standard.set(minute, forKey: "Minute3")
+                            UserDefaults.standard.set(0, forKey: "TimeOfDay3")
                             
                             
                             
@@ -583,9 +725,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                             self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                             self.dayPicker.selectRow(1, inComponent: 3, animated: true)
                             
-                            UserDefaults.standard.set(hour - 1, forKey: "Hour")
-                            UserDefaults.standard.set(minute, forKey: "Minute")
-                            UserDefaults.standard.set(12, forKey: "TimeOfDay")
+                            UserDefaults.standard.set(hour - 1, forKey: "Hour3")
+                            UserDefaults.standard.set(minute, forKey: "Minute3")
+                            UserDefaults.standard.set(12, forKey: "TimeOfDay3")
                             
                         }
                         
