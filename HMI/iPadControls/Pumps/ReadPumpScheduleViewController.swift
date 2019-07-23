@@ -109,7 +109,7 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                 self.loadedScheduler = 0
             }
         }
-        
+        readBWFeedback()
         //NOTE: The Data Structure be [DAY,TIME]
         
         
@@ -438,7 +438,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
-                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "  " + "\(hour)" + ":" + "\(minute)"
+                        let hourStr = String(format: "%02d",hour)
+                        let minuteStr = String(format: "%02d",minute)
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "  " + "\(hourStr)" + ":" + "\(minuteStr)"
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
                         
@@ -551,8 +553,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
-                        
-                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "\(hour)" + ":" + "\(minute)"
+                        let hourStr = String(format: "%02d",hour)
+                        let minuteStr = String(format: "%02d",minute)
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "  " + "\(hourStr)" + ":" + "\(minuteStr)"
                         
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)
@@ -668,8 +671,9 @@ class ReadPumpScheduleViewController: UIViewController, UIPickerViewDelegate, UI
                         
                         let hour = backWashScheduledTime / 100
                         let minute = backWashScheduledTime % 100
-                        
-                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "\(hour)" + ":" + "\(minute)"
+                        let hourStr = String(format: "%02d",hour)
+                        let minuteStr = String(format: "%02d",minute)
+                        self.schedulerTxt.text = "\(DAY_PICKER_DATA_SOURCE[backWashScheduledDay - 1])" + "  " + "\(hourStr)" + ":" + "\(minuteStr)"
                         
                         self.dayPicker.selectRow(hour, inComponent: 1, animated: true)
                         self.dayPicker.selectRow(minute, inComponent: 2, animated: true)

@@ -562,9 +562,9 @@ class PumpDetailViewController: UIViewController,UIGestureRecognizerDelegate{
             
             if faultTag == 204 {
                 if state == 1 {
-                    indicator?.isHidden = true
-                } else {
                     indicator?.isHidden = false
+                } else {
+                    indicator?.isHidden = true
                 }
             }
             
