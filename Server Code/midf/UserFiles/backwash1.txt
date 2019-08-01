@@ -1,0 +1,1 @@
+{"BWshowNumber":999,"duration":3,"SchBWStatus":2,"timeout":86400,"timeoutCountdown":24459,"timeLastBW":130154,"trigBacklog":0,"manBWcanRun":1,"PDSH_req4BW":0,"schDay":2,"schTime":1300,"blockBWuntil":"2019-04-16T05:01:54.000Z"}

@@ -1,0 +1,51 @@
+[
+  {
+    "duration" : 11,
+    "number" : 0,
+    "name" : "SHOW0000 NULL SHOW",
+    "color" : 1
+  },
+  {
+    "duration" : 906,
+    "number" : 1,
+    "filler" : true,
+    "name" : "SHOW0001 FILLER SHOW (High Flow) LT 2-19",
+    "color" : 1
+  },
+  {
+    "color" : 1,
+    "number" : 2,
+    "name" : "-",
+    "duration" : 0
+  },
+  {
+    "color" : 1,
+    "number" : 3,
+    "name" : "SHOW0003 Arrival 2019-02 - GR\u0000",
+    "duration" : 371
+  },
+  {
+    "color" : 1,
+    "number" : 4,
+    "name" : "SHOW0004 Magic Wedding 2019-02",
+    "duration" : 314
+  },
+  {
+    "color" : 1,
+    "number" : 5,
+    "name" : "-",
+    "duration" : 0
+  },
+  {
+    "color" : 1,
+    "number" : 6,
+    "name" : "-",
+    "duration" : 0
+  },
+  {
+    "color" : 1,
+    "number" : 7,
+    "name" : "-",
+    "duration" : 0
+  }
+]

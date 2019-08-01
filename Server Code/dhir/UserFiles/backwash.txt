@@ -1,1 +1,0 @@
-{"BWshowNumber":999,"duration":3,"SchBWStatus":0,"timeout":600,"timeoutCountdown":0,"timeLastBW":0,"trigBacklog":0,"manBWcanRun":1,"PDSH_req4BW":0,"schDay":1,"schTime":0}
