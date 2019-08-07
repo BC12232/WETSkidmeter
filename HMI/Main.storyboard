@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wpj-MU-IEd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="w36-oe-84l">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Wpj-MU-IEd" customClass="PageViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ur-Mm-gsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="-550"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="sb1" id="BYZ-38-t0r" customClass="ViewController" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxd-Gl-YHl">
+                                <rect key="frame" x="25" y="129" width="68" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Oxd-Gl-YHl" secondAttribute="height" multiplier="68:33" id="eFN-5y-ZNs"/>
+                                    <constraint firstAttribute="width" constant="68" id="evd-yG-O8I"/>
+                                    <constraint firstAttribute="height" constant="33" id="lDh-CF-8aN"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="ORP:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.458770751953125" green="0.45885384082794189" blue="0.45876550674438477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="Verdana-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="1" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7I-61-3wd">
+                                <rect key="frame" x="101" y="132" width="90" height="30"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="jZJ-Us-YDS"/>
+                                    <constraint firstAttribute="height" constant="30" id="lne-lU-qOV"/>
+                                </constraints>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmD-TQ-ioE">
+                                <rect key="frame" x="84" y="283" width="82" height="30"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Dh8-0C-Alo"/>
+                                    <constraint firstAttribute="width" constant="82" id="Ogv-EC-lZb"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enM-aj-az4">
+                                <rect key="frame" x="25" y="275" width="68" height="41"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="pH:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.458770751953125" green="0.45885384082794189" blue="0.45876550674438477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="Verdana-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CK2-bD-ske">
+                                <rect key="frame" x="25" y="417" width="77" height="169"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Cond:">
+                                        <attributes>
+                                            <color key="NSColor" red="0.458770751953125" green="0.45885384082794189" blue="0.45876550674438477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="20" name="Verdana-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyR-tF-m13">
+                                <rect key="frame" x="101" y="156" width="90" height="1"/>
+                                <color key="backgroundColor" red="0.458770752" green="0.45885384080000002" blue="0.45876550669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0F-1Q-CNd">
+                                <rect key="frame" x="84" y="307" width="82" height="1"/>
+                                <color key="backgroundColor" red="0.458770752" green="0.45885384080000002" blue="0.45876550669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="gav-7S-JIh"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="r28-Hy-ye6">
+                                <rect key="frame" x="25" y="316" width="326" height="60"/>
+                                <color key="backgroundColor" red="0.90823286800000003" green="0.69849615462394554" blue="0.68872753933965258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="HEj-Sr-Id3"/>
+                                    <constraint firstAttribute="height" constant="60" id="fH9-35-UVZ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="    ">
+                                        <attributes>
+                                            <font key="NSFont" size="48" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="lk9-5N-g3k">
+                                <rect key="frame" x="24" y="455" width="326" height="60"/>
+                                <color key="backgroundColor" red="0.90823286802030456" green="0.47085081748904772" blue="0.41057095811264416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="USo-KM-a9O"/>
+                                    <constraint firstAttribute="height" constant="60" id="l21-dT-21U"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="3" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wn4-Nm-6jX">
+                                <rect key="frame" x="102" y="421" width="89" height="30"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="36v-Yk-Zjo"/>
+                                    <constraint firstAttribute="width" constant="89" id="4F5-pq-VMd"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27u-lr-l4x">
+                                <rect key="frame" x="101" y="446" width="90" height="1"/>
+                                <color key="backgroundColor" red="0.458770752" green="0.45885384080000002" blue="0.45876550669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="S3L-S2-4hi"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" minimumFontSize="48" translatesAutoresizingMaskIntoConstraints="NO" id="Bv7-Rm-vZN">
+                                <rect key="frame" x="25" y="170" width="326" height="60"/>
+                                <color key="backgroundColor" red="0.71618429664952243" green="0.91584708121827407" blue="0.27487737592037537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Var-EG-o04"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhe-cf-BIf">
+                                <rect key="frame" x="76" y="161" width="226" height="69"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0.00">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="48" name="Verdana"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiV-iZ-bxc">
+                                <rect key="frame" x="303" y="191" width="48" height="39"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="mV">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="18" name="Verdana"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jba-Bi-Xy5">
+                                <rect key="frame" x="296" y="476" width="46" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="UJh-WY-4Ap"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="uS">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="18" name="Verdana"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yic-eE-OjJ">
+                                <rect key="frame" x="60" y="307" width="258" height="64"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="0.00">
+                                        <attributes>
+                                            <font key="NSFont" size="48" name="Verdana"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60l-uw-GZV">
+                                <rect key="frame" x="286" y="77" width="56" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0cH-h2-vUp"/>
+                                    <constraint firstAttribute="height" constant="62" id="ELp-Hv-yG6"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="dOO-CH-JUo"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Og-Bd-rPd"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qps-Bk-SZm">
+                                <rect key="frame" x="67" y="451" width="240" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="SWA-ir-d6N"/>
+                                    <constraint firstAttribute="height" constant="69" id="yLB-2G-1oZ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="48" name="Verdana"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4LZ-8i-qCH"/>
+                            <constraint firstItem="mhe-cf-BIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="4Os-P7-wdw"/>
+                            <constraint firstItem="Bv7-Rm-vZN" firstAttribute="top" secondItem="a7I-61-3wd" secondAttribute="bottom" constant="8" symbolic="YES" id="5zb-Bb-8C0"/>
+                            <constraint firstItem="uiV-iZ-bxc" firstAttribute="trailing" secondItem="Bv7-Rm-vZN" secondAttribute="trailing" id="6gS-sH-w5B"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="top" secondItem="Wn4-Nm-6jX" secondAttribute="bottom" constant="4" id="6jS-LL-Nmt"/>
+                            <constraint firstItem="D0F-1Q-CNd" firstAttribute="top" secondItem="Bv7-Rm-vZN" secondAttribute="bottom" constant="77" id="88T-0U-0IX"/>
+                            <constraint firstItem="dmD-TQ-ioE" firstAttribute="leading" secondItem="enM-aj-az4" secondAttribute="trailing" constant="-9" id="8bl-nf-6li"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="trailing" secondItem="Bv7-Rm-vZN" secondAttribute="trailing" constant="-1" id="AxP-fj-p96"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="60l-uw-GZV" secondAttribute="trailing" constant="33" id="E3F-P4-l1E"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="trailing" secondItem="uiV-iZ-bxc" secondAttribute="trailing" id="EHE-kw-rlk"/>
+                            <constraint firstItem="27u-lr-l4x" firstAttribute="centerY" secondItem="CK2-bD-ske" secondAttribute="centerY" constant="-55" id="FBt-zI-XHf"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="316" id="FhK-sO-uww"/>
+                            <constraint firstItem="Oxd-Gl-YHl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="129" id="GAw-7T-naO"/>
+                            <constraint firstItem="D0F-1Q-CNd" firstAttribute="trailing" secondItem="dmD-TQ-ioE" secondAttribute="trailing" id="H97-r3-p2K"/>
+                            <constraint firstItem="Bv7-Rm-vZN" firstAttribute="leading" secondItem="Oxd-Gl-YHl" secondAttribute="leading" id="Ht0-IN-FVT"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="bottom" secondItem="jba-Bi-Xy5" secondAttribute="bottom" id="IMO-1C-oXq"/>
+                            <constraint firstItem="jba-Bi-Xy5" firstAttribute="leading" secondItem="uiV-iZ-bxc" secondAttribute="leading" constant="-7" id="ISn-Tv-RYF"/>
+                            <constraint firstItem="mhe-cf-BIf" firstAttribute="bottom" secondItem="Bv7-Rm-vZN" secondAttribute="bottom" id="JQh-du-jFF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CK2-bD-ske" secondAttribute="trailing" constant="273" id="Jfv-Ck-lnL"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="top" secondItem="enM-aj-az4" secondAttribute="bottom" id="LnH-qc-6EK"/>
+                            <constraint firstItem="enM-aj-az4" firstAttribute="trailing" secondItem="Oxd-Gl-YHl" secondAttribute="trailing" id="Lx6-Kn-P8M"/>
+                            <constraint firstItem="uiV-iZ-bxc" firstAttribute="top" secondItem="60l-uw-GZV" secondAttribute="bottom" constant="52" id="Mdn-J6-Rea"/>
+                            <constraint firstItem="27u-lr-l4x" firstAttribute="leading" secondItem="Wn4-Nm-6jX" secondAttribute="leading" constant="-1" id="NJU-1e-Uh3"/>
+                            <constraint firstItem="zyR-tF-m13" firstAttribute="leading" secondItem="Oxd-Gl-YHl" secondAttribute="trailing" constant="8" symbolic="YES" id="NwJ-dC-Dg7"/>
+                            <constraint firstItem="27u-lr-l4x" firstAttribute="leading" secondItem="CK2-bD-ske" secondAttribute="trailing" constant="-1" id="OEV-a7-294"/>
+                            <constraint firstItem="D0F-1Q-CNd" firstAttribute="leading" secondItem="enM-aj-az4" secondAttribute="trailing" constant="-9" id="OPx-zV-lWo"/>
+                            <constraint firstItem="dmD-TQ-ioE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="84" id="PZo-19-NSv"/>
+                            <constraint firstItem="CK2-bD-ske" firstAttribute="top" secondItem="yic-eE-OjJ" secondAttribute="bottom" constant="46" id="Pep-Yb-wgf"/>
+                            <constraint firstItem="yic-eE-OjJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="PgE-CM-WUe"/>
+                            <constraint firstItem="enM-aj-az4" firstAttribute="top" secondItem="Bv7-Rm-vZN" secondAttribute="bottom" constant="45" id="QZz-IP-Z69"/>
+                            <constraint firstItem="27u-lr-l4x" firstAttribute="top" secondItem="yic-eE-OjJ" secondAttribute="bottom" constant="75" id="Rr4-MU-K0r"/>
+                            <constraint firstItem="uiV-iZ-bxc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="303" id="SVC-Ic-nu9"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="leading" secondItem="Bv7-Rm-vZN" secondAttribute="leading" id="THg-dN-GE9"/>
+                            <constraint firstItem="uiV-iZ-bxc" firstAttribute="bottom" secondItem="Bv7-Rm-vZN" secondAttribute="bottom" id="UMJ-Ty-Qsj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jba-Bi-Xy5" secondAttribute="trailing" constant="33" id="UUR-WY-NM3"/>
+                            <constraint firstItem="qps-Bk-SZm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="UUY-Yu-D7i"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Uay-NU-b3i"/>
+                            <constraint firstItem="yic-eE-OjJ" firstAttribute="top" secondItem="D0F-1Q-CNd" secondAttribute="top" id="Vg0-zb-oVr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uiV-iZ-bxc" secondAttribute="trailing" constant="24" id="WI7-v5-ZLf"/>
+                            <constraint firstItem="Wn4-Nm-6jX" firstAttribute="leading" secondItem="CK2-bD-ske" secondAttribute="trailing" id="YID-LN-xez"/>
+                            <constraint firstItem="qps-Bk-SZm" firstAttribute="top" secondItem="r28-Hy-ye6" secondAttribute="bottom" constant="75" id="YtG-80-gbB"/>
+                            <constraint firstItem="zyR-tF-m13" firstAttribute="top" secondItem="60l-uw-GZV" secondAttribute="bottom" constant="17" id="bh7-e8-eBP"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="leading" secondItem="CK2-bD-ske" secondAttribute="leading" id="bo3-49-cJX"/>
+                            <constraint firstItem="CK2-bD-ske" firstAttribute="top" secondItem="r28-Hy-ye6" secondAttribute="bottom" constant="41" id="d1T-4F-imV"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="top" secondItem="Wn4-Nm-6jX" secondAttribute="bottom" constant="4" id="fNj-QB-1nO"/>
+                            <constraint firstItem="Bv7-Rm-vZN" firstAttribute="top" secondItem="zyR-tF-m13" secondAttribute="bottom" constant="13" id="fkT-K1-jie"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="435" id="fnJ-GY-gBH"/>
+                            <constraint firstItem="27u-lr-l4x" firstAttribute="trailing" secondItem="Wn4-Nm-6jX" secondAttribute="trailing" id="gEB-8b-cSl"/>
+                            <constraint firstItem="mhe-cf-BIf" firstAttribute="top" secondItem="zyR-tF-m13" secondAttribute="top" constant="5" id="gVf-2o-6cT"/>
+                            <constraint firstItem="Wn4-Nm-6jX" firstAttribute="trailing" secondItem="zyR-tF-m13" secondAttribute="trailing" id="gX6-gP-ic7"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="leading" secondItem="enM-aj-az4" secondAttribute="leading" id="hKy-U4-PHY"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="leading" secondItem="CK2-bD-ske" secondAttribute="leading" constant="-1" id="lET-nW-AaT"/>
+                            <constraint firstItem="r28-Hy-ye6" firstAttribute="top" secondItem="D0F-1Q-CNd" secondAttribute="bottom" constant="8" symbolic="YES" id="mHf-s2-gGp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qps-Bk-SZm" secondAttribute="trailing" constant="68" id="msF-6Y-Zhm"/>
+                            <constraint firstItem="a7I-61-3wd" firstAttribute="leading" secondItem="zyR-tF-m13" secondAttribute="leading" id="nEB-ll-Tv5"/>
+                            <constraint firstItem="Wn4-Nm-6jX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="102" id="nU3-cc-03o"/>
+                            <constraint firstItem="a7I-61-3wd" firstAttribute="trailing" secondItem="zyR-tF-m13" secondAttribute="trailing" id="oAs-aF-eVa"/>
+                            <constraint firstItem="60l-uw-GZV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="303" id="oQD-88-7eb"/>
+                            <constraint firstItem="D0F-1Q-CNd" firstAttribute="leading" secondItem="dmD-TQ-ioE" secondAttribute="leading" id="om5-ow-z8v"/>
+                            <constraint firstItem="dmD-TQ-ioE" firstAttribute="top" secondItem="Bv7-Rm-vZN" secondAttribute="bottom" constant="53" id="p1a-TD-GOh"/>
+                            <constraint firstItem="Wn4-Nm-6jX" firstAttribute="leading" secondItem="zyR-tF-m13" secondAttribute="leading" constant="1" id="rG1-aV-NQ8"/>
+                            <constraint firstItem="Oxd-Gl-YHl" firstAttribute="top" secondItem="60l-uw-GZV" secondAttribute="bottom" constant="-10" id="rMk-sJ-GM3"/>
+                            <constraint firstItem="mhe-cf-BIf" firstAttribute="centerX" secondItem="60l-uw-GZV" secondAttribute="centerX" constant="-133.5" id="rvs-FI-fwV"/>
+                            <constraint firstItem="mhe-cf-BIf" firstAttribute="centerX" secondItem="yic-eE-OjJ" secondAttribute="centerX" id="vPZ-ZR-fLO"/>
+                            <constraint firstItem="60l-uw-GZV" firstAttribute="leading" secondItem="Wn4-Nm-6jX" secondAttribute="trailing" constant="95" id="xWo-ZS-4JP"/>
+                            <constraint firstItem="Oxd-Gl-YHl" firstAttribute="bottom" secondItem="zyR-tF-m13" secondAttribute="bottom" constant="5" id="zkR-KD-f1w"/>
+                            <constraint firstItem="lk9-5N-g3k" firstAttribute="trailing" secondItem="uiV-iZ-bxc" secondAttribute="trailing" constant="-1" id="zud-cX-FXs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GXu-8o-4fY"/>
+                    <connections>
+                        <outlet property="condLabel" destination="CK2-bD-ske" id="pI8-gf-T4c"/>
+                        <outlet property="mV" destination="uiV-iZ-bxc" id="Nn6-zx-8dy"/>
+                        <outlet property="orpLabel" destination="Oxd-Gl-YHl" id="iuJ-3X-baM"/>
+                        <outlet property="orpOutput1" destination="mhe-cf-BIf" id="Dyu-hC-zYl"/>
+                        <outlet property="orpOutput2" destination="yic-eE-OjJ" id="d87-Ab-Rlj"/>
+                        <outlet property="orpOutput3" destination="qps-Bk-SZm" id="oIn-QA-5Ha"/>
+                        <outlet property="phLabel" destination="enM-aj-az4" id="rtS-zg-NdO"/>
+                        <outlet property="textfield1" destination="a7I-61-3wd" id="t3F-Sf-fsZ"/>
+                        <outlet property="textfield2" destination="dmD-TQ-ioE" id="ESb-Np-6Ev"/>
+                        <outlet property="textfield3" destination="Wn4-Nm-6jX" id="9gb-yu-lgW"/>
+                        <outlet property="uS" destination="jba-Bi-Xy5" id="A7N-hN-e1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="122.78860569715144"/>
+        </scene>
+        <!--View2 Controller-->
+        <scene sceneID="N0E-7U-S9P">
+            <objects>
+                <viewController storyboardIdentifier="sb2" id="hUe-1a-Xsy" customClass="View2Controller" customModule="iPadControls" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e0U-GQ-ovI" customClass="UIPageControl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-j6-lCb" userLabel="GraphArea">
+                                <rect key="frame" x="36" y="130" width="302" height="378"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5o4-F0-q4X">
+                                        <rect key="frame" x="-1" y="48" width="304" height="99"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.78199113294857359" green="1" blue="0.30013457656569609" alpha="0.39961472602739728" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmn-wp-Sgn">
+                                        <rect key="frame" x="0.0" y="146" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NzK-PC-9RB">
+                                        <rect key="frame" x="0.0" y="96" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sO-5G-0C3">
+                                        <rect key="frame" x="0.0" y="199" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ktc-gp-LZb">
+                                        <rect key="frame" x="0.0" y="48" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hvv-vd-H23">
+                                        <rect key="frame" x="0.0" y="348" width="302" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rg9-46-du5">
+                                        <rect key="frame" x="0.0" y="249" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pAQ-kv-e5A">
+                                        <rect key="frame" x="2" y="297" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEX-PQ-1vs">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAv-jC-u6I">
+                                        <rect key="frame" x="0.0" y="320" width="21" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="0">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                    <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="Verdana-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlf-Sx-BGx">
+                                        <rect key="frame" x="-4" y="220" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="200">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                    <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="Verdana"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMK-tf-Ee5">
+                                        <rect key="frame" x="0.0" y="117" width="35" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="400">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                    <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="Verdana"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vl0-lp-bSe">
+                                        <rect key="frame" x="-4" y="19" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="600">
+                                                <attributes>
+                                                    <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                    <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="12" name="Verdana"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="deD-9h-gSA">
+                                        <rect key="frame" x="140" y="83" width="105" height="267"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zH-th-Zjs" userLabel="Number">
+                                                <rect key="frame" x="10" y="0.0" width="85" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="531">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="22" name="Verdana-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLu-Vo-BaK">
+                                <rect key="frame" x="79" y="71" width="235" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="ORP (mV)">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                            <color key="NSColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="Verdana-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQZ-hX-i6i">
+                                <rect key="frame" x="16" y="494" width="343" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-SR-IRm" customClass="DLRadioButton">
+                                        <rect key="frame" x="39" y="26" width="61" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="AUTO: ">
+                                                    <attributes>
+                                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="12" name="Verdana-BoldItalic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="rbCheck:" destination="hUe-1a-Xsy" eventType="touchUpInside" id="lCO-oh-CSZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0v4-qA-f8U" customClass="DLRadioButton">
+                                        <rect key="frame" x="39" y="89" width="90" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="MANUAL: ">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="12" name="Verdana-BoldItalic"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="rbCheck:" destination="hUe-1a-Xsy" eventType="touchUpInside" id="ggw-8O-Rdr"/>
+                                            <outletCollection property="otherButtons" destination="OGx-SR-IRm" id="mHi-JU-Hhj"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4e-I9-LR4">
+                                        <rect key="frame" x="229" y="25" width="110" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="OFF  ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="12" name="Verdana-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCi-OC-6se">
+                                        <rect key="frame" x="164" y="55" width="110" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yz4-nV-FRg">
+                                                <rect key="frame" x="65" y="-14" width="102" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="400-600 mV">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.52918372036145533" green="0.6767131979695431" blue="0.20310502912900688" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <font key="NSFont" size="12" name="Verdana-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoB-aG-pjS">
+                                        <rect key="frame" x="126" y="82" width="111" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Brominator  ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="12" name="Verdana"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCD-xK-Nwj">
+                                        <rect key="frame" x="126" y="26" width="111" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Brominator Target Range   ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="12" name="Verdana"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This text will be replaced by read-vals." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lBq-BJ-1eA">
+                                <rect key="frame" x="69" y="617" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="cl9-AY-anm"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lBq-BJ-1eA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="autoRB" destination="OGx-SR-IRm" id="Wb2-Ym-e3V"/>
+                        <outlet property="manualRB" destination="0v4-qA-f8U" id="WpF-9v-POl"/>
+                        <outlet property="textViewTester" destination="lBq-BJ-1eA" id="yzv-pT-FzN"/>
+                        <outlet property="titleTester" destination="tLu-Vo-BaK" id="CLE-Qi-qeB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ael-Tu-F8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746.4000000000001" y="120.98950524737631"/>
+        </scene>
+    </scenes>
+</document>

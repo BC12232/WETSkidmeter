@@ -23,7 +23,7 @@ import Charts
 
 var ORPDataEntries:  [ChartDataEntry] = []
 
-class ORPViewController: UIViewController,ChartViewDelegate{
+class ORPViewController: UIViewController, ChartViewDelegate{
     
     @IBOutlet weak var ORPChartView: LineChartView!
     weak var axisFormatDelegate:    IAxisValueFormatter?

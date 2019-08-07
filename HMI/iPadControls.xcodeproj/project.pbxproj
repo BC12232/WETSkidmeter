@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1A99ACADBDAC29F15DBF767B /* Pods_iPadControls.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAE4F3BAAD085CDE6B570C5 /* Pods_iPadControls.framework */; };
+		8F38161922FA41A0004FD372 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F38161722FA419F004FD372 /* DLRadioButton.m */; };
+		8F3FC5DD22F8D7CA004653D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FC5DB22F8D7C9004653D7 /* ViewController.swift */; };
+		8F3FC5E022F8D7D6004653D7 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FC5DF22F8D7D6004653D7 /* PageViewController.swift */; };
+		8F3FC5E222F8D7EA004653D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F3FC5E122F8D7EA004653D7 /* Main.storyboard */; };
+		8F3FC5E322F8DA6F004653D7 /* View2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3FC5DC22F8D7C9004653D7 /* View2Controller.swift */; };
 		9B006223212C7E160066CC9B /* check12or24Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B006222212C7E160066CC9B /* check12or24Hour.swift */; };
 		9B006236212C7E670066CC9B /* cascade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B006233212C7E670066CC9B /* cascade.storyboard */; };
 		9B006237212C7E670066CC9B /* CascadePumpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */; };
@@ -172,6 +177,12 @@
 
 /* Begin PBXFileReference section */
 		88243C0A1DEF5965004D39D8 /* iPadControls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iPadControls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F38161722FA419F004FD372 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		8F38161822FA41A0004FD372 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		8F3FC5DB22F8D7C9004653D7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F3FC5DC22F8D7C9004653D7 /* View2Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View2Controller.swift; sourceTree = "<group>"; };
+		8F3FC5DF22F8D7D6004653D7 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8F3FC5E122F8D7EA004653D7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9B006222212C7E160066CC9B /* check12or24Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = check12or24Hour.swift; sourceTree = "<group>"; };
 		9B006233212C7E670066CC9B /* cascade.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = cascade.storyboard; path = "Controller/Pumps/Cascade Pumps/cascade.storyboard"; sourceTree = "<group>"; };
 		9B006234212C7E670066CC9B /* CascadePumpsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CascadePumpsViewController.swift; path = "Controller/Pumps/Cascade Pumps/CascadePumpsViewController.swift"; sourceTree = "<group>"; };
@@ -408,6 +419,12 @@
 		88243C011DEF5965004D39D8 = {
 			isa = PBXGroup;
 			children = (
+				8F3FC5E122F8D7EA004653D7 /* Main.storyboard */,
+				8F3FC5DF22F8D7D6004653D7 /* PageViewController.swift */,
+				8F38161822FA41A0004FD372 /* DLRadioButton.h */,
+				8F38161722FA419F004FD372 /* DLRadioButton.m */,
+				8F3FC5DC22F8D7C9004653D7 /* View2Controller.swift */,
+				8F3FC5DB22F8D7C9004653D7 /* ViewController.swift */,
 				88243C0C1DEF5965004D39D8 /* iPadControls */,
 				9B3D3B6E20DC615B00E34BE4 /* AppDelegate.swift */,
 				88243C0B1DEF5965004D39D8 /* Products */,
@@ -1017,6 +1034,7 @@
 				9B5F3F8720DC5AD900D3CFDF /* COPYING in Resources */,
 				9BCE6F93213ED31D00ED2DDC /* fog.storyboard in Resources */,
 				9B5F3F8320DC5AD900D3CFDF /* AUTHORS in Resources */,
+				8F3FC5E222F8D7EA004653D7 /* Main.storyboard in Resources */,
 				9B5F404C20DC5B1200D3CFDF /* scheduler.storyboard in Resources */,
 				9B5F401A20DC5B1200D3CFDF /* Main.storyboard in Resources */,
 				9B725D7D214775BD008886A2 /* pumps.storyboard in Resources */,
@@ -1107,6 +1125,7 @@
 				BBF3650F2294647400332E56 /* FiltrationSpecs.swift in Sources */,
 				9B5F3FB120DC5AF400D3CFDF /* ShowSettings.swift in Sources */,
 				9B8DB3422148337B001CF70D /* ShowStopperSpecs.swift in Sources */,
+				8F38161922FA41A0004FD372 /* DLRadioButton.m in Sources */,
 				9B5F3FAB20DC5AF400D3CFDF /* ACTSchedulerTimePickerViewController.m in Sources */,
 				BB0F3D07228B343D0049613A /* ProjectorStatusViewController.swift in Sources */,
 				9B725D9B214775E5008886A2 /* LightsSpecs.swift in Sources */,
@@ -1161,6 +1180,7 @@
 				9B5F3F8020DC5AD900D3CFDF /* AFNetworkReachabilityManager.m in Sources */,
 				9BDE72A8216BFF6A0075CF3E /* FogSettingsViewController.swift in Sources */,
 				BB3DB42A21F7AC9B0005A558 /* WaterQualityViewController.swift in Sources */,
+				8F3FC5DD22F8D7CA004653D7 /* ViewController.swift in Sources */,
 				9B725DA221477601008886A2 /* WeekSchedulerViewController.swift in Sources */,
 				9BCE6F96213ED40C00ED2DDC /* FogSpecs.swift in Sources */,
 				9B5F3F7A20DC5AD900D3CFDF /* AFHTTPSessionManager.m in Sources */,
@@ -1172,6 +1192,7 @@
 				9BA7A04D21920E2D0038D13D /* ACTSelectShowViewController.m in Sources */,
 				9B5F3F7F20DC5AD900D3CFDF /* AFHTTPRequestOperation.m in Sources */,
 				BB4B7B9E22A09011002BE1D4 /* ReadSepointsViewController.swift in Sources */,
+				8F3FC5E022F8D7D6004653D7 /* PageViewController.swift in Sources */,
 				9B725D81214775BD008886A2 /* PumpDetailViewController.swift in Sources */,
 				9B006223212C7E160066CC9B /* check12or24Hour.swift in Sources */,
 				9B5F3F1F20DC5AB400D3CFDF /* PumpDetail+CoreDataClass.swift in Sources */,
@@ -1221,6 +1242,7 @@
 				9B5F3F8D20DC5AD900D3CFDF /* SwiftRecord.swift in Sources */,
 				BB3DB42B21F7AC9B0005A558 /* WaterQualitySettingsViewController.swift in Sources */,
 				BB3DB42C21F7AC9B0005A558 /* PHViewController.swift in Sources */,
+				8F3FC5E322F8DA6F004653D7 /* View2Controller.swift in Sources */,
 				BBF3650E2294647400332E56 /* FiltrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1375,7 +1397,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
 				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1398,7 +1420,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = IpadControls092018;
 				SWIFT_OBJC_BRIDGING_HEADER = "iPadControls/Resources/iPadControls-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
